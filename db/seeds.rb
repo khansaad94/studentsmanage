@@ -25,7 +25,7 @@ user.destroy if user.present?
 puts "adding Celebvidy Admin"
 #role = Role.where(:title => "admin").first
 user = User.new(:email => "admin@studentsmanage.com",
-                :password => "tudentsmanage2016",
+                :password => "studentsmanage2016",
                 :first_name => "admin",
                 :last_name => "admin",
                 :user_type => "admin",
