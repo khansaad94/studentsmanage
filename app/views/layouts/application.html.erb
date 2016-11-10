@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Celebvidy</title>
+  <title>StudentsManage</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <!--<link rel="icon" type="image/png" href="/assets/favicon.png" />-->
   <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <% if @celeb.present? && @celeb.celebrity && @celeb.celebrity.avatar%>
@@ -22,7 +22,7 @@
   <meta property="og:description" content="We make it easy for fans to purchase personalized videos from celebrities and ask advice questions from business leaders, fitness experts, chefs, etc.">
 </head>
 <body>
-<div id="head_div" class="bg-image">
+<!--<div id="head_div" class="bg-image">-->
   <%= render "/shared/header" %>
   <div id="container">
 <%# end %>
@@ -36,13 +36,13 @@
 
 <%# if current_user.present? %>
   </div>
-</div>
-<%= render "/shared/footer" %>
+<!--</div>-->
+<%#= render "/shared/footer" %>
 <%# end %>
 
 
 </body>
-<div class="background_shadow" style="display: none">
-  <div class="loader_img"></div>
-</div>
+<!--<div class="background_shadow" style="display: none">-->
+  <!--<div class="loader_img"></div>-->
+<!--</div>-->
 </html>

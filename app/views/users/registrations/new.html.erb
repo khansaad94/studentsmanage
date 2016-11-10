@@ -33,7 +33,7 @@
 
 
 <div class="sginup-con">
-  <div class="logo-con"><a href="/"><img src="/assets/logo-signup.png" alt=""></a></div>
+  <!--<div class="logo-con"><a href="/"><img src="/assets/logo-signup.png" alt=""></a></div>-->
 
   <div class="w-100">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:id => "signup_form"}) do |f| %>
@@ -49,6 +49,11 @@
         <div class="signup-form-box1">
           <label>Last name</label>
           <%= f.text_field :last_name, autofocus: "off" %>
+        </div>
+
+        <div class="signup-form-box">
+          <label>Phone Number</label>
+          <%= f.text_field :phone, autofocus: "off" %>
         </div>
 
         <div class="signup-form-box">
@@ -71,12 +76,12 @@
         </div>
     <% end %>
 
-    <div class="privacy-link">
-      BY CLICKING “SIGN UP” BELOW, YOU ARE AGREEING TO THE CELEBVIDY
-      <u><a href="/terms-of-use"  target="_blank">TERMS AND CONDITIONS</a></u> AND
-      <u><a href="/privacy-policy"  target="_blank">PRIVACY
-        POLICY</a></u>
-    </div>
+    <!--<div class="privacy-link">-->
+      <!--BY CLICKING “SIGN UP” BELOW, YOU ARE AGREEING TO THE CELEBVIDY-->
+      <!--<u><a href="/terms-of-use"  target="_blank">TERMS AND CONDITIONS</a></u> AND-->
+      <!--<u><a href="/privacy-policy"  target="_blank">PRIVACY-->
+        <!--POLICY</a></u>-->
+    <!--</div>-->
     <div class="already-txt">
       ALREADY HAVE AN ACCOUNT? <a href="/users/sign_in">CLICK HERE</a>
     </div>
