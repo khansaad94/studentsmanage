@@ -1,0 +1,186 @@
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<div class="page-content-wrapper">
+<div class="page-content" style="min-height:1215px">
+
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+    <h3 class="page-title">
+      Users
+    </h3>
+    <ul class="page-breadcrumb breadcrumb">
+      <li>
+        <i class="fa fa-home"></i>
+        <a href="/admin/celebrities/all-celebrities">Celebrities</a>
+        <i class="fa fa-angle-right"></i>
+      </li>
+      <li>
+        <i class="fa fa-home"></i>
+        <a href="/admin/celebrities/all-celebrities">Diplay All celebrities</a>
+        <i class="fa fa-angle-right"></i>
+      </li>
+      <li>
+        <i class="fa fa-home"></i>
+        <a href="/admin/celebrities/<%= params[:id]%>/edit">Edit This Celebrity</a>
+        <i class="fa fa-angle-right"></i>
+      </li>
+      <li>
+        <i class="fa fa-home"></i>
+        <a href="/admin/celebrities/new">Add New Celebrity</a>
+        <i class="fa fa-angle-right"></i>
+      </li>
+
+      <li class="pull-right">
+        <div data-original-title="Change dashboard date range" data-placement="top" class="dashboard-date-range tooltips" id="dashboard-report-range">
+          <i class="icon-calendar"></i>
+          <span></span>
+          <i class="fa fa-angle-down"></i>
+        </div>
+      </li>
+    </ul>
+    <!-- END PAGE TITLE & BREADCRUMB-->
+  </div>
+</div>
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+    <div class="form-group">
+  <div class="col-md-12" style="margin-bottom: 40px!important;">
+    <% if @user.celebrity.present? %>
+        <%= image_tag @user.celebrity.avatar.url(:thumb) %>
+    <% else %>
+
+    <% end %>
+  </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-md-6">
+    <div class="col-md-4">
+      <label>First Name:</label>
+    </div>
+    <div class="col-md-3">
+      <%= @user.first_name.present? ? @user.first_name : "" %>
+    </div>
+    </div>
+
+    <div class="col-md-6">
+    <div class="col-md-4">
+      <label>Last Name:</label>
+    </div>
+    <div class="col-md-3">
+      <%= @user.last_name.present? ? @user.last_name : "" %>
+    </div>
+    </div>
+    </div>
+
+  <div class="form-group">
+    <div class="col-md-6">
+    <div class="col-md-4">
+      <label>Email:</label>
+    </div>
+    <div class="col-md-3">
+      <%= @user.email.present? ? @user.email : "" %>
+
+    </div>
+    </div>
+
+    <div class="col-md-6">
+    <div class="col-md-4">
+      <label>About Me:</label>
+    </div>
+    <div class="col-md-3">
+      <%= @user.celebrity.present? ? @user.celebrity.about_me : "" %>
+
+    </div>
+    </div>
+    </div>
+
+
+  <div class="form-group">
+    <div class="col-md-6">
+    <div class="col-md-4">
+      <label>Default Rate:</label>
+    </div>
+    <div class="col-md-3">
+      <%= @user.celebrity.present? ? @user.celebrity.default_rate : "" %>
+    </div>
+    </div>
+
+    <div class="col-md-6">
+    <div class="col-md-4">
+      <label>Per Alpha Rate:</label>
+    </div>
+    <div class="col-md-3">
+      <%= @user.celebrity.present? ? @user.celebrity.per_alphabet_rate : "" %>
+    </div>
+    </div>
+    </div>
+
+  <div class="form-group">
+    <div class="col-md-6">
+    <div class="col-md-4">
+      <label>Video Per Month:</label>
+    </div>
+    <div class="col-md-3">
+      <%= @user.celebrity.present? ? @user.celebrity.monthly_videos : "" %>
+
+    </div>
+    </div>
+
+    <div class="col-md-6">
+    <div class="col-md-4">
+      <label>Default Delivery Days:</label>
+    </div>
+    <div class="col-md-3">
+      <%= @user.celebrity.present? ? @user.celebrity.default_delivery_days : "" %>
+
+    </div>
+    </div>
+    </div>
+
+  <div class="form-group">
+    <div class="col-md-6">
+    <div class="col-md-4">
+      <label>Is Verified:</label>
+    </div>
+    <div class="col-md-3">
+      <%= @user.celebrity.present? ? @user.celebrity.verified_account : "" %>
+
+    </div>
+    </div>
+
+    <div class="col-md-6">
+    <div class="col-md-4">
+      <label>About Me:</label>
+    </div>
+    <div class="col-md-3">
+      <% if @user.celebrity.present? && @user.celebrity.industry_id.present? %>
+      <% ind = Industry.find(@user.celebrity.industry_id) %>
+      <% end %>
+      <%= ind.present? ? ind.title : "" %>
+
+    </div>
+    </div>
+    </div>
+
+  <div class="form-group">
+    <div class="col-md-6">
+      <div class="col-md-4">
+        <label>Bio:</label>
+      </div>
+      <div class="col-md-9">
+        <%= @user.celebrity.present? ? @user.celebrity.description : "" %>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  </div>
+
+
+</div>
+</div>
+</body>

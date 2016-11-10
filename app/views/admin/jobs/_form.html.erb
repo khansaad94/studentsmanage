@@ -1,0 +1,42 @@
+<div class="w100">
+
+  <div>
+    <%= form_for @media_item do |f| %>
+
+        <% if @media_item.errors.any? %>
+            <div id="error_explanation">
+              <h2>
+                <%= pluralize(@media_item.errors.count, "error") %> prohibited
+                this media item from being saved:
+              </h2>
+              <ul>
+                <% @media_item.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <p>
+          <%= f.label :title %><br>
+          <%= f.text_field :title, require: true, autofocus: true %>
+        </p>
+
+        <p>
+          <%= f.label :description %><br>
+          <%= f.text_area :description %>
+        </p>
+
+        <p>
+          <%= f.label :url %><br>
+          <%= f.text_field :media_url, require: true %>
+        </p>
+
+        <p>
+          <%= f.submit %>
+        </p>
+
+    <% end %>
+  </div>
+
+</div>

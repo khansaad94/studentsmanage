@@ -1,0 +1,324 @@
+<% attachments.inline['logoo-celebvidy.png'] = File.read("#{Rails.root}/app/assets/images/logoo-celebvidy.png") %>
+<% attachments.inline['icon-email.png'] = File.read("#{Rails.root}/app/assets/images/icon-email.png") %>
+<% attachments.inline['icon-fb.png'] = File.read("#{Rails.root}/app/assets/images/icon-fb.png") %>
+<% attachments.inline['icon-twitter.png'] = File.read("#{Rails.root}/app/assets/images/icon-twitter.png") %>
+<% attachments.inline['un-select.gif'] = File.read("#{Rails.root}/app/assets/images/un-select.gif") %>
+<% attachments.inline['select.gif'] = File.read("#{Rails.root}/app/assets/images/select.gif") %>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>celebvidy</title>
+</head>
+<% event_type = EventType.find(@job.event_type_id) if @job.event_type_id.present? %>
+<body style="font-family:Arial, Helvetica, sans-serif; background-color:#FFF;">
+<table align="center" width="700" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF">
+<tbody><tr height="25"></tr>
+<tr>
+  <td width="700">
+    <table width="700" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr><td width="202" valign="top">
+        <table width="202" cellspacing="0" cellpadding="0" border="0">
+          <tbody><tr height="30"></tr>
+          <tr>                                             <!-- https://www.celebvidy.com/ -->
+            <td><a target="_blank" title="Celebvidy" href="http://stage.celebvidy.com"><img width="202" border="0" alt="Celebvidy" src="<%= attachments.inline['logoo-celebvidy.png'].url %>" /></a></td>
+          </tr>
+          </tbody></table>
+      </td>
+        <td width="498" valign="top">
+          <table width="498" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr>                                                                                                                                                               <!-- https://www.celebvidy.com/my-orders -->
+              <td align="right"><font face="Arial, Helvetica, sans-serif" style="font-size:14px;color:#000000"><b><a target="_blank" style="color:#787878;text-decoration:none" href="http://stage.celebvidy.com/my-account">Your Account</a> <span style="font-size:14px;color:#24d1fd;font-family:Arial,Helvetica,sans-serif;padding:0 8px">|</span> <a target="_blank" style="color:#787878;text-decoration:none" href="http://stage.celebvidy.com">Celebvidy.com</a></b></font></td>
+            </tr>
+            <tr height="15"></tr>
+            <tr>
+              <td align="right"><font face="Arial, Helvetica, sans-serif" style="color:#030305;font-size:23px;line-height:35px">Order Confirmation</font></td>
+            </tr>
+            <tr>
+              <td align="right"><font face="Arial, Helvetica, sans-serif" style="color:#030305;font-size:14px">Order <b>#<%= @job.customer_job_id %></b></font></td>
+            </tr>
+            </tbody></table>
+        </td>
+      </tr></tbody></table>
+  </td>
+</tr>
+<tr height="37"></tr>
+<tr>
+  <td width="700"><table width="700" cellspacing="0" cellpadding="0" border="0">
+    <tbody><tr>
+      <td><font face="Arial, Helvetica, sans-serif" style="color:#34d2fb;font-size:29px">Hello <%= @user.full_name.present? ? @user.full_name.capitalize : "" %>,</font></td>
+    </tr>
+    <tr height="7"></tr>
+    <tr>                                                                                                                                                                                                                                                                                                               <!-- https://www.celebvidy.com/my-orders -->                                                                                                                                                                                                                                                                  <!-- https://www.celebvidy.com//faq -->
+      <td><font face="Arial, Helvetica, sans-serif" style="color:#030305;font-size:14px;line-height:19px">Thank you for your Celebvidy order. Your order is on its way. You can change the instructions to the celebrity on the My Orders page any time up until the point it's recorded here: <a target="_blank" href="http://stage.celebvidy.com/my-account">https://www.celebvidy.com/my-<wbr></wbr>account</a>. If you need technical assistance please email <a target="_blank" style="color:#030305;text-decoration:none" href="mailto:orders@celebvidy.com">orders@celebvidy.com</a> or visit <a target="_blank" style="color:#030305;text-decoration:none" href="http://stage.celebvidy.com/fqs"><b>celebvidy.com/faq</b></a></font></td>
+    </tr>
+    </tbody></table>
+  </td>
+</tr>
+<tr height="27"></tr>
+<tr>
+  <td width="700" bgcolor="#24d1fd" style="background:#24d1fd"><table width="700" cellspacing="0" cellpadding="0" border="0">
+    <tbody><tr>
+      <td width="700" bgcolor="#141414" style="background:#141414">
+        <table width="700" cellspacing="0" cellpadding="0" border="0">
+          <tbody><tr height="20"></tr>
+          <tr>
+            <td width="15"></td>
+            <td width="375" valign="top">
+              <table width="375" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr>
+                  <td><font face="Arial, Helvetica, sans-serif" style="color:#787878;font-size:15px"><b>Your celebrity is:</b></font></td>
+                </tr>
+                <tr>
+                  <td><font face="Arial, Helvetica, sans-serif" style="color:#34d2fb;font-size:29px"><%= @celebrity_user.first_name.present? ? @celebrity_user.first_name.capitalize : "" %> <%= @celebrity_user.last_name.present? ? @celebrity_user.last_name.capitalize : "" %></font></td>
+                </tr>
+                <tr height="17"></tr>
+                <tr>
+                  <td><font face="Arial, Helvetica, sans-serif" style="color:#787878;font-size:15px;line-height:26px"><b>Your expected delivery date is:</b></font></td>
+                </tr>
+                <tr>
+                  <td><font face="Arial, Helvetica, sans-serif" style="color:#ffffff;font-size:21px;line-height:28px"><span data-term="goog_2121569208" class="aBn" tabindex="0"><span class="aQJ"><%= @job.deadline.present? ? Date.parse(@job.deadline.to_s).strftime("%-m/%-d/%y") : "" %></span></span></font></td>
+                </tr>
+                </tbody></table>
+            </td>
+            <td width="310" valign="top">
+              <table width="310" cellspacing="0" cellpadding="0" border="0">
+                <tbody><tr>
+                  <td><font face="Arial, Helvetica, sans-serif" style="color:#787878;font-size:15px"><b>Your order was purchased by:</b></font></td>
+                </tr>
+                <tr height="8"></tr>
+                <tr><td><font face="Arial, Helvetica, sans-serif" style="color:#ffffff;font-size:17px;line-height:25px"><%= @user.first_name.present? ? @user.first_name.capitalize : "" %> <%= @user.last_name.present? ? @user.last_name.capitalize : "" %></font></td></tr>
+
+                </tbody></table>
+            </td>
+          </tr>
+          <tr height="25"></tr>
+          </tbody></table>
+      </td>
+    </tr>
+    <tr>
+      <td width="700">
+        <table width="700" cellspacing="0" cellpadding="0" border="0">
+          <tbody><tr height="5"></tr>
+          <tr>
+            <td align="right" width="410"><font face="Arial, Helvetica, sans-serif" style="font-size:24px;color:#ffffff">Share your order with friends:</font></td>
+            <td width="290"><table cellspacing="0" cellpadding="0" border="0">
+              <tbody><tr>
+                <td width="19"></td>
+                <td width="56"><a target="_blank" title="E-mail" href="https://www.celebvidy.com/video/xRY2rqGyWamMBdXEE"><img border="0" alt="Email" src="<%= attachments.inline['icon-email.png'].url %>" /></a></td>
+
+                <td width="56"><a target="_blank" title="Facebook" href="http://www.facebook.com/share.php?u=https://www.celebvidy.com/video/xRY2rqGyWamMBdXEE&amp;title=Celebvidy-%20On%20demand%20celebrity%20shout%20outs"><img border="0" alt="Facebook" src="<%= attachments.inline['icon-fb.png'].url %>" /></a></td>
+
+                <td width="56"><a target="_blank" title="Twitter" href="https://twitter.com/intent/tweet?text=Celebvidy-%20on%20demand%20celebrity%20shout%20outs&amp;url=https://www.celebvidy.com/video/xRY2rqGyWamMBdXEE&amp;via=celebvidy"><img border="0" alt="Twitter" src="<%= attachments.inline['icon-twitter.png'].url %>" /></a></td>
+              </tr>
+              </tbody></table>
+            </td>
+          </tr>
+          <tr height="5"></tr>
+          </tbody></table>
+      </td>
+    </tr>
+    </tbody></table>
+  </td>
+</tr>
+<tr height="30"></tr>
+<tr>
+  <td width="700" style="border-bottom:1px solid #c6c6c6;padding-bottom:10px"><font face="Arial, Helvetica, sans-serif" style="color:#34d2fb;font-size:29px">Video Details</font></td>
+</tr>
+<tr height="10"></tr>
+<tr>
+  <td width="700" valign="top">
+    <table width="700" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr>
+        <td width="245" valign="top"><font face="Arial, Helvetica, sans-serif" style="font-size:21px;color:#000000"><b><span style="font-size:15px;color:#787878;line-height:30px">This message is for:</span> <br> <%= @job.message_for %></b></font></td>
+        <td width="235" valign="top"><font face="Arial, Helvetica, sans-serif" style="font-size:21px;color:#000000"><b><span style="font-size:15px;color:#787878;line-height:30px">Pronounced like:</span> <br> <%= @job.pronounce_like %></b></font></td>
+        <td width="220" valign="top"><font face="Arial, Helvetica, sans-serif" style="font-size:21px;color:#000000"><b><span style="font-size:15px;color:#787878;line-height:30px">What is this celebvidy for?</span> <br> <%= event_type.name %></b></font></td>
+      </tr>
+      </tbody></table>
+  </td>
+</tr>
+<tr height="23"></tr>
+<tr>
+  <td width="700">
+    <table width="700" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr>
+        <td width="700"><font face="Arial, Helvetica, sans-serif" style="font-size:15px;color:#787878"><b>Video message content:</b></font></td>
+      </tr>
+      <tr height="13"></tr>
+      <tr>
+        <td width="687" style="border:1px solid #adadae;border-left:12px solid #24d1fd">
+          <table width="687" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr height="14"></tr>
+            <tr>
+              <td width="20"></td>
+              <td width="647"><font face="Arial, Helvetica, sans-serif" style="font-size:23px;color:#000000;line-height:34px"><%= @job.message_details %></font></td>
+              <td width="20"></td>
+            </tr>
+            <tr height="20"></tr>
+            </tbody></table>
+        </td>
+      </tr>
+      <tr height="17"></tr>
+      <tr>
+        <td width="700">
+          <table width="700" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr>
+              <td width="140">
+                <table width="140" cellspacing="0" cellpadding="0" border="0">
+                  <tbody><tr>
+                    <% if event_type.name == "Question" %>
+                        <td id="Question" width="28"><img alt="icon blank" src="<%= attachments.inline['select.gif'].url %>" /></td>
+                    <% else %>
+                    <td id="Question" width="28"><img alt="icon blank" src="<%= attachments.inline['un-select.gif'].url %>" /></td>
+                    <% end %>
+                    <td width="15"></td>
+                    <td width="97"><font face="Arial, Helvetica, sans-serif" style="font-size:15px;color:#787878"><b>Question</b></font></td>
+                  </tr>
+                  </tbody></table>
+              </td>
+              <td width="140">
+                <table width="140" cellspacing="0" cellpadding="0" border="0">
+                  <tbody><tr>
+                    <% if event_type.name == "Birthday" %>
+                    <td id="Birthday" width="28"><img alt="icon blank" src="<%= attachments.inline['select.gif'].url %>" /></td>
+                    <% else %>
+                        <td id="Birthday" width="28"><img alt="icon blank" src="<%= attachments.inline['un-select.gif'].url %>" /></td>
+                        <% end %>
+                    <td width="15"></td>
+                    <td width="97"><font face="Arial, Helvetica, sans-serif" style="font-size:15px;color:#787878"><b>Birthday</b></font></td>
+                  </tr>
+                  </tbody></table>
+              </td>
+              <td width="140">
+                <table width="140" cellspacing="0" cellpadding="0" border="0">
+                  <tbody><tr>
+                    <% if event_type.name == "Congrats" %>
+                    <td id="Congrats" width="28"><img alt="icon blank" src="<%= attachments.inline['select.gif'].url %>" /></td>
+                    <% else %>
+                        <td id="Congrats" width="28"><img alt="icon blank" src="<%= attachments.inline['un-select.gif'].url %>" /></td>
+                        <% end %>
+                    <td width="15"></td>
+                    <td width="97"><font face="Arial, Helvetica, sans-serif" style="font-size:15px;color:#787878"><b>Congrats</b></font></td>
+                  </tr>
+                  </tbody></table>
+              </td>
+              <td width="155">
+                <table width="155" cellspacing="0" cellpadding="0" border="0">
+                  <tbody><tr>
+                    <% if event_type.name == "Anniversary" %>
+                    <td id="Anniversary" width="28"><img alt="icon blank" src="<%= attachments.inline['select.gif'].url %>" /></td>
+                     <% else %>
+                        <td id="Anniversary" width="28"><img alt="icon blank" src="<%= attachments.inline['un-select.gif'].url %>" /></td>
+                        <% end %>
+                        <td width="15"></td>
+                    <td width="112"><font face="Arial, Helvetica, sans-serif" style="font-size:15px;color:#787878"><b>Anniversary</b></font></td>
+                  </tr>
+                  </tbody></table>
+              </td>
+              <td width="125">
+                <table width="125" cellspacing="0" cellpadding="0" border="0">
+                  <tbody><tr>
+                    <% if event_type.name == "Other" %>
+                    <td id="Other" width="28"><img alt="icon blank" src="<%= attachments.inline['select.gif'].url %>" /></td>
+                    <% else %>
+                        <td id="Other" width="28"><img alt="icon blank" src="<%= attachments.inline['un-select.gif'].url %>" /></td>
+                        <% end %>
+                    <td width="15"></td>
+                    <td width="82"><font face="Arial, Helvetica, sans-serif" style="font-size:15px;color:#787878"><b>Other</b></font></td>
+                  </tr>
+                  </tbody></table>
+              </td>
+            </tr>
+            </tbody></table>
+        </td>
+      </tr>
+      </tbody></table>
+  </td>
+</tr>
+<tr height="50"></tr>
+<tr>
+  <td width="700">
+    <table width="700" cellspacing="0" cellpadding="0" border="0">
+      <tbody><tr>
+        <td width="380">
+          <table width="380" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr>
+              <td><font face="Arial, Helvetica, sans-serif" style="color:#141414;font-size:14px">For order <b>#<%= @job.customer_job_id %></b></font></td>
+            </tr>
+            <tr height="6"></tr>
+            <tr>
+              <td><font face="Arial, Helvetica, sans-serif" style="color:#141414;font-size:14px">Placed on <%= @job.created_at.present? ? Date.parse(@job.created_at.to_s).strftime("%-m/%-d/%y") : "" %></font></td>
+            </tr>
+            <tr height="25"></tr>
+            <tr>
+              <td>
+                <font face="Arial, Helvetica, sans-serif" style="color:#141414;font-size:15px">
+                  <b>
+                    <span style="color:#787878">Delivery Estimate: <%= @job.deadline.present? ? Date.parse(@job.deadline.to_s).strftime("%-m/%-d/%y") : "" %>
+                    </span>
+                  </b>
+                </font>
+              </td>
+            </tr>
+            <tr height="38"></tr>
+            <tr>
+              <td><font face="Arial, Helvetica, sans-serif" style="color:#141414;font-size:21px"><b><%= @celebrity_user.first_name.present? ? @celebrity_user.first_name.capitalize : "" %> <%= @celebrity_user.last_name.present? ? @celebrity_user.last_name.capitalize : "" %></b></font></td>
+            </tr>
+            <tr height="5"></tr>
+            <tr>
+              <td><font face="Arial, Helvetica, sans-serif" style="color:#141414;font-size:15px"><b><%= event_type.name  %>/ <%= @job.message_details %></b></font></td>
+            </tr>
+            </tbody></table>
+        </td>
+        <td width="320" valign="top">
+          <table width="320" cellspacing="0" cellpadding="0" border="0">
+            <tbody><tr>
+              <td align="right" width="190"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:14px"><b>Item Subtotal:</b></font></td>
+              <td align="right" width="130"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:14px"><b>$<%= number_with_delimiter("%.2f" %@celebrity_user.celebrity.default_rate,:delimiter => ',')%></b></font></td>
+            </tr>
+            <tr height="7"></tr>
+            <tr>
+              <td align="right" width="190"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:14px"><b>Shipping &amp; Handling:</b></font></td>
+              <td align="right" width="130"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:14px"><b>$0.00</b></font></td>
+            </tr>
+            <tr height="7"></tr>
+            <tr>
+              <td align="right" width="190"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:14px"><b>Total Before Tax:</b></font></td>
+              <td align="right" width="130"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:14px"><b>$<%= number_with_delimiter("%.2f" %@celebrity_user.celebrity.default_rate,:delimiter => ',')%></b></font></td>
+            </tr>
+            <tr height="7"></tr>
+            <tr>
+              <td align="right" width="190"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:14px"><b>Sales Tax Collected:</b></font></td>
+              <td align="right" width="130"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:14px"><b>$0.00</b></font></td>
+            </tr>
+            <tr height="28"></tr>
+            <tr>
+              <td align="right" width="190"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:21px"><b>Total:</b></font></td>
+              <td align="right" width="130"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:21px"><b>$<%= number_with_delimiter("%.2f" %@celebrity_user.celebrity.default_rate, :delimiter => ',')%></b></font></td>
+            </tr>
+            <tr height="5"></tr>
+            <tr>
+              <td align="right" width="190"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:14px"><b>Paid by Visa:</b></font></td>
+              <td align="right" width="130"><font face="Arial, Helvetica, sans-serif" style="color:#000000;font-size:14px"><b>$<%= number_with_delimiter("%.2f" %@celebrity_user.celebrity.default_rate, :delimiter => ',')%></b></font></td>
+            </tr>
+            </tbody></table>
+        </td>
+      </tr>
+      </tbody></table>
+  </td>
+</tr>
+<tr height="45"></tr>
+<tr>                                                                                                                                                                                                                                                                                                                                                                                  <!-- https://www.celebvidy.com//faq -->
+  <td width="700"><font face="Arial, Helvetica, sans-serif" style="color:#141414;font-size:14px">If you need further assistance please email <a target="_blank" style="color:#030305;text-decoration:none" href="mailto:orders@celebvidy.com?Subject=Help%20with%20Order%20#142">orders@celebvidy.com</a> or visit <a target="_blank" style="color:#030305;text-decoration:none" href="http://stage.celebvidy.com/fqs"><b>celebvidy.com/faq</b></a></font></td>
+</tr>
+<tr height="9"></tr>
+<tr>
+  <td width="700"><font face="Arial, Helvetica, sans-serif" style="color:#141414;font-size:14px">Thank you for your order, we hope to see you again soon!</font></td>
+</tr>
+<tr height="7"></tr>
+<tr>                                                                                                                                                                <!-- https://www.celebvidy.com/ -->
+  <td width="700"><font face="Arial, Helvetica, sans-serif" style="color:#34d2fb;font-size:21px"><a target="_blank" style="color:#34d2fb;text-decoration:none" href="http://stage.celebvidy.com/">stage.celebvidy.com/</a></font></td>
+</tr>
+<tr height="30"></tr>
+
+<tr height="70"></tr>
+</tbody></table>
+</body>

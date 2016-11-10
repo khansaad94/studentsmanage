@@ -1,0 +1,126 @@
+<div class="warrper">
+  <div class="your_video_sec">
+    <div class="warrper01">
+      <div class="video_page_title my-order-h">My Cart</div>
+      <div class="my-order-h">
+        <div class="pdate-list">
+          <!--<div class="update-list"><a href="#"><img src="/assets/refresh-icon.png" alt="">Update list</a></div>-->
+        </div>
+      </div>
+      <div class="my-order-con-bg">
+        <table width="100%">
+          <tbody>
+          <tr>
+            <th class="celebrties-h"><span>Celebrity</span></th>
+            <th class="oredr-detail"><span>Order details</span></th>
+            <th class="order-price"><span>price</span></th>
+            <th class="order-action action-hide-none"><span>actions</span></th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="w-100">
+        <% if jobs.size > 0 %>
+            <% jobs.each do |job| %>
+                <div class="tbl-border-con">
+                  <table width="100%" class="tbl-border">
+                    <tbody>
+                    <tr>
+                      <td class="celebrties-h td-1">
+                        <div class="tbl-img">
+                          <% celeb_user = User.find(job.celebrity_id) %>
+                          <% if celeb_user.celebrity.avatar.present? %>
+                              <%= image_tag celeb_user.celebrity.avatar(:thumb) %>
+                          <% else %>
+                              <%= image_tag "missing.jpg" %>
+                          <% end %>
+                          <!--<img alt="" src="/assets/odr-detail-img.jpg">-->
+                        </div>
+                        <div class="order-client-con">
+                          <div class="client-name1"><%= (celeb_user.first_name if celeb_user.first_name.present?) + ' ' + (celeb_user.last_name if celeb_user.last_name.present?) %></div>
+                          <div class="client-profession1"><%= celeb_user.celebrity.about_me if celeb_user.celebrity.about_me.present? %></div>
+                        </div>
+                      </td>
+
+                      <td valign="top" class="oredr-detail td-21">
+                        <div class="order-submit">Order Created:
+                          <span class="order-date"><%= job.created_at.month.to_s %>/<%= job.created_at.day.to_s %>
+                            /<%= job.created_at.year.to_s %></span></div>
+                        <div class="order-submit1">Status:
+                          <span class="order-date">Order <%= job.status.capitalize! %></span></div>
+                      </td>
+
+                      <td valign="top" class="order-price td-3">
+                        <div class="order-submit">$<%= number_with_delimiter(celeb_user.celebrity.default_rate,:delimiter => ',') if celeb_user.celebrity.default_rate.present? %></div>
+                      </td>
+                      <td valign="top" class="order-action td-4 action-hide-none">
+                        <div class="order-update-btns">
+                          <!--<a href="#"><img alt="" src="/assets/edit-icon.png"></a>-->
+                          <!--<a href="#"><img alt="" src="/assets/delete-icon.png"></a>-->
+                          <a href="/job/complete_job/<%= job.id %>"><img alt="" src="/assets/edit-icon.png"></a>
+                          <a onclick="delete_cart_job(<%= job.id %>)" style="cursor: pointer"><img alt="" src="/assets/delete-icon.png"></a>
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                  <div class="action-hide">
+                    <div class="hide-action">
+                      <div class="action-heading">action</div>
+                    </div>
+                    <div class="hide-action">
+                      <div class="order-update-btns">
+                        <a href="#"><img alt="" src="/assets/edit-icon.png"></a>
+                        <a href="#"><img alt="" src="/assets/delete-icon.png"></a>
+                        <a href="#"><img alt="" src="/assets/forward-icon.png"></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+        <% else %>
+            <div class="tbl-border-con">
+              <table width="100%" class="tbl-border">
+                <tbody>
+                <tr>
+                  <td class="celebrties-h td-1">
+                   Your cart is currently empty.
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+    function delete_cart_job(id){
+        apprise("Are you sure to delete item", {'confirm':true}, function (r) {
+            if (r) {
+        $(".background_shadow").hide();
+        $("#menuZ").hide();
+        $.ajax({
+            type: 'get',
+            url: '/jobs/delete_job?id=' + id,
+            success: function (data) {
+                if (data.success) {
+                    window.location.href = data.message;
+                    $(".background_shadow").hide();
+                    $("#menuZ").hide();
+                }
+                else {
+                    $("#container").html(data)
+                    $("#head_div").addClass('bg-image');
+                    $(".background_shadow").hide();
+                }
+            }
+        });
+            }
+        });
+
+    }
+
+</script>

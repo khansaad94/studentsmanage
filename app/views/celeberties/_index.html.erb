@@ -1,0 +1,111 @@
+<div class="warrper">
+  <div class="white-cotaner">
+    <div class="directory-page-h">Celebrities on celebvidy</div>
+
+    <div class="inner-con">
+      <div class="form-container">
+        <div class="form-con">
+          <label>Search</label>
+          <input type="search" id="search" name="search">
+
+          <div class="search-icon">
+            <button name="searc" onclick="search_celeb()"></button>
+          </div>
+        </div>
+        <div class="form-con">
+          <!--<div class="select-con">-->
+            <!--<label>industry</label>-->
+
+            <!--<div class="directory">-->
+              <!--<%#= select("industry", "industry_id", Industry.all.collect { |p| [p.title, p.id] }, {include_blank: true}) %>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="select-con">-->
+          <!--<label>Rating</label>-->
+
+          <!--<div class="directory">-->
+          <!--<select>-->
+          <!--<option selected=""></option>-->
+          <!--<option value="1">1</option>-->
+          <!--<option value="2">2</option>-->
+          <!--<option value="3">3</option>-->
+          <!--<option value="4">4</option>-->
+          <!--<option value="5">5</option>-->
+          <!--</select>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--<div class="select-con">-->
+          <!--<label>Cost</label>-->
+
+          <!--<div class="directory">-->
+          <!--<select>-->
+          <!--<option selected=""></option>-->
+          <!--<option value="1">1</option>-->
+          <!--<option value="2">2</option>-->
+          <!--<option value="3">3</option>-->
+          <!--<option value="4">4</option>-->
+          <!--<option value="5">5</option>-->
+          <!--</select>-->
+          <!--</div>-->
+          <!--</div>-->
+        </div>
+      </div>
+
+
+      <div class="w-100" id="celebs_directory">
+        <%= render :partial => 'celebs_directory', :locals => {:celebs => @celebs} %>
+      </div>
+    </div>
+  </div>
+  <div class="copyrightMob">2015 Celebvidy. All Rights Reserverd.</div>
+
+</div>
+<!--<h1>Directory</h1>-->
+<!--<input type="text" id="search" placeholder="Search . . ."/>-->
+<!--<div id="celebs_directory">-->
+<!--<%#= render :partial => 'celebs_directory', :locals => {:celebs => celebs} %>-->
+<!--</div>-->
+
+<script>
+    $("#head_div").addClass('bg-image');
+    $('#search').keyup(function (e) {
+        var code = (e.keyCode ? e.keyCode : e.which)
+//        if (code == 13) {
+        delay(function(){
+            var name = $('#search').val();
+            search_text_a(name)
+        }, 400 );
+//        }
+    });
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+
+    function search_celeb() {
+        var text = $('#search').val();
+        search_text_a(text)
+    }
+
+    function search_text_a(text) {
+//        var ind = $("#industry_industry_id").val()
+        $.ajax({
+            url: 'celeberties/searching?text=' + text + '&search=directory',
+            success: function (data) {
+                $("#celebs_directory").html(data)
+            }
+        });
+    }
+//    function search_text_a(text) {
+//        var ind = $("#industry_industry_id").val()
+//        $.ajax({
+//            url: 'celeberties/searching?text=' + text + '&search=directory &ind=' + ind,
+//            success: function (data) {
+//                $("#celebs_directory").html(data)
+//            }
+//        });
+//    }
+</script>

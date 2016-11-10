@@ -1,0 +1,28 @@
+<%# flash.each do |type, message| %>
+    <%# if message.present? && message.length > 0 %>
+        <!--<div class="alert <%#= bootstrap_class_for(type) %> fade in">-->
+          <!--<button class="close" data-dismiss="alert">×</button>-->
+          <%#= message %>
+        <!--</div>-->
+    <%# end %>
+    <%# flash = nil %>
+<%# end %>
+
+<div id="flash_notices" style="position: relative; z-index: 99999;">
+  <% flash.each do |key, value| %>
+      <%= puts "0000000000000000000000000000000000000",key, value %>
+      <div class="<%= flash_class(key) %>">
+        <%= puts "0000000000000000000000000000000000000",flash_class(key)%>
+        <%= value %>
+        <button class="close" data-dismiss="alert">x</button>
+      </div>
+  <% end %>
+</div>
+
+
+
+<script type="text/javascript">
+    setTimeout(function () {
+      $('#flash_div').fadeOut()
+    }, 20000)
+</script>

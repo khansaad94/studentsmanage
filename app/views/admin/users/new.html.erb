@@ -1,0 +1,151 @@
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<div class="page-content-wrapper">
+  <div class="page-content" style="min-height:1215px">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+          User
+        </h3>
+        <ul class="page-breadcrumb breadcrumb">
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/users/all-users">User</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <a href="/admin/users/all-users">Display All Users</a>
+          </li>
+          <li class="pull-right">
+            <div data-original-title="Change dashboard date range" data-placement="top" class="dashboard-date-range tooltips" id="dashboard-report-range">
+              <i class="icon-calendar"></i>
+              <span></span>
+              <i class="fa fa-angle-down"></i>
+            </div>
+          </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="portlet box grey-cascade">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="fa fa-comments"></i>New User
+            </div>
+            <div class="tools">
+              <a class="collapse" href="javascript:;">
+              </a>
+              <!--<a class="config" data-toggle="modal" href="#portlet-config">-->
+              <!--</a>-->
+              <!--<a class="reload" href="javascript:;">-->
+              <!--</a>-->
+              <!--<a class="remove" href="javascript:;">-->
+              <!--</a>-->
+            </div>
+          </div>
+          <div class="portlet-body">
+            <% @user = User.new() %>
+            <%= form_for(@user, :url => "/admin/users/create_user") do |f| %>
+                <div class="clearfix">
+                  <label>First Name:</label>
+                  <%= f.text_field :first_name, :placeholder => "Your First Name", :class => "form-control placeholder-no-fix" %>
+                </div>
+                <div class="clearfix">
+                  <label>Last Name:</label>
+                  <%= f.text_field :last_name, :placeholder => "Your Last Name", :class => "form-control placeholder-no-fix" %>
+                </div>
+                <div class="clearfix">
+                  <label>Email Address:</label>
+                  <%= f.hidden_field :user_type, :value => "user" %>
+                  <%= f.email_field :email, :placeholder => "Your Email Address", :class => "form-control placeholder-no-fix" %>
+                </div>
+                <div class="clearfix">
+                  <label>Password:</label>
+                  <%#= f.label :password %>
+                  <%= f.password_field :password, :placeholder => "Password", :class => "form-control placeholder-no-fix" %>
+                </div>
+                <div class="clearfix">
+                  <label>Password Confirmation:</label>
+                  <%= f.password_field :password_confirmation, :placeholder => "Password confirmation", :class => "form-control placeholder-no-fix" %>
+                </div>
+
+                <div class="clearfix" style="margin:20px 0px 0px 0px">
+                  <%= f.submit "Complete Registration", :class => "btn green pull-left" %>
+                </div>
+            <% end %>
+
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+<script>
+    $(document).ready(function () {
+        $("#new_user").validate({
+            debug: true,
+            rules: {
+                "user[first_name]": {
+                    required: true
+                },
+                "user[last_name]": {
+                    required: true
+                },
+
+                "user[email]": {
+                    required: true,
+                    email: true
+                },
+                "user[password]": {
+                    required: true,
+                    minlength: 6
+                },
+                "user[password_confirmation]": {
+                    required: true,
+                    equalTo: "#user_password"
+                }
+            }
+        });
+    });
+    $('#new_user').submit(function () {
+        if ($('#new_user').valid() == true) {
+            var postData = $(this).serialize();
+            var formURL = $(this).attr("action");
+            $.ajax({
+                url: formURL,
+                type: 'post',
+                data: postData,
+                success: function (data) {
+                    if (data == "not") {
+                        window.location.href = '/sign_in';
+                    }
+                    else {
+                        window.location.href = '/admin/users/all-users';
+//                                $.ajax({
+//                                    url: "/admin/admins/show_flash",
+//                                    type: "get",
+//                                    dataType: "html",
+//                                    success: function (data) {
+//                                        $('#flash_div').html(data);
+//                                    }
+//                                });
+                    }
+                }
+            });
+        }
+    });
+</script>
+
+
+
+
+

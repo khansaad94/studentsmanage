@@ -1,0 +1,28 @@
+<div class="user-left-bar-con">
+  <div class="inner-con">
+    <% if params[:jid].present? %>
+    <% job = Job.find(params[:jid]) %>
+    <% @celeb =User.find_celeb(job.celebrity_id) %>
+    <% end %>
+    <div class="user-left-bar">
+      <% if @celeb.celebrity.present? && @celeb.celebrity.avatar.present? %>
+          <%= image_tag @celeb.celebrity.avatar(:thumb) %>
+      <% else %>
+          <%= image_tag "missing.jpg" %>
+      <% end %>
+      <% if @celeb.first_name.present? && @celeb.last_name.present? %>
+          <span><%= (@celeb.first_name if @celeb.first_name.present?) %> <%= (@celeb.last_name if @celeb.last_name.present?) %></span>
+      <% end %>
+      <!--<div class="profession"><%#= @celeb.celebrity.about_me if (@celeb.celebrity.present? && @celeb.celebrity.about_me.present?) %></div>-->
+      <div class="profession"><%= get_remaining_videos(@celeb.id) %> Celebvidy remaining</div>
+    </div>
+    <div class="user-right-bar">
+      <div class="total-price">Total: $<%= number_with_delimiter(number_with_precision(@celeb.celebrity.default_rate, :precision => 2),:delimiter => ',') %></div>
+      <% if @celeb.first_name.present? && @celeb.last_name.present? %>
+          <div class="donated"><%= (@celeb.first_name if @celeb.first_name.present?) %> <%= (@celeb.last_name if @celeb.last_name.present?) %>
+      <% end %>
+      donates a portion of proceeds to charity.
+      </div>
+    </div>
+  </div>
+</div>

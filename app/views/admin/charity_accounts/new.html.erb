@@ -1,0 +1,214 @@
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<div class="page-content-wrapper">
+  <div class="page-content" style="min-height:1215px">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+          Charity Accounts
+        </h3>
+        <ul class="page-breadcrumb breadcrumb">
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/charity_accounts">Charity Accounts</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/charity_accounts">Display All Charity Accounts</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+
+          <li>
+            <a href="/admin/charity_accounts/new">Add Charity Account</a>
+          </li>
+          <li class="pull-right">
+            <div data-original-title="Change dashboard date range" data-placement="top" class="dashboard-date-range tooltips" id="dashboard-report-range">
+              <i class="icon-calendar"></i>
+              <span></span>
+              <i class="fa fa-angle-down"></i>
+            </div>
+          </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+      </div>
+    </div>
+    <!-- END PAGE HEADER-->
+
+    <div class="row">
+      <div class="col-md-6 ">
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet box blue">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="fa fa-gift"></i> Create Charity Account
+            </div>
+            <div class="tools">
+              <a class="collapse" href="">
+              </a>
+
+            </div>
+          </div>
+          <% @c_account = CharityAccount.new() %>
+          <div class="portlet-body form">
+            <%= form_for @c_account, :url => admin_charity_accounts_path, :html => {:id => "new_charity_account"} do |f| %>
+                <div class="form-body">
+                  <div class="row" id="errors"></div>
+
+                  <div class="clearfix">
+                    <label>Name</label>
+                    <%= text_field_tag "name", params[:name].present? ? params[:name] : "", :class => "form-control placeholder-no-fix", :placeholder => "Name" %>
+                  </div>
+                  <br>
+                  <label>Braintree Information:</label>
+                  <br>
+
+                  <div class="clearfix">
+                    <label>Email:</label>
+                    <%= text_field_tag "email", params[:email].present? ? params[:email] : "", :placeholder => "charities@celebvidy.com", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <br>
+
+                  <!--<div class="clearfix">-->
+                    <!--<label>Date of Birth:</label>-->
+                    <!--<%#= select_date(date = Date.current, prefix: 'dob', :start_year => 1900, :end_year => Date.today.year, :class => "form-control") %>-->
+                  <!--</div>-->
+                  <!--<br>-->
+<!---->
+                  <div class="clearfix">
+                    <label>Street Address:</label>
+                    <%= text_field_tag "street_address", params[:street_address].present? ? params[:street_address] : "", :placeholder => "Street Address", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="clearfix">
+                    <label>City:</label>
+                    <%= text_field_tag "city", params[:city].present? ? params[:city] : "", :placeholder => "City", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="clearfix">
+                    <label>State:</label>
+                    <%= text_field_tag "state", params[:state].present? ? params[:state] : "", :placeholder => "Street Address", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="clearfix">
+                    <label>Postal Code:</label>
+                    <%= text_field_tag "postal_code", params[:postal_code].present? ? params[:postal_code] : "", :placeholder => "Postal Code", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="clearfix">
+                    <label>Account Number:</label>
+                    <%= text_field_tag "account_number", params[:account_number].present? ? params[:account_number] : "", :placeholder => "Account Number", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="clearfix">
+                    <label>Routing Number:</label>
+                    <%= text_field_tag "routing_number", params[:routing_number].present? ? params[:routing_number] : "", :placeholder => "Routing Number", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="form-actions">
+                    <div class="z_100" id="save-btn">
+                      <!--<a class="btn blue" href="javascript:void(0)">Save</a>-->
+                      <%= f.submit "Save", :class => "btn blue" %>
+                      <!--<input type="button" value="Create" onclick="charity_submit()" class="btn green">-->
+
+                    </div>
+                    <!--<button class="btn blue" type="submit">Update</button>-->
+
+                  </div>
+
+                </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- END SAMPLE FORM PORTLET-->
+
+      </div>
+    </div>
+
+    <div class="clearfix">
+    </div>
+
+  </div>
+
+</div>
+</div>
+</body>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#new_charity_account").validate({
+//            debug: true,
+            rules: {
+                "name": {
+                    required: true
+                },
+                "email": {
+                    required: true
+                },
+//                "dob[year]": {
+//                    required: true
+//                },
+//                "dob[month]": {
+//                    required: true
+//                },
+//                "dob[day]": {
+//                    required: true
+//                },
+                "street_address": {
+                    required: true
+                },
+                "city": {
+                    required: true
+                },
+                "state": {
+                    required: true
+                },
+                "postal_code": {
+                    required: true,
+                    number: true
+                },
+                "account_number": {
+                    required: true,
+                    number: true
+                },
+                "routing_number": {
+                    required: true,
+                    number: true
+                }
+            }
+        });
+
+//        $('#new_charity_account').submit(function () {
+//            if ($('#new_charity_account').valid() == true) {
+//                var postData = $(this).serialize();
+//                var formURL = $(this).attr("action");
+//                $.ajax({
+//                    url: formURL,
+//                    type: 'post',
+//                    data: postData,
+//                    success: function (data) {
+//                        if (data == "not") {
+//                            window.location.href = '/sign_in';
+//                        }
+//                        else {
+//                            window.location.href = '/admin/charity_accounts/index';
+//                        }
+//                    }
+//                });
+//            }
+//        });
+    });
+//    function charity_submit() {
+//        alert('a')
+//        if ($("#new_charity_account").valid() == true) {
+//            alert('b')
+//            $("#new_charity_account").submit();
+//        }
+//    }
+//
+//
+
+</script>
+<style>
+    .error{
+        color: #ff0000;
+    }
+</style>
+
+
+
+

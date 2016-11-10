@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: MyString
+  payment_method_token: MyString
+  card_type: MyString
+  status: false
+  active: false
+  user_id: 
+
+two:
+  customer_id: MyString
+  payment_method_token: MyString
+  card_type: MyString
+  status: false
+  active: false
+  user_id: 

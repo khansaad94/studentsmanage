@@ -1,0 +1,198 @@
+<!--<div>-->
+<!--<a href="">Home</a>-->
+<!--<a href="javascript:;" onclick="directory()">Directory</a>-->
+<!--<a href="javascript:;" onclick="search_celeberty()">Search</a>-->
+<!--<a href="">FAQ</a>-->
+<!--<a href="">Cart</a>-->
+<!--<a href="/users/sign_out">Sign Out</a>-->
+<!--</div>-->
+
+<% if controller_name == "jobs" %>
+    <header>
+      <div class="inner-header">
+        <div class="warrper">
+          <div class="header-con">
+            <div class="logo-con1"><a href="/"><img src="/assets/logo-2nd.png" alt=""></a></div>
+            <div class="menu">
+              <div class="inner-con">
+                <div class="nav-con2">
+                  <a href="#">
+                    <div id="mesg_details" class="nav-number active"><span>1</span>
+
+                      <div class="span">Details</div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="nav-con2">
+                  <a href="#">
+                    <div id="bill_info" class="nav-number"><span>2</span>
+
+                      <div class="span">Biling Info</div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="nav-con2">
+                  <a href="#">
+                    <div id="confirm_job" class="nav-number"><span>3</span>
+
+                      <div class="span">Confirm</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <!--inner-con end-->
+            </div>
+            <!--inner-con end-->
+          </div>
+        </div>
+      </div>
+      <!--inner-header end-->
+    </header>
+    <div>
+      <!--<a href="/">Home</a>-->
+      <!--<a href="javascript:;" onclick="directory()">Directory</a>-->
+      <!--<a href="javascript:;" onclick="search_celeberty()">Search</a>-->
+      <!--<a href="">FAQ</a>-->
+      <!--<a href="">Cart</a>-->
+      <!--<a href="/users/sign_out">Sign Out</a>-->
+    </div>
+<% elsif controller_name == "celeberties" ||controller_name == "home" %>
+    <!--<div>-->
+    <!--<a href="/">Home</a>-->
+    <!--<a href="javascript:;" onclick="directory()">Directory</a>-->
+    <!--<a href="javascript:;" onclick="search_celeberty()">Search</a>-->
+    <!--<a href="">FAQ</a>-->
+    <!--<a href="">Cart</a>-->
+    <!--<a href="/users/sign_out">Sign Out</a>-->
+    <!--</div>-->
+    <!--<%# elsif controller_name == "home" %>-->
+    <header>
+      <% unless current_user %>
+      <div class="dir-header">
+        <div class="warrper">
+          <div class="header-con2">
+            <div class="box1">
+              <div class="heading2"><img src="/assets/hearder-top-logo.png" alt="">
+                <span>Your celebrity, your video.</span></div>
+            </div>
+            <!--box1 end-->
+
+            <div class="box2">
+              <div class="vedio-form">
+                <a>Get Videos From</a>
+                <a>Your Favorite Celebs</a>
+              </div>
+              <!--get-started-btn end-->
+              <div class="get-started-btn">
+                <a href="/search-celebrities">
+                  <div class="get-started">Get Started</div>
+                </a>
+              </div>
+              <!--vedio-form end-->
+            </div>
+            <!--box2 end-->
+          </div>
+          <!--header-con2 end-->
+        </div>
+        <!--.warrper end-->
+      </div>
+      <% end %>
+      <!--dir-header end-->
+      <% if params[:ios].blank? %>
+      <div class="warrper01">
+        <div class="nav_header">
+          <div class="nav_head_logo"><a href="/"><img src="/assets/nav2_logo.png"></a></div>
+          <div class="nav_head_rightbox">
+            <div class="nav01">
+              <ul>
+                <li><a href="/celebrities">Search</a></li> <!-- onclick="search_celeberty()" -->
+                <% if current_user.present? %>
+                    <li><a href="/my-account">My Account</a></li>
+                    <!--<li><a href="/my_account" onclick="user_account(<%#= current_user.id %>)">My Account</a></li>-->
+                <% else %>
+                    <li><a href="/users/sign_in">Sign In</a></li>
+                <% end %>
+                <li><a href="#" onclick="cart()">Cart</a></li>
+              </ul>
+            </div>
+            <div class="nav02">
+              <ul>
+
+                <li><a href="/celebrities">Celebrities</a></li>  <!--onclick="directory()"-->
+                <li><a href="/how-it-works" >How it Works</a></li>
+                <!--onclick='get_static("how_it_work")'-->
+                <% if current_user.present? %>
+                    <li><a href="/users/sign_out">Sign Out</a></li>
+                <% else %>
+                    <li><a href="/users/sign_up">Sign Up</a></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <nav id="ddmenu">
+            <div class="menu-icon"><img src="/assets/togle.png"></div>
+            <ul id="menuZ" style="display: none;">
+              <li class=""><a href="/celebrities">Search</a></li>
+              <!--onclick="search_celeberty()"-->
+              <% if current_user.present? %>
+                  <li class=""><a href="/my-account">My Account</a></li>
+                  <!--onclick="user_account(<%#= current_user.id %>)"-->
+              <% else %>
+                  <li class=""><a href="/users/sign_in">Sign In</a></li>
+              <% end %>
+              <li class=""><a href="" onclick="cart()">Cart</a></li>
+              <li class=""><a href="/celebrities">Celebrities</a></li>
+              <!--onclick="directory()"-->
+              <li class=""><a href="/how-it-works">How it Works</a></li>
+              <!--onclick='get_static("how_it_work")'-->
+              <% if current_user.present? %>
+                  <li class=""><a href="/users/sign_out">Sign Out</a></li>
+              <% else %>
+                  <li class=""><a href="/users/sign_up">Sign Up</a></li>
+              <% end %>
+              <span onclick="asign()" class="Mcls"><img src="/assets/close.png"></span>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <% end %>
+    </header>
+<% end %>
+
+<script>
+
+    $(document).ready(function () {
+        $(".menu-icon").click(function () {
+            $(this).next('ul').show();
+            //$('').toggle("slide", { direction: "up" }, 1000);
+        });
+
+//        $(".Mcls").click(function () {
+//
+//    });
+
+    });
+
+    function cart() {
+        $(".background_shadow").hide();
+        $("#menuZ").hide();
+        $.ajax({
+            url: '/celeberties/cart',
+            success: function (data) {
+                if (data.success) {
+                    window.location.href = data.message;
+                    $(".background_shadow").hide();
+                    $("#menuZ").hide();
+                }
+                else {
+                    $("#container").html(data)
+                    $("#head_div").addClass('bg-image');
+                    $(".background_shadow").hide();
+                }
+            }
+        });
+    }
+
+</script>

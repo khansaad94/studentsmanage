@@ -1,0 +1,220 @@
+﻿﻿
+ul.resp-tabs-list, p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.resp-tabs-list li {
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-block;
+    padding: 13px 15px;
+    margin: 0;
+    list-style: none;
+    cursor: pointer;
+    float: left;
+}
+
+.resp-tabs-container {
+    padding: 0px;
+    background-color: #fff;
+    clear: left;
+}
+
+h2.resp-accordion {
+    cursor: pointer;
+    padding: 5px;
+    display: none;
+}
+
+.resp-tab-content {
+    display: none;
+    padding: 15px;
+}
+
+.resp-tab-active {
+    margin-bottom: -1px !important;
+    padding: 12px 14px 14px 14px !important;
+}
+
+.resp-tab-active {
+    border-bottom: none;
+    background-color: #fff;
+}
+
+.resp-content-active, .resp-accordion-active {
+    display: block;
+}
+
+.resp-tab-content {
+    border: 1px solid #c1c1c1;
+}
+
+h2.resp-accordion {
+    font-size: 13px;
+    margin: 0px;
+    padding: 10px 15px;
+}
+
+h2.resp-tab-active {
+    margin-bottom: 0px !important;
+    padding: 10px 15px !important;
+}
+
+h2.resp-tab-title:last-child {
+    border-bottom: 12px solid #c1c1c1 !important;
+    background: blue;
+}
+/*-----------Vertical tabs-----------*/
+.resp-vtabs ul.resp-tabs-list {
+    float: left;
+    width: 25.59%;
+    margin-top: 13px;
+}
+
+.resp-vtabs .resp-tabs-list li {
+    display: block;
+    padding: 10px 15px !important;
+    margin: 0;
+    font-size: 16px;
+    font-family: 'OpenSansRegular';
+    cursor: pointer;
+    float: none;
+    letter-spacing: 0.7px;
+}
+
+.resp-vtabs .resp-tabs-container {
+    padding: 0px;
+    background-color: #fff;
+    border-left: 1px solid #e9e9e9;
+    float: right;
+    width: 71.7%;
+    min-height: 250px;
+    clear: none;
+}
+
+.resp-vtabs .resp-tab-content {
+    border: none;
+}
+
+.resp-vtabs li.resp-tab-active {
+    position: relative;
+    background:#34d1fb;
+    color:#fff;
+    padding: 9px 15px 9px 14px !important;
+}
+
+.resp-arrow {
+    width: 0;
+    height: 0;
+    float: right;
+    margin-top: 3px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 12px solid #c1c1c1;
+}
+
+h2.resp-tab-active span.resp-arrow {
+    border: none;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 12px solid #fff;
+}
+
+/*-----------Accordion styles-----------*/
+h2.resp-tab-active {
+    background: #34d1fb !important;
+    color:#fff;
+}
+.resp-easy-accordion  h2.resp-accordion {
+    display: block;
+}
+.resp-easy-accordion .resp-tab-content {
+    border: 1px solid #c1c1c1;
+}
+
+.resp-easy-accordion .resp-tab-content:last-child {
+    border-bottom: 1px solid #c1c1c1 !important;
+}
+
+.resp-jfit {
+    width: 100%;
+    margin: 0px;
+}
+
+.resp-tab-content-active {
+    display: block;
+}
+
+h2.resp-accordion:first-child {
+}
+
+/*Here your can change the breakpoint to set the accordion, when screen resolution changed*/
+@media only screen and (max-width: 768px) {
+
+    .resp-vtabs ul.resp-tabs-list {
+        width: 100%;
+    }
+
+    .resp-vtabs .resp-tabs-list li {
+    float: left;
+    }
+
+    ul.resp-tabs-list {
+        display: block;
+    }
+
+    h2.resp-accordion {
+        display: none;
+    }
+
+
+
+    .resp-vtabs .resp-tabs-container {
+        border: none;
+        float: none;
+        width: 100%;
+        min-height: initial;
+        clear: none;
+    }
+    .resp-accordion-closed {
+        display:none !important;
+    }
+}@media only screen and (max-width: 480px) {
+
+    .resp-tabs-list li {
+        font-size: 13px !important;
+    }
+    .resp-vtabs .resp-tabs-list li {
+        font-size: 11px !important;
+        padding: 10px !important;
+    }
+
+    .team_title {
+        float: left;
+        width: 76%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .resp-tabs-list li {
+        cursor: pointer;
+        display: inline-block;
+        float: left !important;
+        font-size: 13px;
+        font-weight: 600;
+        list-style: outside none none;
+        margin: 0;
+        padding: 3px 5px !important;
+    }
+    .resp-vtabs .resp-tabs-list li {
+        font-size: 11px !important;
+        padding: 8px !important;
+    }
+
+    .horizontal nav li {
+        display: inline-block;
+        padding: 7px;
+        vertical-align: middle;
+    }
+}

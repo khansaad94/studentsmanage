@@ -1,0 +1,238 @@
+<div class="warrper">
+  <div class="white-cotaner">
+    <div class="form-con-checkout-main">
+      <div class="form-con-checkout">
+        <div class="your-pro-h">your profile</div>
+        <div class="ch-password">
+          <div class="email-add">email address</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.email if @user.present? %></span>
+          </div>
+        </div>
+        <div class="ch-password">
+          <div class="email-add">Password</div>
+          <!--email-id end-->
+          <div class="email-id"><img src="/assets/pencil.png" alt="">
+            <span><a href="#" onclick="change_paw('<%= @user.id %>')">Change Password</a></span></div>
+        </div>
+      </div>
+      <div class="confirm-detail-con">
+        <div class="order-detail-h">My Celebvidys</div>
+        <% if @jobs.size > 0 %>
+            <% @jobs.each do |job| %>
+                <%# celeb = User.find(job.celebrity_id) %>
+                <% celeb = User.where(:id => job.celebrity_id).first %>
+                <% if celeb.present? %>
+                  <% if job.user.present? %>
+                <% puts "0000000000000000000000000000000jobbbbbb",job.inspect %>
+                <% if job.status != "notdelivered" && job.status != "incomplete" %>
+                    <% puts "0000000000000000000000000000000jobbbbbb",job.celebrity_id %>
+                    <% celeb = User.where(:id => job.celebrity_id).first %>
+                       <%# puts "00000000000000000000000000000000",celeb.inspect %>
+                    <div class="order-detail-main-con">
+                      <div class="image-con">
+                        <% unless celeb.blank? %>
+                        <% if celeb.celebrity.present? && celeb.celebrity.avatar.present? %>
+                            <%= image_tag celeb.celebrity.avatar(:thumb) %>
+                        <% else %>
+                            <%= image_tag "missing.jpg" %>
+                        <% end %>
+                        <% end %>
+                      </div>
+                      <div class="order-des">
+                        <div class="name-user"><%= (celeb.first_name if celeb.first_name.present?) + ' ' + (celeb.last_name if celeb.last_name.present?) %></div>
+                        <div class="doder-date">Order
+                          Submitted: <%= job.updated_at.month.to_s + '/' + job.updated_at.day.to_s + '/' + job.updated_at.year.to_s %></div>
+                        <div class="doder-date">Status: <%= job.status %></div>
+                        <div class="doder-date">Order Id: <%= job.customer_job_id %></div>
+                      </div>
+                      <div class="view-status-con">
+
+                          <% if job.status=="completed" %>
+                            <div class="view-btn">
+                              <a href="/celeberties/celebrity_video?jid=<%= job.id %>">
+                                <!--uid=<%#= celeb.id %>&-->
+                              <!--<a href="#" onclick="get_video('<%#= celeb.id %>','<%#= job.id %>')">-->
+                                <div class="">view Celebvidy</div>
+                              </a>
+                            </div>
+                          <% elsif job.status=="pending" || job.status=="celebrity_video_completed" || job.status=="admin_approved_job" %>
+                            <%# if job.status=="pending" || job.status=="admin_approved_job" %>
+                            <div class="view-btn" style="margin:0px 0px 2px 0px">
+                              <a href="/update-order/<%= celeb.id %>/<%= job.id %>">
+                                <div class="">Update Order</div>
+                              </a>
+                            </div>
+                                <%# end %>
+
+                            <!--<div class="view-btn">-->
+                              <!--<a href="status-pending/<%#= job.id %>" >-->
+                                <!--<div class="">view status</div>-->
+                              <!--</a>-->
+                            <!--</div>-->
+                          <% elsif job.status=="admin_rejected_job" || job.status=="celebrity_video_rejected" || job.status=="pending" %>
+                            <div class="view-btn" style="margin:0px 0px 2px 0px">
+                              <a href="/update-order/<%= celeb.id %>/<%= job.id %>">
+                                <div class="">Update Order</div>
+                              </a>
+                            </div>
+                              <div class="view-btn">
+                              <a href="" onclick="return false;">
+                                <div class="">Order Rejected</div>
+                              </a>
+                              </div>
+                          <% end %>
+
+                      </div>
+                    </div>
+                <% end %>
+            <% end %>
+            <% end %>
+            <% end %>
+        <% else %>
+            No order found!
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+  <div class="copyrightMob">2015 Celebvidy. All Rights Reserverd.</div>
+</div>
+
+
+
+
+<script>
+    function get_video(cid, jid) {
+        $.ajax({
+            url: '/celeberties/get_video?cid=' + cid + '&jid=' + jid,
+            success: function (data) {
+                $("#container").html(data)
+//                window.scroll(0, 0)
+            }
+        });
+    }
+    function view_status(cid, jid) {
+        a = "/status-pending/"+ jid
+
+        alert(a)
+        window.location.href = "/status-pending/"+ jid
+//        $.ajax({
+//            url: '/celeberties/pending_status?cid=' + cid + '&jid=' + jid,
+//            success: function (data) {
+//                $("#container").html(data)
+//                      //          window.scroll(0, 0)
+//            }
+//        });
+    }
+    function edit_job(cid, jid) {
+        alert("a")
+                window.location.href = "/update-order/"+ cid +'/'+ jid
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="warrper">-->
+<!--<div class="white-cotaner">-->
+<!--<div class="directory-page-h">Your Profile</div>-->
+<!--<h6>Email Address</h6>-->
+<!--<h6><a href="javascript:;"><%#= user.email if user.present? %></a></h6>-->
+<!--<h6>Password</h6>-->
+
+<!--<h6><a href="javascript:;" onclick="change_paw(<%#= user.id %>)">Change Password</a></h6>-->
+<!--<h6><a href="javascript:;">Change Password</a></h6>-->
+
+<!--<h2>Order Details</h2>-->
+
+<!--
+<%# jobs.each do |job| %>-->
+<!--
+<%# if job.status != "notdelivered" %>-->
+<!--
+<%# celeb = User.find_celeb(job.celebrity_id) %>-->
+<!--
+<%# if celeb.celebrity.present? && celeb.celebrity.avatar.present? %>-->
+<!--<%#= image_tag celeb.celebrity.avatar(:thumb) %>-->
+<!--
+<%# else %>-->
+<!--<%#= image_tag "missing.jpg" %>-->
+<!--
+<%# end %>-->
+<!--<br>-->
+<!--<%#= (celeb.first_name if celeb.first_name.present?) + ' ' + (celeb.last_name if celeb.last_name.present?) %>-->
+<!--<br>-->
+<!--<%#= celeb.celebrity.about_me if (celeb.celebrity.present? && celeb.celebrity.about_me.present?) %>-->
+<!--<br>-->
+<!--<b>Order-->
+<!--<h2>delivered:-->
+<!--</b>-->
+<!--</h2>-->
+<%#= job.updated_at.month.to_s + '/' + job.updated_at.day.to_s + '/' + job.updated_at.year.to_s %>
+<!--<br>-->
+<!--<b>-->
+<!--<h2>Status:</h2>-->
+<!--</h2>-->
+<!--</b>-->
+<%#= job.status %>
+<!--<br>-->
+<!--
+<%# if job.status=="completed" %>-->
+<!--<a href="javascript:;">-->
+<!--<button>View Video</button>-->
+<!--</a>-->
+<!--
+<%# else %>-->
+<!--<a href="javascript:;">-->
+<!--<button>View Status</button>-->
+<!--</a>-->
+<!--
+<%# end %>-->
+<!--<br>-->
+<!--
+<%# end %>-->
+<!--
+<%# end %>-->
+<!--</div>-->
+<!--</div>-->
+
+<script>
+
+    $(document).ready(function () {
+        $("#head_div").removeClass('bg-image4');
+        $("#head_div").addClass('bg-image3');
+
+        $(".menu-icon").click(function () {
+            $(this).next('ul').show();
+            //$('').toggle("slide", { direction: "up" }, 1000);
+        });
+    });
+
+    function change_paw(user_id) {
+        $.ajax({
+            url: '/celeberties/edit_pass?id=' + user_id,
+            success: function (data) {
+                $("#container").html(data)
+            },
+            error: function (data) {
+                alert("Some thing wrong happend.")
+            }
+        });
+    }
+</script>

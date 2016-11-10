@@ -1,0 +1,29 @@
+<div class="sginup-con">
+  <div class="logo-con login-pading"><a href="/"><img src="/assets/logo-signup.png" alt=""></a></div>
+
+  <div class="w-100">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
+        <div class="signup-form-box">
+          <label>Email Address</label>
+          <%= f.email_field :email, autofocus: true %></div>
+        <!--<input type="text" name="fname" id="fname">-->
+        </div>
+        <div class="signup-btn">
+          <%= f.submit "Reset Password" %>
+        </div>
+    <% end %>
+  </div>
+  <!--w-100 end-->
+  <div class="w-100">
+    <div class="forgot-pw-txt">
+      ENTER YOUR EMAIL AND WE'LL SEND YOU A LINK TO RESET YOUR PASSWORD.
+    </div>
+  </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#head_div").removeClass('bg-image');
+        $("#head_div").addClass('bg-image-login');
+    })
+</script>

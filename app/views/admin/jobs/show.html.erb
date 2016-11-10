@@ -1,0 +1,16 @@
+<p>
+  Title :
+  <%= @media_item.title %>
+</p>
+
+<p>
+  Description :
+  <%= @media_item.description %>
+</p>
+<p>
+  URL :
+  <%= @media_item.media_url %>
+</p>
+
+<%= link_to 'Edit Media Item', edit_media_item_path(@media_item) %> |
+<%= link_to 'Back to Media Items', media_items_path %>

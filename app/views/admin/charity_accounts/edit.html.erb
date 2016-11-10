@@ -1,0 +1,276 @@
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<div class="page-content-wrapper">
+  <div class="page-content" style="min-height:1215px">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+          User
+        </h3>
+        <ul class="page-breadcrumb breadcrumb">
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/charity_accounts">Charity Accounts</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/charity_accounts">Display All Charity Accounts</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/charity_accounts/new">Add Charity Account</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li class="pull-right">
+            <div data-original-title="Change dashboard date range" data-placement="top" class="dashboard-date-range tooltips" id="dashboard-report-range">
+              <i class="icon-calendar"></i>
+              <span></span>
+              <i class="fa fa-angle-down"></i>
+            </div>
+          </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="portlet box grey-cascade">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="fa fa-comments"></i>New Charity Account
+            </div>
+            <div class="tools">
+              <a class="collapse" href="javascript:;">
+              </a>
+              <a class="config" data-toggle="modal" href="#portlet-config">
+              </a>
+              <a class="reload" href="javascript:;">
+              </a>
+              <a class="remove" href="javascript:;">
+              </a>
+            </div>
+          </div>
+          <div class="portlet-body">
+            <%= form_for @c_account, :url => "/admin/charity_accounts/#{@c_account.id}", :html => {:method => "PATCH",:id => "update_charity_account"} do |f| %>
+                <div class="form-body">
+                  <div class="row" id="errors"></div>
+
+                  <div class="clearfix">
+                    <label>Name</label>
+                    <%= text_field_tag "name", @c_account.name.present? ? @c_account.name : "", :class => "form-control placeholder-no-fix", :placeholder => "Name" %>
+                  </div>
+                  <br>
+                  <label>Braintree Information:</label>
+                  <br>
+
+                  <div class="clearfix">
+                    <label>Email:</label>
+                    <%= text_field_tag "email", @merchant_account.present? ? @merchant_account.individual_details.email : nil, :placeholder => "Email Address", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <br>
+
+                  <!--<div class="clearfix">-->
+                    <!--<label>Date of Birth:</label>-->
+                    <!--<%#= select_date(date = Date.current, prefix: 'dob', :start_year => 1900, :end_year => Date.today.year, :class => "form-control") %>-->
+                  <!--</div>-->
+                  <!--<br>-->
+
+                  <div class="clearfix">
+                    <label>Street Address:</label>
+                    <%= text_field_tag "street_address", @merchant_account.present? ? @merchant_account.individual_details.address.street_address : nil, :placeholder => "Street Address", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="clearfix">
+                    <label>City:</label>
+                    <%= text_field_tag "city", @merchant_account.present? ? @merchant_account.individual_details.address.locality : nil, :placeholder => "City", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="clearfix">
+                    <label>State:</label>
+                    <%= text_field_tag "state", @merchant_account.present? ? @merchant_account.individual_details.address.region : nil, :placeholder => "Street Address", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="clearfix">
+                    <label>Postal Code:</label>
+                    <%= text_field_tag "postal_code", @merchant_account.present? ? @merchant_account.individual_details.address.postal_code : nil, :placeholder => "Postal Code", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="clearfix">
+                    <label>Account Number:</label>
+                    <%= text_field_tag "account_number", @merchant_account.present? ? "********" + @merchant_account.funding_details.account_number_last_4 : nil, :placeholder => "Account Number", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="clearfix">
+                    <label>Routing Number:</label>
+                    <%= text_field_tag "routing_number", @merchant_account.present? ? @merchant_account.funding_details.routing_number : nil, :placeholder => "Routing Number", :class => 'form-control placeholder-no-fix' %>
+                  </div>
+                  <div class="form-actions">
+                    <div class="z_100" id="save-btn">
+                      <!--<a class="btn blue" href="javascript:void(0)">Save</a>-->
+                      <%= f.submit "Update", :class => "btn blue" %>
+                      <!--<input type="button" value="Update" onclick="charity_submit()" class="btn green">-->
+
+                    </div>
+                    <!--<button class="btn blue" type="submit">Update</button>-->
+
+                  </div>
+
+                </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+<style>
+    body {
+        color: #000000
+    }
+</style>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#update_charity_account").validate({
+//            debug: true,
+            rules: {
+                "name": {
+                    required: true
+                },
+                "email": {
+                    required: true
+                },
+//                "dob[year]": {
+//                    required: true
+//                },
+//                "dob[month]": {
+//                    required: true
+//                },
+//                "dob[day]": {
+//                    required: true
+//                },
+                "street_address": {
+                    required: true
+                },
+                "city": {
+                    required: true
+                },
+                "state": {
+                    required: true
+                },
+                "postal_code": {
+                    required: true,
+                    number: true
+                },
+                "account_number": {
+                    required: true,
+                    number: true
+                },
+                "routing_number": {
+                    required: true,
+                    number: true
+                }
+            }
+        });
+
+//        $('#new_charity_account').submit(function () {
+//            if ($('#new_charity_account').valid() == true) {
+//                var postData = $(this).serialize();
+//                var formURL = $(this).attr("action");
+//                $.ajax({
+//                    url: formURL,
+//                    type: 'post',
+//                    data: postData,
+//                    success: function (data) {
+//                        if (data == "not") {
+//                            window.location.href = '/sign_in';
+//                        }
+//                        else {
+//                            window.location.href = '/admin/charity_accounts/index';
+//                        }
+//                    }
+//                });
+//            }
+//        });
+    });
+//    function charity_submit() {
+//        alert('a')
+//        if ($("#update_charity_account").valid() == true) {
+//            alert('b')
+//            $("#update_charity_account").submit();
+//        }
+//    }
+
+
+
+</script>
+
+<!--<script type="text/javascript">-->
+<!--//    $(document).ready(function () {-->
+<!--//-->
+<!--//        var placeholder = " ";-->
+<!--//        $("input[type=text],input[type=email],input[type=password]").focus(function () {-->
+<!--//            placeholder = $(this).attr("placeholder");-->
+<!--//            return $(this).attr("placeholder", " ");-->
+<!--//        });-->
+<!--//        $("input[type=text],input[type=email],input[type=password]").blur(function () {-->
+<!--//            if ($(this).val() === "") {-->
+<!--//                return $(this).attr("placeholder", placeholder);-->
+<!--//            }-->
+<!--//        });-->
+<!--//-->
+<!--//        $("#edit_charity_account").validate({-->
+<!--//            rules: {-->
+<!--//                "category[name]": {-->
+<!--//                    required: true-->
+<!--//                }-->
+<!--//            },-->
+<!--//            messages: {-->
+<!--//                "category[name]": {-->
+<!--//                    required: "Please provide name"-->
+<!--//                }-->
+<!--//            }-->
+<!--//        });-->
+<!--//-->
+<!--//        $("#save-btn").click(function () {-->
+<!--//            if (!$("#edit_event_type").valid()) {-->
+<!--//                return false;-->
+<!--//            } else {-->
+<!--//                $("#ajax_loader").show();-->
+<!--//                $(".shadow").show();-->
+<!--//                $("#edit_charity_account").ajaxSubmit({-->
+<!--//                    beforeSubmit: function (a, f, o) {-->
+<!--//                        o.dataType = 'json';-->
+<!--//                    },-->
+<!--//                    success: function (data) {-->
+<!--//                        if (data.success == true) {-->
+<!--//                            window.location.href = data.url-->
+<!--//                        } else {-->
+<!--//                            $("#errors").html(data.html)-->
+<!--//                            $(".shadow").hide();-->
+<!--//                            $("#ajax_loader").hide();-->
+<!--//                        }-->
+<!--//                    },-->
+<!--//                    error: function (data) {-->
+<!--//                    }-->
+<!--//                });-->
+<!--//            }-->
+<!--//-->
+<!--//        });-->
+<!--//-->
+<!--//    });-->
+<!--//-->
+<!--//-->
+<!--</script>-->
+<style>
+    .error{
+        color: #ff0000;
+    }
+</style>
+
+
+
+

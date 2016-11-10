@@ -1,0 +1,38 @@
+<div class="warrper">
+  <div class="white-cotaner roundd-borde">
+    <div class="inner-contactus" style="padding: 0 40px 40px 42px!important;border-bottom: none!important;">
+      <div class="Secure-box1">
+        <div class="payment-h">
+          <img src="/assets/contact-icon.png" alt="">
+          <span>Thank you!</span>
+
+          <div class="guarantee">We want to hear your feedback.</div>
+        </div>
+        <!--payment-h end-->
+      </div>
+      <!--Secure-box1 end-->
+    </div>
+    <!--inner-con end-->
+
+
+        <div class="inner-s" style="width: 100%;marign:0px 0px 0px 0px">
+          <div class="guarantee" style="padding: 0 4.5% 0!important;font-size: 25px">Your message has been received.</div>
+          <div class="guarantee" style="padding: 0 4.5% 0!important;font-size: 25px">A representative will get</div>
+          <div class="guarantee" style="padding: 0 4.5% 0!important;font-size: 25px">back with you shortly.</div>
+        </div>
+  </div>
+</div>
+<script>
+    $("#head_div").removeClass('bg-image4');
+    $("#head_div").addClass('bg-image3');
+
+    $(function () {
+        $('select, .select').selectric();
+
+        $('.customOptions').selectric({
+            optionsItemBuilder: function (itemData, element, index) {
+                return element.val().length ? '<span class="ico ico-' + element.val() + '"></span>' + itemData.text : itemData.text;
+            }
+        });
+    });
+</script>

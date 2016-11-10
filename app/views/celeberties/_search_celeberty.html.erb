@@ -1,0 +1,173 @@
+<div class="warrper">
+  <div class="white-cotaner" style="margin-bottom: 0px!important;">
+    <div class="directory-page-h">Celebrities on celebvidy</div>
+
+    <div class="inner-con">
+      <div class="form-container">
+        <div class="form-con">
+          <label>Search</label>
+          <input type="text" id="search_celeb" placeholder="Search"/>
+
+          <div class="search-icon">
+            <button name="searc" onclick="search_celeb()"></button>
+          </div>
+        </div>
+
+        <div class="form-con">
+          <!--<div class="select-con">-->
+            <!--<label>industry</label>-->
+
+            <!--<div class="directory">-->
+              <!--<%#= select("industry", "industry_id", Industry.all.collect { |p| [p.title, p.id] }, {include_blank: true}) %>-->
+              <!--&lt;!&ndash;<select>&ndash;&gt;-->
+              <!--&lt;!&ndash;<option selected=""></option>&ndash;&gt;-->
+              <!--&lt;!&ndash;<option value="1">1</option>&ndash;&gt;-->
+              <!--&lt;!&ndash;<option value="2">2</option>&ndash;&gt;-->
+              <!--&lt;!&ndash;<option value="3">3</option>&ndash;&gt;-->
+              <!--&lt;!&ndash;<option value="4">4</option>&ndash;&gt;-->
+              <!--&lt;!&ndash;<option value="5">5</option>&ndash;&gt;-->
+              <!--&lt;!&ndash;</select>&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="select-con">-->
+          <!--<label>Rating</label>-->
+
+          <!--<div class="directory">-->
+          <!--<select>-->
+          <!--<option selected=""></option>-->
+          <!--<option value="1">1</option>-->
+          <!--<option value="2">2</option>-->
+          <!--<option value="3">3</option>-->
+          <!--<option value="4">4</option>-->
+          <!--<option value="5">5</option>-->
+          <!--</select>-->
+          <!--</div>-->
+          <!--</div>-->
+          <!--<div class="select-con">-->
+          <!--<label>Cost</label>-->
+
+          <!--<div class="directory">-->
+          <!--<select>-->
+          <!--<option selected=""></option>-->
+          <!--<option value="1">1</option>-->
+          <!--<option value="2">2</option>-->
+          <!--<option value="3">3</option>-->
+          <!--<option value="4">4</option>-->
+          <!--<option value="5">5</option>-->
+          <!--</select>-->
+          <!--</div>-->
+          <!--</div>-->
+        </div>
+      </div>
+      <div class="w-100" id="all_celebs">
+        <%= render :partial => 'all_celebs', :locals => {:celebs => @celebs} %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="coursl">
+  <div class="crousal-con">
+    <div class="newest-h">Newest Celebrities Available For Celebvidy</div>
+    <ul id="flexiselDemo3">
+      <% if @verified.present? && @verified.size > 0 %>
+          <% @verified.each do |c| %>
+              <li>
+                <% if c.celebrity.avatar.present? %>
+                    <%= image_tag c.celebrity.avatar(:thumb), :onclick => "showw(#{c.id if c.present?})" %>
+                    <!--<%#= image_tag c.celebrity.avatar(:thumb), :onclick => "show(#{c.id if c.present?})" %>-->
+                <% else %>
+                    <%= image_tag "missing.jpg", :onclick => "showw(#{c.id if c.present?})" %>
+                <% end %></li>
+          <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<script>
+    $('#search_celeb').keyup(function (e) {
+        var code = (e.keyCode ? e.keyCode : e.which)
+//        alert(code)
+//        if (code == 13) {
+        delay(function(){
+            var name = $('#search_celeb').val();
+            search_text_a(name)
+        }, 400 );
+
+//        }
+    });
+
+    var delay = (function(){
+        var timer = 0;
+        return function(callback, ms){
+            clearTimeout (timer);
+            timer = setTimeout(callback, ms);
+        };
+    })();
+    function search_celeb() {
+        var text = $('#search_celeb').val();
+        search_text_a(text)
+
+    }
+
+    function search_text_a(text) {
+//        alert('bb')
+//        var ind = $("#industry_industry_id").val()
+        $.ajax({
+            url: '/celeberties/searching?text=' + text + '&search=search',
+            success: function (data) {
+                $("#all_celebs").html(data)
+            }
+        });
+    }
+
+    function showw(id)
+    {
+        window.location.href = '/celebrities/'+ id +''
+    }
+//    function search_text_a(text) {
+//        var ind = $("#industry_industry_id").val()
+//        $.ajax({
+//            url: 'celeberties/searching?text=' + text + '&search=search &ind=' + ind,
+//            success: function (data) {
+//                $("#all_celebs").html(data)
+//            }
+//        });
+//    }
+
+
+    $(document).ready(function () {
+        $("#search_celeb").attr("value", "<%= @text %>");
+        $("#flexiselDemo3").flexisel({
+            visibleItems: 5,
+            animationSpeed: 1000,
+            autoPlay: true,
+            autoPlaySpeed: 2000,
+            pauseOnHover: true,
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+                portrait: {
+                    changePoint: 480,
+                    visibleItems: 1
+                },
+                landscape: {
+                    changePoint: 640,
+                    visibleItems: 2
+                },
+                tablet: {
+                    changePoint: 768,
+                    visibleItems: 3
+                }
+            }
+        });
+
+    });
+
+    $(document).ready(function () {
+        $(".menu-icon").click(function () {
+            $(this).next('ul').show();
+            //$('').toggle("slide", { direction: "up" }, 1000);
+        });
+    });
+
+</script>

@@ -1,0 +1,139 @@
+<!--<h2>Sign up</h2>-->
+
+<!--<%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>-->
+<!--<%#= devise_error_messages! %>-->
+
+<!--<div class="field">-->
+<!--<%#= f.label :email %>-->
+<!--<br/>-->
+<!--<%#= f.email_field :email, autofocus: true %>-->
+<!--</div>-->
+
+<!--<div class="field">-->
+<!--<%#= f.label :password %>-->
+<!--<%# if @validatable %>-->
+<!--<em>(<%#= @minimum_password_length %> characters minimum)</em>-->
+<!--<%# end %>-->
+<!--<br/>-->
+<!--<%#= f.password_field :password, autocomplete: "off" %>-->
+<!--</div>-->
+<!--<%#= f.hidden_field :user_type, :value => "user" %>-->
+<!--<div class="field">-->
+<!--<%#= f.label :password_confirmation %>-->
+<!--<br/>-->
+<!--<%#= f.password_field :password_confirmation, autocomplete: "off" %>-->
+<!--</div>-->
+
+<!--<div class="actions">-->
+<!--<%#= f.submit "Sign up" %>-->
+<!--</div>-->
+<!--<%# end %>-->
+
+<!--<%#= render "users/shared/links" %>-->
+
+
+<div class="sginup-con">
+  <div class="logo-con"><a href="/"><img src="/assets/logo-signup.png" alt=""></a></div>
+
+  <div class="w-100">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:id => "signup_form"}) do |f| %>
+
+        <div>
+
+        </div>
+
+        <div class="signup-form-box1">
+          <label>first name</label>
+          <%= f.text_field :first_name, autofocus: "off" %>
+        </div>
+        <div class="signup-form-box1">
+          <label>Last name</label>
+          <%= f.text_field :last_name, autofocus: "off" %>
+        </div>
+
+        <div class="signup-form-box">
+          <label>Email</label>
+          <%= f.email_field :email, autofocus: "off" %>
+        </div>
+        <div class="signup-form-box">
+          <label>Password</label>
+          <%= f.password_field :password, autocomplete: "off", :id => 'confirmation' %>
+        </div>
+
+        <div class="signup-form-box">
+          <label>Confirm password</label>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+        <%= f.hidden_field :user_type, :value => "user" %>
+        <div class="signup-btn">
+          <input type="button" value="signup" onclick="signup_submit()">
+          <!--<#%= f.submit "Sign up" %>-->
+        </div>
+    <% end %>
+
+    <div class="privacy-link">
+      BY CLICKING “SIGN UP” BELOW, YOU ARE AGREEING TO THE CELEBVIDY
+      <u><a href="/terms-of-use"  target="_blank">TERMS AND CONDITIONS</a></u> AND
+      <u><a href="/privacy-policy"  target="_blank">PRIVACY
+        POLICY</a></u>
+    </div>
+    <div class="already-txt">
+      ALREADY HAVE AN ACCOUNT? <a href="/users/sign_in">CLICK HERE</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#head_div").removeClass('bg-image');
+        $("#head_div").addClass('bg-image-login');
+
+        $("#signup_form").validate({
+            rules: {
+                "user[first_name]": {
+                    required: true,
+                    maxlength: 255
+                },
+                "user[last_name]": {
+                    required: true,
+                    maxlength: 255
+                },
+                "user[email]": {
+                    required: true,
+                    email: true,
+                    maxlength: 255,
+                    remote: {
+                        url: "/celeberties/check_email?email=" + "user[email]",
+                        type: "get"
+                    }
+                },
+                "user[password]": {
+                    required: true,
+                    minlength: 8,
+                    maxlength: 255
+                },
+                "user[password_confirmation]": {
+                    required: true,
+                    minlength: 8,
+                    maxlength: 255,
+                    equalTo: "#confirmation"
+//                    equalTo: "user[password]"
+                }
+            }, messages: {
+                "user[password_confirmation]": {
+                    equalTo: "Password doesn't match..."
+                }, "user[email]": {
+                    remote: "Email already exists!"
+                }
+            }
+        });
+    });
+    function signup_submit() {
+        if ($("#signup_form").valid() == true) {
+            $("#signup_form").submit();
+        }
+    }
+</script>

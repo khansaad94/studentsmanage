@@ -1,0 +1,122 @@
+<body class="page-header-fixed page-quick-sidebar-over-content">
+<div class="page-content-wrapper">
+  <div class="page-content" style="min-height:1215px">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-12">
+            <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+            <h3 class="page-title">
+              Dashboard
+              <small>statistics and more</small>
+            </h3>
+            <ul class="page-breadcrumb breadcrumb">
+              <li>
+                <i class="fa fa-home"></i>
+                <a href="/admin/home/index">Home</a>
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <a href="/admin/home/index">Dashboard</a>
+              </li>
+              <li class="pull-right">
+                <div data-original-title="Change dashboard date range" data-placement="top" class="dashboard-date-range tooltips" id="dashboard-report-range">
+                  <i class="icon-calendar"></i>
+                  <span></span>
+                  <i class="fa fa-angle-down"></i>
+                </div>
+              </li>
+            </ul>
+            <!-- END PAGE TITLE & BREADCRUMB-->
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 go_location" location="" style="cursor: pointer;" onclick="window.location.href='/admin/users/all-users'">
+            <div class="dashboard-stat blue-madison">
+              <div class="visual">
+                <i class="fa fa-users"></i>
+              </div>
+              <div class="details">
+                <div class="number">
+                  <%= @user_count %>
+                </div>
+                <div class="desc">
+                  Total Users
+                </div>
+              </div>
+              <a href="/admin/users/all-users" class="more">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+              </a>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 go_location" location="" style="cursor: pointer;" onclick="window.location.href='/admin/celebrities/all-celebrities'">
+            <div class="dashboard-stat red-intense">
+              <div class="visual">
+                <i class="fa fa-globe"></i>
+              </div>
+              <div class="details">
+                <div class="number">
+                  <%= @celeb_count %>
+                </div>
+                <div class="desc">
+                  Total Celebrities
+                </div>
+              </div>
+              <a href="/admin/celebrities/all-celebrities" class="more">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+              </a>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 go_location" location="" style="cursor: pointer;" onclick="window.location.href='/admin/jobs/index'">
+            <div class="dashboard-stat purple-plum">
+              <div class="visual">
+                <i class="fa fa-bar-chart-o"></i>
+              </div>
+              <div class="details">
+                <div class="number">
+                  <%= @jobs = Job.all.count %>
+                </div>
+                <div class="desc">
+                  Total Jobs
+                </div>
+              </div>
+              <a href="/admin/jobs/index" class="more">
+                View more <i class="m-icon-swapright m-icon-white"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+<style>
+    body {
+        color: #000000
+    }
+</style>
+<!--<script type="text/javascript">-->
+<!--//    // Enable pusher logging - don't include this in production-->
+<!--//    Pusher.log = function(message) {-->
+<!--//        if (window.console && window.console.log) {-->
+<!--//            window.console.log(message);-->
+<!--//        }-->
+<!--//    };-->
+<!--//-->
+<!--//    var pusher = new Pusher('bec3009b3a7b43719328');-->
+
+<!--//    var channel = pusher.subscribe('direct_message');-->
+<!--//    channel.bind('direct_user_18', function(data) {-->
+<!--//        alert(data.time);-->
+<!--//    });-->
+<!--</script>-->

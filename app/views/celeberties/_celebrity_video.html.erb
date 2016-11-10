@@ -1,0 +1,58 @@
+<% job = Job.find(params[:jid]) %>
+<% user = User.find(job.celebrity_id) %>
+<div class="vidBody w">
+  <div class="warrper">
+    <div class="vidSec w">
+      <div class="ifon ">
+        <div class="vidIfram">
+          <img src="/assets/iPhone.png">
+          <% a = job.video_url if job.video_url.present? %>
+
+          <iframe width="320" height="595" src="<%= a.split("watch?v=")[0] + "/embed/" + a.split("watch?v=")[1] %>" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <p>Recorded by <%= user.full_name %> on <%= job.updated_at.strftime("%-m/%-d/%Y") %></p>
+      </div>
+      <div class="rigt ">
+        <% event = EventType.find(job.event_type_id) %>
+        <h1>Celebvidy<br> for <%= job.message_for %> (<%= event.name %>) from:</h1>
+        <div class="stev w">
+          <div class="stevImg">
+            <% if user.celebrity.present? && user.celebrity.avatar.present? %>
+                <%= image_tag user.celebrity.avatar(:thumb) %>
+            <% else %>
+                <%= image_tag "missing.jpg" %>
+            <% end %>
+          </div>
+          <div class="stevRigh">
+            <h1><%= user.full_name %></h1>
+            <p>Music</p>
+          </div>
+        </div>
+        <div class="shareFrnds w">
+          <div class="share_sec w">
+            <h2>Share with friends:</h2>
+            <div class="share_socl_med w">
+              <ul>
+                <li><a href="http://twitter.com/home?status=http://stage.celebvidy.com/celeberties/celebrity_video?jid=<%= params[:jid]%>"><img src="/assets/tw_1.png"></a></li>
+                <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://stage.celebvidy.com/celeberties/celebrity_video?jid=<%= params[:jid]%>"><img src="/assets/f_1.png"></a></li>
+                <li><a href="https://plus.google.com/share?url=http://stage.celebvidy.com/celeberties/celebrity_video?jid=<%= params[:jid]%>"><img src="/assets/g.png"><img src="/assets/g_1.png"></a></li>
+                <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http://stage.celebvidy.com/celeberties/celebrity_video?jid=<%= params[:jid]%>&title=&summary=http://stage.celebvidy.com/celeberties/celebrity_video?jid=<%= params[:jid]%>"><img src="/assets/in_1.png"></a></li>
+                <li><a href="http://www.stumbleupon.com/submit?url=http://stage.celebvidy.com/celeberties/celebrity_video?jid=<%= params[:jid]%>"><img src="/assets/ins_1.png"></a></li>
+              </ul>
+            </div>
+            <div class="share_mail w">
+              <form>
+                <input type="text" placeholder="Share Via Email">
+                <input type="submit" value="">
+              </form>
+            </div>
+          </div>
+          <div class="learnMore w">
+            <p>Order your own personalized video.</p>
+            <a href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

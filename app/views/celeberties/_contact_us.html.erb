@@ -1,0 +1,205 @@
+<div class="warrper">
+  <div class="white-cotaner roundd-borde">
+    <div class="inner-contactus">
+      <div class="Secure-box1">
+        <div class="payment-h">
+          <img src="/assets/contact-icon.png" alt="">
+          <span>Get in Touch</span>
+
+          <div class="guarantee">We want to hear your feedback.</div>
+        </div>
+        <!--payment-h end-->
+      </div>
+      <!--Secure-box1 end-->
+    </div>
+    <!--inner-con end-->
+
+
+    <div class="form-con-checkout-main">
+      <!--<form >-->
+      <%= form_tag('/celeberties/contact_mail', multipart: true, :id => "contact_form") %>
+      <div class="form-con-checkout">
+        <div class="heading">
+          By E-Mail
+        </div>
+        <!--heading end-->
+
+        <div class="form-con2">
+          <label>First Name</label>
+          <input type="text" name="first_name" id="f_name">
+        </div>
+        <!--form-con end-->
+
+        <div class="form-con2">
+          <label>Last Name</label>
+          <input type="text" name="last_name" id="l_name">
+        </div>
+        <!--form-con end-->
+
+        <div class="form-con2">
+          <label>Email Address</label>
+          <input type="email" name="email" id="e_mail">
+        </div>
+        <!--form-con end-->
+
+        <div class="w-100">
+          <div class="form-con4">
+            <label>Phone Number</label>
+            <input type="text" name="phone_number" id="p_number">
+          </div>
+          <!--form-con end-->
+
+          <div class="form-con4">
+            <label>Order Number</label>
+            <input type="text" name="order_number" id="o_number">
+          </div>
+          <!--form-con end-->
+
+
+          <div class="w-100">
+            <div class="form-con8">
+              <label>Site / App Bug</label>
+
+              <div class="checkout">
+                <%= select_tag "bug_type", options_for_select(ApplicationHelper::BUGS_TYPES) %>
+              </div>
+              <!--checkout end-->
+            </div>
+          </div>
+          <!--w-100 end-->
+
+          <div class="form-con9">
+            <label>Questions or Comments</label>
+            <textarea name="q_c" id="qORC"></textarea>
+          </div>
+          <!--form-con end-->
+
+        </div>
+        <!--w-100 end-->
+
+        <div class="w-100" onclick="send_mail()">
+          <div class="submit-btn btn-contact"><input type="button" value="Send"></div>
+        </div>
+        <!--w-100 end-->
+
+      </div>
+      <!--form-con-checkout end-->
+
+      <!--</form> -->
+
+      <%# end %>
+    </div>
+    <!--form-con-checkout-main end-->
+
+
+    <div class="message-main-con">
+      <div class="detail">
+        <div class="heading side-bar-h">By Phone:</div>
+        <div class="con-sidebar">
+          <span>1-844-304-VIDY</span>
+
+          <!--<div class="con-address">420 Sativa Road Denver, CO 89509</div>-->
+        </div>
+        <!--con-sidebar end-->
+
+        <!--<div class="con-sidebar">-->
+          <!--<span>Sales</span>-->
+
+          <!--<div class="con-address"><a href="mailto:Sales@dummy.com">sales@dummy.com</a></div>-->
+        <!--</div>-->
+        <!--con-sidebar end-->
+
+        <!--<div class="con-sidebar">-->
+          <!--<span>Customer Service</span>-->
+
+          <!--<div class="con-address"><a href="mailto:Sales@dummy.com">cs@dummy.com</a></div>-->
+        <!--</div>-->
+        <!--con-sidebar end-->
+
+        <!--<div class="con-sidebar">-->
+          <!--<span>Mailing address</span>-->
+
+          <!--<div class="con-address">P.O.Box 1253, Los Angeles, CA</div>-->
+        <!--</div>-->
+        <!--con-sidebar end-->
+
+      </div>
+      <!--detail end-->
+    </div>
+    <!--message-main-con end-->
+  </div>
+  <div class="copyrightMob">2015 Celebvidy. All Rights Reserverd.</div>
+  <!--white-cotaner end-->
+</div><!--warrperend-->
+<script>
+    $("#head_div").removeClass('bg-image4');
+    $("#head_div").addClass('bg-image3');
+
+    $(function () {
+        $('select, .select').selectric();
+
+        $('.customOptions').selectric({
+            optionsItemBuilder: function (itemData, element, index) {
+                return element.val().length ? '<span class="ico ico-' + element.val() + '"></span>' + itemData.text : itemData.text;
+            }
+        });
+    });
+
+
+    $('#contact_form').validate({
+
+        rules: {
+            "first_name": {
+                required: true,
+                maxlength: 255
+            },
+            "last_name": {
+                required: true,
+                maxlength: 255
+            },
+            "email": {
+                required: true,
+                email: true,
+                maxlength: 255
+            },
+            "phone_number": {
+                required: true,
+                number: true,
+//                minlength: 10,
+                maxlength: 255
+            },
+            "order_number": {
+                required: true
+//                ,
+//                number: true,
+//                maxlength: 10,
+//                remote: {
+//                    url: "/celeberties/check_order?" + "order_number",
+//                    type: "get"
+//                }
+            },
+            "q_c": {
+                required: true,
+                maxlength: 255
+            }
+        }
+//        , messages: {
+//            "order_number": {
+//                remote: "Order doesn't exist..."
+//            }
+//        }
+    });
+
+    function send_mail() {
+        if ($("#contact_form").valid() == true) {
+            $(".background_shadow").show();
+            $("#contact_form").submit();
+        }
+    }
+</script>
+<style>
+    .error{
+        color: #ff0000;
+    }
+</style>
+

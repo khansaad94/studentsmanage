@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Admin Dashboard</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+</head>
+<body class="login">
+<div class="logo">
+  <a href="/">
+    <img src="/assets/logo-celebvidy.png" alt="Celebvidy"/>
+  </a>
+</div>
+<div class="menu-toggler sidebar-toggler">
+</div>
+<div class="content">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <form class="login-form" action="" method="post">
+        <h3 class="form-title">Login to your account</h3>
+
+        <div class="alert alert-danger display-hide">
+          <button class="close" data-close="alert"></button>
+            <span>
+            Enter any username and password. </span>
+        </div>
+        <div class="form-group">
+          <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+          <label class="control-label visible-ie8 visible-ie9">Username</label>
+
+          <div class="input-icon">
+            <i class="fa fa-user"></i>
+            <!--<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username"/>-->
+            <%= f.email_field :email, autofocus: true, :class => "form-control placeholder-no-fix", :placeholder => "Username" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label visible-ie8 visible-ie9">Password</label>
+
+          <div class="input-icon">
+            <i class="fa fa-lock"></i>
+            <!--<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password"/>-->
+            <%= f.password_field :password, autocomplete: "off", :class => "form-control placeholder-no-fix", :placeholder => "Password" %>
+          </div>
+        </div>
+        <div class="form-actions">
+          <%= f.check_box :remember_me %> <%= f.label :remember_me %>
+          <%= f.submit "Sign in", :class => "btn green pull-right" %>
+          </br>
+          <%#= render "users/shared/links" %>
+        </div>
+
+      </form>
+  <% end %>
+</div>
+<div class="copyright">
+  Celebvidy Admin Dashboard.
+</div>
+<script>
+    jQuery(document).ready(function () {
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+        QuickSidebar.init() // init quick sidebar
+//Login.init();
+    });
+</script>
+</body>
+</html>
+<style>
+    body {
+        color: #000000
+    }
+</style>

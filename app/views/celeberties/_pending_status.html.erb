@@ -1,0 +1,42 @@
+<div class="warrper">
+  <div class="white-cotaner">
+    <div class="inner-con">
+      <div class="Secure-box1">
+        <div class="payment-h">
+          <img src="/assets/lock.png" alt="">
+          <span>Video Pending</span>
+
+          <div class="guarantee">* 100% money back guarantee</div>
+        </div>
+      </div>
+    </div>
+    <%= render :partial => '/jobs/celeb_info' %>
+    <div class="form-con-checkout-main">
+      <div class="form-con-checkout">
+        <div class="confirmation-message">Your order has been submitted successfully. You will receive an email at
+          <a href="mailto:email@address.com"><%= user.email %></a> when your video is ready.
+        </div>
+      </div>
+      <div class="confirm-detail-con">
+        <div class="view-order-submit">This celebrity takes 8 days on average to complete a Celebvidy.</div>
+        <div class="view-order-submit">Your order was submitted
+          on <%= job.updated_at.month.to_s + '/' + job.updated_at.day.to_s + '/' + job.updated_at.year.to_s %>.
+        </div>
+        <div class="view-order-submit">You should expect your order by 2 days before your deadline.</div>
+        <!--<div class="view-order-submit">You will receive a full refund if your order is not completed within 20 days.-->
+        <!--</div>-->
+      </div>
+    </div>
+    <div class="message-main-con">
+      <div class="detail">
+        <div class="heading">Celebvidy Message Details</div>
+        <div class="message">Recipient: <span><%= job.message_for if job.message_for.present? %></span></div>
+        <div class="message">Gift: <span><%= job.is_gift ? 'Yes' : 'No' %></span></div>
+        <div class="message">Message Type: <span><%= job.event_type.name %></span></div>
+        <div class="message">Message Details:</div>
+        <div class="message"><span  style="line-height: 22px;word-wrap: break-word;"><%= job.message_details %></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="copyrightMob">2015 Celebvidy. All Rights Reserverd.</div>
+</div>

@@ -1,0 +1,87 @@
+<%= javascript_include_tag 'swfobject' %>
+<%= jwplayer_assets %>
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<div class="page-content-wrapper">
+  <div class="page-content" style="min-height:1215px">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+          User
+        </h3>
+        <ul class="page-breadcrumb breadcrumb">
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/users/all_users">Job</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <a href="/admin/users/new">Completed Job</a>
+          </li>
+          <li class="pull-right">
+            <div data-original-title="Change dashboard date range" data-placement="top" class="dashboard-date-range tooltips" id="dashboard-report-range">
+              <i class="icon-calendar"></i>
+              <span></span>
+              <i class="fa fa-angle-down"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+
+        <div class="portlet box grey-cascade">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="fa fa-comments"></i>Completed Job
+            </div>
+            <div class="tools">
+              <a class="collapse" href="javascript:;">
+              </a>
+            </div>
+          </div>
+          <div class="portlet-body">
+
+            <div class="clearfix">
+              <label>Job Created by</label>
+              <input type="text" value="<%= @job.user.first_name + ' ' + @job.user.last_name %>" class="form-control placeholder-no-fix" readonly="true"/>
+            </div>
+            <div class="clearfix">
+              <label>Celebrity Name</label>
+              <input type="text" value="<%= @job.celebrity.user.first_name + ' ' + @job.celebrity.user.last_name %>" class="form-control placeholder-no-fix" readonly="true"/>
+            </div>
+            <div class=" clearfix">
+              <label>Message for</label>
+              <input type="text" value="<%= @job.message_for %>" class="form-control placeholder-no-fix" readonly="true"/>
+            </div>
+            <div class="clearfix">
+              <label>Profile Picture:</label>
+
+              <div style="padding: 2px;">
+                <%= video_player({:file => @job.video.url, :image => "/video/pf2011.jpg"}, {:id => "pf2011_video_merchant", :class => "abcd"}) %>
+                <!--<video controls width="415" height="300">-->
+                <!--<source src="<%#= @job.video.url %>" type="video/mp4"/>-->
+                <!--<object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="640" height="360">-->
+                <!--<param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf"/>-->
+                <!--<param name="allowFullScreen" value="true"/>-->
+                <!--<param name="wmode" value="transparent"/>-->
+                <!--<param name="flashvars" value='config={"clip":{"url":"HTML5Sample_flv.flv","autoPlay":false,"autoBuffering":true}}'/>-->
+                <!--</object>-->
+                <!--</video>-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+    .abcd {
+        width: 320px;
+        height: 300px;
+    }
+</style>
+</body>

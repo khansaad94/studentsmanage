@@ -1,0 +1,333 @@
+# Logfile created on 2015-11-25 18:04:38 +0500 by logger.rb/47272
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Starting the New Relic agent in "development" environment.
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/celebvidy)
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : New Relic Agent Developer Mode enabled.
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Environment: development
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : No known dispatcher detected.
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Application: My Application (Development)
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Installing Net instrumentation
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Installing Curb instrumentation
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Installing deferred Rack instrumentation
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Installing HTTPClient instrumentation
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] ERROR : Error while installing active_record_4 instrumentation:
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] ERROR : ActiveRecord::AdapterNotSpecified: 'development' database is not configured. Available: ["production"]
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Installing Rails 4 view instrumentation
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Installing Rails 4 Controller instrumentation
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Installing Rails 4 Error instrumentation
+[2015-11-25 18:04:38 +0500 tahir-Lenovo-V570c (9274)] INFO : Finished instrumentation
+[2015-11-25 18:04:43 +0500 tahir-Lenovo-V570c (9274)] INFO : Reporting to: https://rpm.newrelic.com/accounts/349253/applications/17377078
+[2015-11-25 18:12:30 +0500 tahir-Lenovo-V570c (9274)] INFO : Starting Agent shutdown
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Starting the New Relic agent in "development" environment.
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/celebvidy)
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : New Relic Agent Developer Mode enabled.
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Environment: development
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : No known dispatcher detected.
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Application: My Application (Development)
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Installing Net instrumentation
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Installing Curb instrumentation
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Installing deferred Rack instrumentation
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Installing HTTPClient instrumentation
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] ERROR : Error while installing active_record_4 instrumentation:
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] ERROR : ActiveRecord::AdapterNotSpecified: 'development' database is not configured. Available: ["production"]
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Installing Rails 4 view instrumentation
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Installing Rails 4 Controller instrumentation
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Installing Rails 4 Error instrumentation
+[2015-11-25 18:12:33 +0500 tahir-Lenovo-V570c (9504)] INFO : Finished instrumentation
+[2015-11-25 18:12:39 +0500 tahir-Lenovo-V570c (9504)] INFO : Reporting to: https://rpm.newrelic.com/accounts/349253/applications/17377078
+[2015-11-25 19:33:55 +0500 tahir-Lenovo-V570c (9504)] ERROR : 1 error(s) running task for event 'report_event_data' in Agent Event Loop:
+[2015-11-25 19:33:55 +0500 tahir-Lenovo-V570c (9504)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-102.newrelic.com:443 after 0.001003695 seconds: getaddrinfo: Name or service not known
+[2015-11-25 19:34:55 +0500 tahir-Lenovo-V570c (9504)] ERROR : 1 error(s) running task for event 'report_data' in Agent Event Loop:
+[2015-11-25 19:34:55 +0500 tahir-Lenovo-V570c (9504)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-102.newrelic.com:443 after 0.00179449 seconds: getaddrinfo: Name or service not known
+[2015-11-25 19:34:55 +0500 tahir-Lenovo-V570c (9504)] ERROR : 1 error(s) running task for event 'report_event_data' in Agent Event Loop:
+[2015-11-25 19:34:56 +0500 tahir-Lenovo-V570c (9504)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-102.newrelic.com:443 after 0.001436472 seconds: getaddrinfo: Name or service not known
+[2015-11-25 19:35:56 +0500 tahir-Lenovo-V570c (9504)] ERROR : 1 error(s) running task for event 'report_data' in Agent Event Loop:
+[2015-11-25 19:35:56 +0500 tahir-Lenovo-V570c (9504)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-102.newrelic.com:443 after 0.001748801 seconds: getaddrinfo: Name or service not known
+[2015-11-25 19:35:56 +0500 tahir-Lenovo-V570c (9504)] ERROR : 1 error(s) running task for event 'report_event_data' in Agent Event Loop:
+[2015-11-25 19:35:56 +0500 tahir-Lenovo-V570c (9504)] ERROR : NewRelic::Agent::ServerConnectionException: Recoverable error connecting to collector-102.newrelic.com:443 after 0.001125772 seconds: getaddrinfo: Name or service not known
+[2015-12-01 15:11:30 +0500 tahir-Lenovo-V570c (5917)] INFO : Starting the New Relic agent in "development" environment.
+[2015-12-01 15:11:30 +0500 tahir-Lenovo-V570c (5917)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-12-01 15:11:30 +0500 tahir-Lenovo-V570c (5917)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/celebvidy)
+[2015-12-01 15:11:30 +0500 tahir-Lenovo-V570c (5917)] INFO : New Relic Agent Developer Mode enabled.
+[2015-12-01 15:11:30 +0500 tahir-Lenovo-V570c (5917)] INFO : Environment: development
+[2015-12-01 15:11:30 +0500 tahir-Lenovo-V570c (5917)] INFO : Dispatcher: webrick
+[2015-12-01 15:11:30 +0500 tahir-Lenovo-V570c (5917)] INFO : Application: My Application (Development)
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Installing Net instrumentation
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Installing Curb instrumentation
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Installing deferred Rack instrumentation
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Installing HTTPClient instrumentation
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] ERROR : Error while installing active_record_4 instrumentation:
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] ERROR : ActiveRecord::AdapterNotSpecified: 'development' database is not configured. Available: ["production"]
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Installing Rails 4 view instrumentation
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Installing Rails 4 Controller instrumentation
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Installing Rails 4 Error instrumentation
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Finished instrumentation
+[2015-12-01 15:11:32 +0500 tahir-Lenovo-V570c (5917)] INFO : Starting Agent shutdown
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Starting the New Relic agent in "development" environment.
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/celebvidy)
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : New Relic Agent Developer Mode enabled.
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Environment: development
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Dispatcher: webrick
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Application: My Application (Development)
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Installing Net instrumentation
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Installing Curb instrumentation
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Installing deferred Rack instrumentation
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Installing HTTPClient instrumentation
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] ERROR : Error while installing active_record_4 instrumentation:
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] ERROR : ActiveRecord::AdapterNotSpecified: 'development' database is not configured. Available: ["production"]
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Installing Rails 4 view instrumentation
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Installing Rails 4 Controller instrumentation
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Installing Rails 4 Error instrumentation
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Finished instrumentation
+[2015-12-01 15:12:09 +0500 tahir-Lenovo-V570c (5957)] INFO : Starting Agent shutdown
+[2015-12-01 15:12:46 +0500 tahir-Lenovo-V570c (5986)] INFO : Starting the New Relic agent in "development" environment.
+[2015-12-01 15:12:46 +0500 tahir-Lenovo-V570c (5986)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-12-01 15:12:46 +0500 tahir-Lenovo-V570c (5986)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/celebvidy)
+[2015-12-01 15:12:46 +0500 tahir-Lenovo-V570c (5986)] INFO : New Relic Agent Developer Mode enabled.
+[2015-12-01 15:12:46 +0500 tahir-Lenovo-V570c (5986)] INFO : Environment: development
+[2015-12-01 15:12:46 +0500 tahir-Lenovo-V570c (5986)] INFO : Dispatcher: webrick
+[2015-12-01 15:12:46 +0500 tahir-Lenovo-V570c (5986)] INFO : Application: My Application (Development)
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Installing Net instrumentation
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Installing Curb instrumentation
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Installing deferred Rack instrumentation
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Installing HTTPClient instrumentation
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] ERROR : Error while installing active_record_4 instrumentation:
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] ERROR : ActiveRecord::AdapterNotSpecified: 'development' database is not configured. Available: ["production"]
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Installing Rails 4 view instrumentation
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Installing Rails 4 Controller instrumentation
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Installing Rails 4 Error instrumentation
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Finished instrumentation
+[2015-12-01 15:12:47 +0500 tahir-Lenovo-V570c (5986)] INFO : Starting Agent shutdown
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Starting the New Relic agent in "development" environment.
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/celebvidy)
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : New Relic Agent Developer Mode enabled.
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Environment: development
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Dispatcher: webrick
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Application: My Application (Development)
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Installing Net instrumentation
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Installing Curb instrumentation
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Installing deferred Rack instrumentation
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Installing HTTPClient instrumentation
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] ERROR : Error while installing active_record_4 instrumentation:
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] ERROR : ActiveRecord::AdapterNotSpecified: 'development' database is not configured. Available: ["production"]
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Installing Rails 4 view instrumentation
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Installing Rails 4 Controller instrumentation
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Installing Rails 4 Error instrumentation
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Finished instrumentation
+[2015-12-01 15:13:23 +0500 tahir-Lenovo-V570c (6000)] INFO : Starting Agent shutdown
+[2015-12-01 15:15:02 +0500 tahir-Lenovo-V570c (6049)] INFO : Starting the New Relic agent in "development" environment.
+[2015-12-01 15:15:02 +0500 tahir-Lenovo-V570c (6049)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-12-01 15:15:02 +0500 tahir-Lenovo-V570c (6049)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/celebvidy)
+[2015-12-01 15:15:02 +0500 tahir-Lenovo-V570c (6049)] INFO : New Relic Agent Developer Mode enabled.
+[2015-12-01 15:15:02 +0500 tahir-Lenovo-V570c (6049)] INFO : Environment: development
+[2015-12-01 15:15:02 +0500 tahir-Lenovo-V570c (6049)] INFO : Dispatcher: webrick
+[2015-12-01 15:15:02 +0500 tahir-Lenovo-V570c (6049)] INFO : Application: My Application (Development)
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Installing Net instrumentation
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Installing Curb instrumentation
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Installing deferred Rack instrumentation
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Installing HTTPClient instrumentation
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Installing Rails 4 view instrumentation
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Installing Rails 4 Controller instrumentation
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Installing Rails 4 Error instrumentation
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Finished instrumentation
+[2015-12-01 15:15:03 +0500 tahir-Lenovo-V570c (6049)] INFO : Doing deferred dependency-detection before Rack startup
+[2015-12-01 15:15:15 +0500 tahir-Lenovo-V570c (6049)] INFO : Reporting to: https://rpm.newrelic.com/accounts/349253/applications/17377078
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Starting the New Relic agent in "development" environment.
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/celebvidy)
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : New Relic Agent Developer Mode enabled.
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Environment: development
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : No known dispatcher detected.
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Application: My Application (Development)
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Installing Net instrumentation
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Installing Curb instrumentation
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Installing deferred Rack instrumentation
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Installing HTTPClient instrumentation
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Installing Rails 4 view instrumentation
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Installing Rails 4 Controller instrumentation
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Installing Rails 4 Error instrumentation
+[2015-12-01 15:30:39 +0500 tahir-Lenovo-V570c (6540)] INFO : Finished instrumentation
+[2015-12-01 15:30:42 +0500 tahir-Lenovo-V570c (6540)] INFO : Reporting to: https://rpm.newrelic.com/accounts/349253/applications/17377078
+[2015-12-01 16:46:09 +0500 tahir-Lenovo-V570c (6549)] INFO : Starting Agent shutdown
+[2015-12-01 16:46:09 +0500 tahir-Lenovo-V570c (6540)] INFO : Starting Agent shutdown
+[2015-12-01 16:46:12 +0500 tahir-Lenovo-V570c (6049)] INFO : Starting Agent shutdown
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Starting the New Relic agent in "development" environment.
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/celebvidy)
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : New Relic Agent Developer Mode enabled.
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Environment: development
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Dispatcher: webrick
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Application: My Application (Development)
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Installing Net instrumentation
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Installing Curb instrumentation
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Installing deferred Rack instrumentation
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Installing HTTPClient instrumentation
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Installing Rails 4 view instrumentation
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Installing Rails 4 Controller instrumentation
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Installing Rails 4 Error instrumentation
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Finished instrumentation
+[2015-12-01 17:16:45 +0500 tahir-Lenovo-V570c (9501)] INFO : Doing deferred dependency-detection before Rack startup
+[2015-12-01 17:16:49 +0500 tahir-Lenovo-V570c (9501)] INFO : Reporting to: https://rpm.newrelic.com/accounts/349253/applications/17377078
+[2015-12-01 22:03:42 +0500 tahir-Lenovo-V570c (9501)] INFO : Starting Agent shutdown
+[2015-12-10 15:10:20 +0500 tahir-Lenovo-V570c (9334)] INFO : Starting the New Relic agent in "development" environment.
+[2015-12-10 15:10:20 +0500 tahir-Lenovo-V570c (9334)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2015-12-10 15:10:20 +0500 tahir-Lenovo-V570c (9334)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/celebvidy)
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : New Relic Agent Developer Mode enabled.
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Environment: development
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : No known dispatcher detected.
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Application: My Application (Development)
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Installing Net instrumentation
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Installing Curb instrumentation
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Installing deferred Rack instrumentation
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Installing Rack::Builder middleware instrumentation
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Installing HTTPClient instrumentation
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Installing Rails 3+ middleware instrumentation
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Installing ActiveRecord 4 instrumentation
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Installing Rails 4 view instrumentation
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Installing Rails 4 Controller instrumentation
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Installing Rails 4 Error instrumentation
+[2015-12-10 15:10:21 +0500 tahir-Lenovo-V570c (9334)] INFO : Finished instrumentation
+[2015-12-10 15:10:22 +0500 tahir-Lenovo-V570c (9344)] INFO : Starting Agent shutdown
+[2015-12-10 15:10:24 +0500 tahir-Lenovo-V570c (9334)] INFO : Reporting to: https://rpm.newrelic.com/accounts/349253/applications/17377078
+[2015-12-10 15:11:08 +0500 tahir-Lenovo-V570c (9369)] INFO : Starting Agent shutdown
+[2015-12-10 15:12:01 +0500 tahir-Lenovo-V570c (9392)] INFO : Starting Agent shutdown
+[2015-12-10 15:12:34 +0500 tahir-Lenovo-V570c (9410)] INFO : Starting Agent shutdown
+[2015-12-10 15:12:49 +0500 tahir-Lenovo-V570c (9334)] INFO : Starting Agent shutdown
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Starting the New Relic agent in "development" environment.
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/tahir data/celebvidy)
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : New Relic Agent Developer Mode enabled.
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Environment: development
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Dispatcher: webrick
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Application: My Application (Development)
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Installing Rails 3+ middleware instrumentation
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Installing HTTPClient instrumentation
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Installing deferred Rack instrumentation
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Installing Rack::Builder middleware instrumentation
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Installing ActiveRecord 4 instrumentation
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Installing Curb instrumentation
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Installing Net instrumentation
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Installing Rails 4 Error instrumentation
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Installing Rails 4 view instrumentation
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Installing Rails 4 Controller instrumentation
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Finished instrumentation
+[2016-11-09 23:06:49 +0500 tahir-Inspiron-5559 (5862)] INFO : Doing deferred dependency-detection before Rack startup
+[2016-11-09 23:06:54 +0500 tahir-Inspiron-5559 (5862)] INFO : Reporting to: https://rpm.newrelic.com/accounts/349253/applications/17377078
+[2016-11-09 23:07:07 +0500 tahir-Inspiron-5559 (5862)] INFO : Starting Agent shutdown
+[2016-11-09 23:08:32 +0500 tahir-Inspiron-5559 (5939)] INFO : Starting the New Relic agent in "development" environment.
+[2016-11-09 23:08:32 +0500 tahir-Inspiron-5559 (5939)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2016-11-09 23:08:32 +0500 tahir-Inspiron-5559 (5939)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/tahir data/celebvidy)
+[2016-11-09 23:08:32 +0500 tahir-Inspiron-5559 (5939)] INFO : New Relic Agent Developer Mode enabled.
+[2016-11-09 23:08:32 +0500 tahir-Inspiron-5559 (5939)] INFO : Environment: development
+[2016-11-09 23:08:32 +0500 tahir-Inspiron-5559 (5939)] INFO : Dispatcher: webrick
+[2016-11-09 23:08:32 +0500 tahir-Inspiron-5559 (5939)] INFO : Application: My Application (Development)
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Installing Rails 3+ middleware instrumentation
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Installing HTTPClient instrumentation
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Installing deferred Rack instrumentation
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Installing Rack::Builder middleware instrumentation
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Installing ActiveRecord 4 instrumentation
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Installing Curb instrumentation
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Installing Net instrumentation
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Installing Rails 4 Error instrumentation
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Installing Rails 4 view instrumentation
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Installing Rails 4 Controller instrumentation
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Finished instrumentation
+[2016-11-09 23:08:33 +0500 tahir-Inspiron-5559 (5939)] INFO : Doing deferred dependency-detection before Rack startup
+[2016-11-09 23:08:37 +0500 tahir-Inspiron-5559 (5939)] INFO : Reporting to: https://rpm.newrelic.com/accounts/349253/applications/17377078
+[2016-11-09 23:09:37 +0500 tahir-Inspiron-5559 (5939)] INFO : Starting Agent shutdown
+[2016-11-09 23:09:41 +0500 tahir-Inspiron-5559 (5939)] INFO : Unable to send metric_data data, will try again later. Error: 
+[2016-11-09 23:09:41 +0500 tahir-Inspiron-5559 (5939)] INFO : IOError: closed stream
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : Starting the New Relic agent in "development" environment.
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/tahir data/celebvidy)
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : New Relic Agent Developer Mode enabled.
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : Environment: development
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : Dispatcher: webrick
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : Application: My Application (Development)
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : Installing Rails 3+ middleware instrumentation
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : Installing HTTPClient instrumentation
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : Installing deferred Rack instrumentation
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : Installing Rack::Builder middleware instrumentation
+[2016-11-09 23:10:15 +0500 tahir-Inspiron-5559 (6003)] INFO : Installing ActiveRecord 4 instrumentation
+[2016-11-09 23:10:16 +0500 tahir-Inspiron-5559 (6003)] INFO : Installing Curb instrumentation
+[2016-11-09 23:10:16 +0500 tahir-Inspiron-5559 (6003)] INFO : Installing Net instrumentation
+[2016-11-09 23:10:16 +0500 tahir-Inspiron-5559 (6003)] INFO : Installing Rails 4 Error instrumentation
+[2016-11-09 23:10:16 +0500 tahir-Inspiron-5559 (6003)] INFO : Installing Rails 4 view instrumentation
+[2016-11-09 23:10:16 +0500 tahir-Inspiron-5559 (6003)] INFO : Installing Rails 4 Controller instrumentation
+[2016-11-09 23:10:16 +0500 tahir-Inspiron-5559 (6003)] INFO : Finished instrumentation
+[2016-11-09 23:10:16 +0500 tahir-Inspiron-5559 (6003)] INFO : Doing deferred dependency-detection before Rack startup
+[2016-11-09 23:10:20 +0500 tahir-Inspiron-5559 (6003)] INFO : Reporting to: https://rpm.newrelic.com/accounts/349253/applications/17377078
+[2016-11-09 23:10:37 +0500 tahir-Inspiron-5559 (6003)] INFO : Starting Agent shutdown
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Starting the New Relic agent in "development" environment.
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/tahir data/celebvidy)
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : New Relic Agent Developer Mode enabled.
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Environment: development
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Dispatcher: webrick
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Application: My Application (Development)
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Installing Rails 3+ middleware instrumentation
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Installing HTTPClient instrumentation
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Installing deferred Rack instrumentation
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Installing Rack::Builder middleware instrumentation
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Installing ActiveRecord 4 instrumentation
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Installing Curb instrumentation
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Installing Net instrumentation
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Installing Rails 4 Error instrumentation
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Installing Rails 4 view instrumentation
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Installing Rails 4 Controller instrumentation
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Finished instrumentation
+[2016-11-09 23:12:05 +0500 tahir-Inspiron-5559 (6062)] INFO : Doing deferred dependency-detection before Rack startup
+[2016-11-09 23:12:10 +0500 tahir-Inspiron-5559 (6062)] INFO : Reporting to: https://rpm.newrelic.com/accounts/349253/applications/17377078
+[2016-11-09 23:12:34 +0500 tahir-Inspiron-5559 (6062)] INFO : Starting Agent shutdown
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Starting the New Relic agent in "development" environment.
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Reading configuration from config/newrelic.yml (/home/tahir/tahir_work/tahir data/celebvidy)
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : New Relic Agent Developer Mode enabled.
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Environment: development
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Dispatcher: webrick
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Application: My Application (Development)
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Installing Rails 3+ middleware instrumentation
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Installing HTTPClient instrumentation
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Installing deferred Rack instrumentation
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Installing Rack::Builder middleware instrumentation
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Installing ActiveRecord 4 instrumentation
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Installing Curb instrumentation
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Installing Net instrumentation
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Installing Rails 4 Error instrumentation
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Installing Rails 4 view instrumentation
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Installing Rails 4 Controller instrumentation
+[2016-11-09 23:15:25 +0500 tahir-Inspiron-5559 (6118)] INFO : Finished instrumentation
+[2016-11-09 23:15:26 +0500 tahir-Inspiron-5559 (6118)] INFO : Doing deferred dependency-detection before Rack startup
+[2016-11-09 23:15:31 +0500 tahir-Inspiron-5559 (6118)] INFO : Reporting to: https://rpm.newrelic.com/accounts/349253/applications/17377078
+[2016-11-09 23:19:52 +0500 tahir-Inspiron-5559 (6118)] WARN : Skipping RUM instrumentation. Unable to find <body> tag in first 50000 bytes of document.
+[2016-11-10 00:22:34 +0500 tahir-Inspiron-5559 (6118)] INFO : Starting Agent shutdown

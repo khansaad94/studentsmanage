@@ -1,0 +1,376 @@
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<div class="page-content-wrapper">
+<div class="page-content" style="min-height:1215px">
+
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+    <!--<h3 class="page-title">-->
+    <!--Users-->
+    <!--</h3>-->
+    <ul class="page-breadcrumb breadcrumb">
+      <li>
+        <i class="fa fa-home"></i>
+        <a href="/admin/jobs/index">New Jobs/Approved Jobs/Completed jobs/Rejected jobs</a>
+        <i class="fa fa-angle-right"></i>
+      </li>
+      <li>
+        <i class="fa fa-home"></i>
+        <a href="/admin/jobs/celebrity-completed-jobs">Display Completed Jobs From Celebrities</a>
+        <i class="fa fa-angle-right"></i>
+      </li>
+      <li>
+        <!--<a href="/admin/jobs/index">All Jobs</a>-->
+      </li>
+      <li class="pull-right">
+        <div data-original-title="Change dashboard date range" data-placement="top" class="dashboard-date-range tooltips" id="dashboard-report-range">
+          <i class="icon-calendar"></i>
+          <span></span>
+          <i class="fa fa-angle-down"></i>
+        </div>
+      </li>
+    </ul>
+    <!-- END PAGE TITLE & BREADCRUMB-->
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <!-- BEGIN EXAMPLE TABLE PORTLET-->
+    <div class="portlet box grey-cascade">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="fa fa-globe"></i> Jobs Completed From Celebrities
+        </div>
+        <div class="tools">
+          <a class="collapse" href="javascript:;">
+          </a>
+          <a class="config" data-toggle="modal" href="#portlet-config">
+          </a>
+          <a class="reload" href="javascript:;">
+          </a>
+          <a class="remove" href="javascript:;">
+          </a>
+        </div>
+      </div>
+      <div class="portlet-body">
+        <div class="table-toolbar">
+          <div class="btn-group">
+            <%#= link_to "Create New Job", new_admin_jobs_path, :class => "btn green" %>
+
+          </div>
+
+        </div>
+        <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
+          <!--<div class="table-scrollable">-->
+          <table id="sample_1" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample_1_info">
+            <thead>
+            <tr role="row">
+              <th>
+                #
+              </th>
+              <th class="sorting_asc" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 143px;" aria-sort="ascending" aria-label="Username: activate to sort column ascending">
+                Request From
+              </th>
+              <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                Celebrity Name
+              </th>
+              <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 91px;" aria-label="Points">
+                Event Type
+              </th>
+              <th class="sorting_disabled" rowspan="1" colspan="1" style="" aria-label="Points">
+                Message Details
+              </th>
+              <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 91px;" aria-label="Points">
+                Customer JobID
+              </th>
+              <!--<th class="sorting_disabled" rowspan="1" colspan="1" style="width: 91px;" aria-label="Points">-->
+              <!--Deadline-->
+              <!--</th>-->
+              <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Joined: activate to sort column ascending">
+                Created
+              </th>
+              <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Joined: activate to sort column ascending">
+                Approve
+              </th>
+              <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Joined: activate to sort column ascending">
+                Reject
+              </th>
+              <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Joined: activate to sort column ascending">
+                View Video
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @celebrity_completed_jobs.each_with_index do |job, index| %>
+                <tr class="">
+                  <td>
+                    <%= index+1 %>
+                  </td>
+                  <td>
+                    <%#= job.user.inspect  %>
+                    <% if job.user.present? && job.user.first_name.present? && job.user.last_name.present? %>
+                    <%= job.user.present? ? job.user.first_name : "" + ' ' + job.user.present? ? job.user.last_name : "" %>
+                        <% end %>
+                        </td>
+                  <td>
+                    <%= get_celebrity_name(job.celebrity_id) %>
+                  </td>
+                  <td>
+                    <%= job.event_type.name %>
+                  </td>
+                  <td >
+                    <%= job.message_details %>
+                  </td>
+                  <td>
+                    <%= job.customer_job_id %>
+                  </td>
+                  <!--<td>-->
+                  <!--<%#= job.deadline %>-->
+                  <!--</td>-->
+                  <td>
+                    <%= job.created_at.strftime("%-m/%-d/%Y") %>
+                  </td>
+                  <td>
+                    <a class="btn btn-sm green" onclick="approve_video_by_admin('<%= job.id %>')">
+                      Approve
+                    </a>
+                  </td>
+                  <td>
+                    <a class="btn btn-sm red" onclick="reject_video_by_admin('<%= job.id %>')">
+                      Reject
+                    </a>
+                  </td>
+                  <td>
+                    <a href="<%= job.video_url %>" target="_blank" class="btn btn-sm red" >
+                      View Video
+                    </a>
+                  </td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <!--</div>-->
+        </div>
+      </div>
+    </div>
+    <!-- END EXAMPLE TABLE PORTLET-->
+  </div>
+</div>
+
+
+
+
+
+</div>
+</div>
+</body>
+<script>
+    var table = $('#sample_2');
+
+    // begin first table
+    table.dataTable({
+        "columns": [
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": false
+            },
+            {
+                "orderable": false
+            },
+            {
+                "orderable": false
+            },
+            {
+                "orderable": false
+            }
+        ],
+        "lengthMenu": [
+            [5, 10, 15, 20, -1],
+            [5, 10, 15, 20, "All"] // change per page values here
+        ],
+        // set the initial value
+        "pageLength": 10,
+        "pagingType": "bootstrap_full_number",
+        "language": {
+            "lengthMenu": "_MENU_ records",
+            "paginate": {
+                "previous": "Prev",
+                "next": "Next",
+                "last": "Last",
+                "first": "First"
+            }
+        },
+        "columnDefs": [
+            {  // set default column settings
+                'orderable': false,
+                'targets': [0]
+            },
+            {
+                "searchable": false,
+                "targets": [0]
+            }
+        ],
+        "order": [
+            [1, "asc"]
+        ] // set first column as a default sort by asc
+    });
+    var table = $('#sample_1');
+
+    // begin first table
+    table.dataTable({
+        "columns": [
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": false
+            },
+            {
+                "orderable": false
+            },
+            {
+                "orderable": false
+            },
+            {
+                "orderable": false
+            }
+        ],
+        "lengthMenu": [
+            [5, 10, 15, 20, -1],
+            [5, 10, 15, 20, "All"] // change per page values here
+        ],
+        // set the initial value
+        "pageLength": 10,
+        "pagingType": "bootstrap_full_number",
+        "language": {
+            "lengthMenu": "_MENU_ records",
+            "paginate": {
+                "previous": "Prev",
+                "next": "Next",
+                "last": "Last",
+                "first": "First"
+            }
+        },
+        "columnDefs": [
+            {  // set default column settings
+                'orderable': false,
+                'targets': [0]
+            },
+            {
+                "searchable": false,
+                "targets": [0]
+            }
+        ],
+        "order": [
+            [1, "asc"]
+        ] // set first column as a default sort by asc
+    });
+
+        function active_deactive_user(id) {
+            apprise("Are you sure you want to change celebrity status?", {'confirm': true}, function (r) {
+                if (r) {
+                    $.ajax({
+                        type: 'get',
+                        dataType: 'html',
+                        processData: false,
+                        url: '/admin/celebrities/active_deactive_celebrity?id=' + id,
+                        success: function (data) {
+                            if (data == "") {
+
+                            }
+                            else {
+                                window.location.reload()
+                            }
+                        },
+                        error: function (data) {
+                        }
+                    })
+                }
+            })
+        }
+    function approve_video_by_admin(job_id){
+        apprise("Are you sure you want to Approve video", {'confirm': true}, function (r) {
+            if (r) {
+        $.ajax({
+            type: 'get',
+            dataType: 'html',
+            processData: false,
+            url: '/admin/jobs/approve_video_by_admin?id=' + job_id,
+            success: function (data) {
+                if (data == "") {
+
+                }
+                else {
+                    window.location.reload()
+                }
+            },
+            error: function (data) {
+            }
+        })
+
+            }
+        })
+    }
+    function reject_video_by_admin(job_id){
+        apprise("Are you sure you want to Reject video", {'confirm': true}, function (r) {
+            if (r) {
+                $.ajax({
+                    type: 'get',
+                    dataType: 'html',
+                    processData: false,
+                    url: '/admin/jobs/reject_video_by_admin?id=' + job_id,
+                    success: function (data) {
+                        if (data == "") {
+
+                        }
+                        else {
+                            window.location.reload()
+                        }
+                    },
+                    error: function (data) {
+                    }
+                })
+
+            }
+        })
+
+    }
+</script>
+
+
+
+

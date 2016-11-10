@@ -1,0 +1,125 @@
+<div class="warrper">
+  <div class="w-100">
+    <div class="page-titel2">Secure Checkout</div>
+  </div>
+  <div class="white-cotaner" style="margin-bottom: 0px!important;">
+    <div class="inner-con">
+      <div class="Secure-box1">
+        <div class="payment-h">
+          <img src="/assets/lock.png" alt="">
+          <span>You're Not Done Yet!</span>
+
+          <div class="guarantee">Press the Submit Order Button to finalize your purchase.</div>
+        </div>
+        <!--payment-h end-->
+      </div>
+      <!--Secure-box1 end-->
+    </div>
+    <!--inner-con end-->
+
+    <%= render :partial => 'celeb_info', :locals => {:@celeb => celeb} %>
+    <!--user-left-bar-con end-->
+
+    <div class="form-con-checkout-main">
+      <div class="confirm-detail-con">
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae ligula varius, ultricies diam sed,-->
+          <!--elementum massa. Vivamus eget sapien ut quam lacinia blandit a sit amet ex. Donec aliquet tellus at semper-->
+          <!--bibendum. Sed ornare ante turpis, vel tempor ligula consequat non.</p>-->
+
+        <!--<p>Curabitur condimentum, turpis malesuada porta condimentum, urna orci fermentum justo, tempor blandit massa-->
+          <!--eros luctus arcu. Sed tristique neque id efficitur dapibus. Interdum et malesuada fames ac ante ipsum primis-->
+          <!--in faucibus. Nunc lobortis vitae est ut eleifend. Vestibulum cursus sapien ut ligula tincidunt blandit.-->
+          <!--Vivamus eu ante quis arcu accumsan euismod a ut tellus. Duis aliquam lorem a tempus lacinia.</p>-->
+        <a href="/successed-order/<%= user.id %>/<%= celeb.id %>/<%= job.id %>" onclick="loader()">
+          <div class="confirm-order-btn">Submit Order</div>
+        </a>
+      </div>
+      <!--confirm-detail-con end-->
+    </div>
+    <!--form-con-checkout-main end-->
+
+
+    <div class="message-main-con">
+      <div class="detail">
+        <div class="heading">Celebvidy Message Details</div>
+        <div class="message">Recipient: <span><%= job.message_for if job.message_for.present? %></span></div>
+        <!--message end-->
+        <div class="message">Gift: <span><%= job.is_gift ? 'Yes' : 'No' %></span></div>
+        <!--message end-->
+        <div class="message">Message Type: <span><%= job.event_type.name %></span></div>
+        <!--message end-->
+        <div class="message">Message Details:</div>
+        <!--message end-->
+        <div class="message"><span style="line-height: 22px;word-wrap: break-word;"><%= job.message_details %></span></div>
+        <!--message end-->
+      </div>
+      <!--detail end-->
+
+      <div class="detail" style="border-bottom: #000000!important;">
+        <div class="heading">Payment Information</div>
+        <div class="message">Cardholder’s Name:</div>
+        <!--message end-->
+        <div class="message"><span><%= pay_info.cardholder_name if pay_info.cardholder_name.present? %></span></div>
+        <!--message end-->
+        <div class="message">Credit Card Number:</div>
+        <div class="message"><span>**** **** **** <%= pay_info.last_4 if pay_info.last_4.present? %></span></div>
+        <!--message end-->
+        <div class="message">Expiration Date:
+          <span><%= pay_info.expiration_date if pay_info.expiration_date.present? %></span></div>
+        <!--message end-->
+        <div class="message">CVC: <span>***</span></div>
+        <!--message end-->
+      </div>
+      <!--detail end-->
+
+    </div>
+    <!--message-main-con end-->
+  </div>
+  <!--white-cotaner end-->
+</div><!--warrperend-->
+
+
+<!--<div style="background-color: #FFFFFF!important;">-->
+<!--<h1>Confirm Order Details</h1>-->
+<!--<%#= render :partial => 'celeb_info', :locals => {:@celeb => celeb} %>-->
+
+<!--<h2>Celebvidy Message detail</h2>-->
+<!--<h2>Recepient:</h2>-->
+<%#= job.message_for if job.message_for.present? %>
+<!--<br>-->
+<!--<h2></h2>Gift?</h2>-->
+<%#= job.is_gift ? 'Yes' : 'No' %>
+<!--<br>-->
+<!--<h2>Message Type:</h2>-->
+<%#= job.event_type.name %>
+<!--<br>-->
+<!--<h2>Message Details</h2>-->
+<!--<br>-->
+<%#= job.message_details %>
+<!--<h1>Billing Iformation</h1>-->
+
+<!--<h3>Street Address</h3><%#= profile.street_address if profile.street_address.present? %> <br>-->
+
+<!--<h3>City/State</h3>-->
+<%#= (profile.city if profile.city.present?) + ' ' +(profile.state if profile.state.present?) %>
+
+<!--<h1>Payment Iformation</h1>-->
+
+<!--</div>-->
+<script>
+    $(document).ready(function () {
+        $("#mesg_details").removeClass('active');
+        $("#bill_info").removeClass('active');
+        $("#confirm_job").addClass('active');
+    })
+    function loader() {
+        $(".background_shadow").show();
+    }
+
+</script>
+<style>
+    .footer {
+            height: 0px;
+        }
+
+</style>

@@ -1,0 +1,150 @@
+<div class="warrper02">
+  <div class="roundd-borde" id="faqs">
+    <div class="faq_txt">
+      <h2>Frequently asked questions</h2>
+
+
+    </div>
+    <div class="warrper01">
+      <div class="qstn">FAQ</div>
+      <div id="content">
+        <div class="demo">
+          <h3 class="expand">My celebrity is not on Celebvidy yet, what do I do?</h3>
+
+          <div class="collapse">
+            <p>
+              Don’t worry, we’re on it. Everyday our team is reaching out to hundreds of celebrities, from musicians to
+              actors, media personalities to sports stars. Our goal, “if they’re famous, they’re here.” In the mean
+              time, invite your favorite celeb to join! Make your voice heard, Tweet out an invite
+            </p>
+          </div>
+        </div>
+        <div class="demo">
+          <h3 class="expand">How does my celebrity make my video?</h3>
+
+          <div class="collapse">
+            <p>
+              All member celebrities have an exclusive celebvidy™ iPhone app which notifies them of incoming video
+              requests
+              and
+              helps them to record your custom message. If your video-request is reviewed, approved, and then recorded,
+              your
+              credit card is charged for the initially agreed upon amount.
+            </p>
+          </div>
+        </div>
+        <div class="demo">
+          <h3 class="expand">What happens if my video request is rejected?</h3>
+
+          <div class="collapse">
+            <p>
+              You will receive an email with your celebrity’s reason for rejection. You may re-submit another request if
+              you
+              so
+              choose. Celebvidy encourages positive, light-hearted messages. Celebrities reserve the right to choose
+              what they
+              will record.
+            </p>
+          </div>
+        </div>
+        <div class="demo">
+          <h3 class="expand">How long does it take?</h3>
+
+          <div class="collapse">
+            <p>
+              Depends. Some celebrities will respond immediately, others may take longer. Typically, a request should be
+              returned within 2 weeks.
+            </p>
+          </div>
+        </div>
+        <div class="demo">
+          <h3 class="expand">How do I know I’ll get my video?</h3>
+
+          <div class="collapse">
+            <p>
+              We deliver every video securely to you via e-mail and in your secure online profile. If you have any
+              questions
+              you
+              may call our 24 hour customer service hotline at 1-844-304-VIDY.
+            </p>
+          </div>
+        </div>
+        <div class="demo">
+          <h3 class="expand">Are my celebvidy’s public?</h3>
+
+          <div class="collapse">
+            <p>
+              If you’d like them to be, you can select yours to be shared on the official celebvidy™ YouTube channel.
+              Or, you
+              can decide to keep yours private and just between you and your celebrity.
+            </p>
+          </div>
+        </div>
+        <div class="w"><br/>Still have a question?<a href="#" onclick="get_static('contact_us')"> Get in touch with us!</a></div>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="copyrightMob">2015 Celebvidy. All Rights Reserverd.</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion
+            width: 'auto', //auto or any width like 600px
+            fit: true,   // 100% fit in a container
+            closed: 'accordion', // Start closed if in accordion view
+            activate: function (event) { // Callback function if tab is switched
+                var $tab = $(this);
+                var $info = $('#tabInfo');
+                var $name = $('span', $info);
+
+                $name.text($tab.text());
+
+                $info.show();
+            }
+        });
+
+        $('#verticalTab').easyResponsiveTabs({
+            type: 'vertical',
+            width: 'auto',
+            fit: true
+        });
+    });
+//    .bg-image3 {
+//        background-color: #000;
+//        background-image: url("/assets/bg-container.png");
+//        background-position: center -400px;
+//        background-repeat: repeat-y;
+//        float: left;
+//        width: 100%;
+//    }
+
+    $(function () {
+        $("#content h3.expand").toggler()
+
+            $('.collapse').hide();
+        $(".expand").click(function(){
+            $('.collapse').hide();
+            $(this).next().show();
+        });
+        $("#content div.other").expandAll({
+            expTxt: "[Show]",
+            cllpsTxt: "[Hide]",
+            ref: "ul.collapse",
+            showMethod: "show",
+            hideMethod: "hide"
+        });
+        $("#content div.post").expandAll({
+            ref: "div.collapse",
+            localLinks: "p.top a"
+        });
+    });
+
+</script>
+<style>
+  .expand {
+  cursor: pointer;
+  }
+</style>

@@ -1,0 +1,120 @@
+<head>
+  <link href="/assets/video-js.css" rel="stylesheet" type="text/css">
+  <script src="/assets/video.js"></script>
+  <script>
+      videojs.options.flash.swf = "/assets/video-js.swf";
+  </script>
+</head>
+<!--username: Connor@kingtidecreative.com-->
+<!---->
+<!--password: ConnorWR2014-->
+<div class="warrper">
+  <div class="your_video_sec">
+    <div class="warrper01">
+      <div class="video_page_title">Your Video</div>
+      <div class="vide0_info">
+        <div class="user-left-bar">
+          <% if user.celebrity.present? && user.celebrity.avatar.present? %>
+              <%= image_tag user.celebrity.avatar(:thumb) %>
+          <% else %>
+              <%= image_tag "missing.jpg" %>
+          <% end %>
+          <span><%= user.first_name + " " + user.last_name %></span>
+
+          <div class="profession"><%= user.celebrity.about_me %></div>
+        </div>
+
+        <div class="user-right-bar">
+          <% if user.celebrity.present? && user.celebrity.verified_account == true %>
+              <div class="varifid" style="border-bottom:0px"><img src="/assets/tick.png">Verified Account</div>
+          <% end %>
+
+          <!--<div class="video-rate-con">-->
+            <!--<div class="videoReviewRate">-->
+              <!--<div>-->
+                <!--<div>-->
+                  <!--<div>-->
+                    <!--<div>-->
+                      <!--<input type="radio" id="rating1" name="rating" value="1" class="activ">-->
+                      <!--<label for="rating1" class="activ"><span>1</span></label>-->
+                    <!--</div>-->
+                    <!--<input type="radio" id="rating2" name="rating" value="2">-->
+                    <!--<label for="rating2"><span>2</span></label>-->
+                  <!--</div>-->
+                  <!--<input type="radio" id="rating3" name="rating" value="3">-->
+                  <!--<label for="rating3"><span>3</span></label>-->
+                <!--</div>-->
+                <!--<input type="radio" id="rating4" name="rating" value="4">-->
+                <!--<label for="rating4"><span>4</span></label>-->
+              <!--</div>-->
+              <!--<input type="radio" id="rating5" name="rating" value="5">-->
+              <!--<label for="rating5"><span>5</span></label>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;videoReviewRate End&ndash;&gt;-->
+          <!--</div>-->
+          <!--video-rate-con end-->
+          <!--<div class="rate-video">Rate Your Video!</div>-->
+        </div>
+        <!--user-right-bar end-->
+      </div>
+    </div>
+    <!--<div style="height: 500px ;width: 90%;float: right" class="video_box">-->
+    <!--<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"-->
+           <!--poster=""-->
+           <!--data-setup="{}">-->
+      <!--<source src= "<%#= job.video_url %>" type='video/mp4' />-->
+      <!--&lt;!&ndash;<source src="s3.amazonaws.com/celebvidy/videos/118/original/upload_video.mp4?1431111341&image=/video/pf2011.jpg" type='video/webm' />&ndash;&gt;-->
+      <!--&lt;!&ndash;<source src="s3.amazonaws.com/celebvidy/videos/118/original/upload_video.mp4?1431111341&image=/video/pf2011.jpg" type='video/ogg' />&ndash;&gt;-->
+      <!--&lt;!&ndash;<track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track>&lt;!&ndash; Tracks need an ending tag thanks to IE9 &ndash;&gt;&ndash;&gt;-->
+      <!--&lt;!&ndash;<track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track>&lt;!&ndash; Tracks need an ending tag thanks to IE9 &ndash;&gt;&ndash;&gt;-->
+      <!--&lt;!&ndash;<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>&ndash;&gt;-->
+    <!--</video>-->
+      <!--</div>-->
+    <div class="profile_video" style="float:left!important;margin:0 0 0 43px!important;">
+      <% a = job.video_url %>
+          <iframe width="900" height="500" src="<%= a.split("watch?v=")[0] + "/embed/" + a.split("watch?v=")[1] %>" frameborder="0" allowfullscreen></iframe>
+      <!--<img src="/assets/profile_video.png">-->
+    </div>
+
+    <div class="share_sec">
+      <h2>Share Your Video</h2>
+
+      <div class="share_socl_med">
+        <ul>
+          <li><a href="http://twitter.com/home?status='<%= job.video_url if job.video_url.present? %>'"><img src="/assets/t.png"></a></li>
+          <li><a href="https://www.facebook.com/sharer/sharer.php?u='<%= job.video_url if job.video_url.present? %>'"><img src="/assets/f.png"></a></li>
+          <li><a href="https://plus.google.com/share?url='<%= job.video_url if job.video_url.present? %>'"><img src="/assets/g.png"></a></li>
+          <!--<li><a href="#"><img src="/assets/p01.png"></a></li>-->
+          <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=<%= job.video_url if job.video_url.present? %>&title=&summary=<%= job.video_url if job.video_url.present? %>"><img src="/assets/in01.png"></a></li>
+          <li><a href="http://www.stumbleupon.com/submit?url='<%= job.video_url if job.video_url.present? %>'"><img src="/assets/socl01.png"></a></li>
+        </ul>
+      </div>
+      <div class="share_mail">
+        <form>
+          <input type="text" placeholder="Share Via Email">
+          <input type="submit" value="">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<style>
+    object {
+        /*transform: rotate(90deg);*/
+    }
+    #example_video_1_flash_api{
+        -moz-transform:rotate(90deg);
+        -webkit-transform:rotate(90deg);
+        -o-transform:rotate(90deg);
+        -ms-transform:rotate(90deg);
+        transform:rotate(90deg);
+        width: 264px;
+        height: 264px;
+        margin: auto;
+        position: unset;
+
+    }
+
+
+</style>

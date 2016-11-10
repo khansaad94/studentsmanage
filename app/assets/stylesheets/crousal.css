@@ -1,0 +1,79 @@
+
+.clearout {
+    height:20px;
+    clear:both;
+}
+
+#flexiselDemo1, #flexiselDemo2, #flexiselDemo3 {
+    display:none;
+}
+
+.nbs-flexisel-container {
+    position:relative;
+    width:100%;
+    max-width:1024px;
+    margin:0 auto;
+    padding:0 0px 26px;
+
+}
+.nbs-flexisel-ul {
+    position:relative;
+    width:9999px;
+    margin:0px;
+    padding:0px;
+    list-style-type:none;
+    text-align:center;
+}
+
+.nbs-flexisel-inner {
+    margin: auto;
+    overflow: hidden;
+    width: 66.8%;
+    position:absolute;
+    left:0;
+    right:0;
+    top:54px;
+}
+
+.nbs-flexisel-item {
+    float:left;
+    margin:0px;
+    padding:0px;
+    cursor:pointer;
+    position:relative;
+    line-height:0px;
+}
+
+.nbs-flexisel-item img {
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width:140px;
+    max-height:140px;
+}
+
+/*** Navigation ***/
+
+.nbs-flexisel-nav-left,
+.nbs-flexisel-nav-right {
+    width: 21px;
+    height: 46px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0.5;
+}
+
+.nbs-flexisel-nav-left {
+    left: 20px!important;
+    background: url(/assets/left-c.png) no-repeat;
+    top:112px !important;
+}
+
+.nbs-flexisel-nav-right {
+    right: 20px!important;
+    background: url(/assets/right-c.png) no-repeat;
+    top:112px !important;
+}

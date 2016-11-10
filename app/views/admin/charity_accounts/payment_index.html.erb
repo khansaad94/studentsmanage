@@ -1,0 +1,195 @@
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<div class="page-content-wrapper">
+  <div class="page-content" style="min-height:1215px">
+
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <!--<h3 class="page-title">-->
+        <!--Users-->
+        <!--</h3>-->
+        <ul class="page-breadcrumb breadcrumb">
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/charity_accounts/payment-index">Charity Payments</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/charity_accounts/payment-index">Display all Charity Payments</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+
+          <li>
+            <a href="/admin/charity_accounts/new-payment">Create Charity Payment</a>
+          </li>
+          <li class="pull-right">
+            <div data-original-title="Change dashboard date range" data-placement="top" class="dashboard-date-range tooltips" id="dashboard-report-range">
+              <i class="icon-calendar"></i>
+              <span></span>
+              <i class="fa fa-angle-down"></i>
+            </div>
+          </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box grey-cascade">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="fa fa-globe"></i> Charity Account Payment
+            </div>
+            <div class="tools">
+              <a class="collapse" href="javascript:;">
+              </a>
+              <a class="config" data-toggle="modal" href="#portlet-config">
+              </a>
+              <a class="reload" href="javascript:;">
+              </a>
+              <a class="remove" href="javascript:;">
+              </a>
+            </div>
+          </div>
+          <div class="portlet-body">
+            <div class="table-toolbar">
+              <div class="btn-group">
+                <%= link_to "New Charity Payment", new_payment_admin_charity_accounts_path, :class => "btn green" %>
+              </div>
+
+            </div>
+            <div id="sample_2" class="dataTables_wrapper no-footer">
+              <!--<div class="table-scrollable">-->
+              <!--<table class="table table-striped table-bordered table-hover" id="sub_category_table">-->
+              <table id="sub_category_table" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample_1_info">
+                <thead>
+                <tr>
+                  <th>
+                    #
+                  </th>
+                  <th>
+                    Celebrity
+                  </th>
+                  <th>
+                    Percentage
+                  </th>
+                  <th>
+                    Charity Name
+                  </th>
+                  <th>
+                    Created
+                  </th>
+                  <th style="width: 120px">
+                    Action
+                  </th>
+                </tr>
+                </thead>
+                <% unless @cel_cc.blank? %>
+                    <tbody>
+                    <% @cel_cc.each_with_index do |c_acc, index| %>
+                        <tr class="odd gradeX">
+                          <td>
+                            <%= index+1 %>
+                          </td>
+                          <td>
+                            <%= get_celebrity_name(c_acc.celebrity_id) %>
+                          </td>
+                          <td>
+                            <%= c_acc.charity_percentage %>
+                          </td>
+                          <td>
+                            <%= get_charity_account_name(c_acc.charity_account_id) %>
+                          </td>
+                          <td class="center">
+                            <%= c_acc.created_at.strftime("%-m/%-d/%Y") %>
+                          </td>
+                          <td>
+                            &nbsp;&nbsp;&nbsp;
+                            <%#= link_to "Edit", edit_admin_charity_account_path(:id => c_acc.id), :style => "text-decoration:none" %>
+                            <%#= link_to 'Delete', admin_charity_account_path(c_acc),
+                                        :method => :delete, data: {confirm: 'Are you sure?'} %>
+                          </td>
+                        </tr>
+                    <% end %>
+                    </tbody>
+                <% end %>
+              </table>
+              <!--</div>-->
+            </div>
+          </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</body>
+<script>
+
+    var table = $('#sub_category_table');
+
+    // begin first table
+    table.dataTable({
+        "columns": [
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": false
+            },
+            {
+                "orderable": false
+            }
+        ],
+        "lengthMenu": [
+            [5, 10, 15, 20, -1],
+            [5, 10, 15, 20, "All"] // change per page values here
+        ],
+        // set the initial value
+        "pageLength": 10,
+        "pagingType": "bootstrap_full_number",
+        "language": {
+            "lengthMenu": "_MENU_ records",
+            "paginate": {
+                "previous": "Prev",
+                "next": "Next",
+                "last": "Last",
+                "first": "First"
+            }
+        },
+        "columnDefs": [
+            {  // set default column settings
+                'orderable': true,
+                'targets': [0]
+            },
+            {
+                "searchable": false,
+                "targets": [0]
+            }
+        ],
+        "order": [
+            [0, "asc"]
+        ] // set first column as a default sort by asc
+    });
+
+
+</script>
+
+
+
+
+

@@ -1,0 +1,88 @@
+<div class="warrper">
+  <div class="white-cotaner">
+    <div class="inner-con">
+      <div class="Secure-box1">
+        <div class="payment-h">
+          <img src="/assets/lock.png" alt="">
+          <span>Order Submitted Successfully</span>
+
+          <div class="guarantee">* 100% money back guarantee</div>
+        </div>
+      </div>
+    </div>
+    <%= render :partial => '/jobs/celeb_info' %>
+    <!--<div class="user-left-bar-con">-->
+    <!--<div class="inner-con">-->
+    <!--<div class="user-left-bar">-->
+    <!--<img src="/assets/sing_pic.png" alt="">-->
+    <!--<span>Kim Kardashian</span>-->
+
+    <!--<div class="profession">Reality Television Star</div>-->
+    <!--</div>-->
+    <!--<div class="user-right-bar">-->
+    <!--<div class="total-price">Total: $26.80</div>-->
+    <!--<div class="donated">10% of proceeds donated to Habitat for Humanity</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <div class="form-con-checkout-main">
+      <div class="form-con-checkout">
+        <div class="heading" style="margin-bottom: 20px;">Thank you and Congratulations! </div>
+        <div class="confirmation-message">Your order has been submitted successfully. You will receive an email at
+          <a href="mailto:email@address.com"><%= @user.email %></a> when your video is ready.
+        </div>
+        <div class="view-order-text">You can also view the status of your order
+          <a href="#" onclick="user_account(<%= @user.id %>)">here.</a></div>
+      </div>
+
+      <div class="confirm-detail-con">
+        <div class="view-order-submit">This celebrity takes 8 days on average to complete a Celebvidy.</div>
+        <div class="view-order-submit">Your order was submitted
+          on <%= @job.updated_at.month.to_s + '/' + @job.updated_at.day.to_s + '/' + @job.updated_at.year.to_s %>.
+        </div>
+        <div class="view-order-submit">You should expect your order by 2 days before your deadline.</div>
+        <!--<div class="view-order-submit">You will receive a full refund if your order is not completed within 20 days.-->
+        <!--</div>-->
+        <a href="#">
+          <div class="confirm-order-btn" onclick="user_account(<%= @user.id %>)">View Video Status</div>
+        </a>
+      </div>
+
+    </div>
+
+
+    <div class="message-main-con">
+      <div class="detail">
+        <div class="heading">Celebvidy Message Details</div>
+        <div class="message">Recipient: <span><%= @job.message_for if @job.message_for.present? %></span></div>
+        <div class="message">Gift: <span><%= @job.is_gift ? 'Yes' : 'No' %></span></div>
+        <div class="message">Message Type: <span><%= @job.event_type.name %></span></div>
+        <div class="message">Message Details:</div>
+        <div class="message"><span style="line-height: 22px;word-wrap: break-word;"><%= @job.message_details %></span></div>
+      </div>
+
+      <!--<div class="detail">-->
+      <!--<div class="heading">Billing Information</div>-->
+      <!--<div class="message">Street Address</div>-->
+      <!--<div class="message"><span><%#= @profile.street_address if @profile.street_address.present? %></span></div>-->
+      <!--<div class="message">City/State</div>-->
+      <!--<div class="message">-->
+      <!--<span><%#= @profile.city if @profile.city.present? %>, <%#= @profile.state if @profile.state.present? %></span>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <div class="detail" style="border-bottom: black!important;">
+        <div class="heading">Payment Information</div>
+        <div class="message">Cardholder’s Name:</div>
+        <div class="message"><span><%= @pay_info.cardholder_name if @pay_info.cardholder_name.present? %></span></div>
+        <div class="message">Credit Card Number:</div>
+        <div class="message"><span>**** **** **** <%= @pay_info.last_4 if @pay_info.last_4.present? %></span></div>
+        <div class="message">Expiration Date:
+          <span><%= @pay_info.expiration_date if @pay_info.expiration_date.present? %></span></div>
+        <div class="message">CVC: <span>***</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="copyrightMob">2015 Celebvidy. All Rights Reserverd.</div>
+</div>

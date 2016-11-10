@@ -1,0 +1,129 @@
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<div class="page-content-wrapper">
+  <div class="page-content" style="min-height:1215px">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+          Codes
+        </h3>
+        <ul class="page-breadcrumb breadcrumb">
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/codes/index">Display all Codes</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/codes/con-index">Display Consumed Codes</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+
+          <li>
+            <a href="/admin/codes/new">Create new Code</a>
+          </li>
+          <li class="pull-right">
+            <div data-original-title="Change dashboard date range" data-placement="top" class="dashboard-date-range tooltips" id="dashboard-report-range">
+              <i class="icon-calendar"></i>
+              <span></span>
+              <i class="fa fa-angle-down"></i>
+            </div>
+          </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+      </div>
+    </div>
+    <!-- END PAGE HEADER-->
+
+    <div class="row">
+      <div class="col-md-6 ">
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet box blue">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="fa fa-gift"></i> Create Code
+            </div>
+            <div class="tools">
+              <a class="collapse" href="">
+              </a>
+
+            </div>
+          </div>
+          <div class="portlet-body form">
+            <%= form_for @code, :url => {:controller => "admin/codes", :action => "create"}  do |f| %>
+                <div class="form-body">
+                  <div class="row" id="errors"></div>
+
+                  <div class="form-group">
+
+                    <div class="input-group">
+                      <%= select_tag :number, options_for_select(ApplicationHelper::NUMBERS), :class => 'form-control placeholder-no-fix' %>
+                      <%#= select_tag(:code_id, options_from_collection_for_select(ApplicationHelper::NUMBERS), :class => "form-control", :placeholder => "Name") %>
+                      <%#= select_tag :name, options_for_select(ApplicationHelper::NUMBERS), :class => 'form-control placeholder-no-fix' %>
+                      <%#= f.select :name, :autofocus => true, :class => "form-control", :placeholder => "Name" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <div class="z_100" id="save-btn">
+                    <%= f.submit "Save", :class => "btn green pull-left" %>
+                    <!--<a class="btn blue" href="javascript:void(0)">Save</a>-->
+                  </div>
+                  <!--<button class="btn blue" type="submit">Update</button>-->
+                  <%#= f.submit "Save", :class => "btn blue" %>
+                </div>
+            <% end %>
+          </div>
+        </div>
+        <!-- END SAMPLE FORM PORTLET-->
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+</div>
+</body>
+<!--<script type="text/javascript">-->
+
+<!--//    $(document).ready(function () {-->
+<!--//-->
+<!--//        $("#new_event_type").validate({-->
+<!--//            debug: true,-->
+<!--//            rules: {-->
+<!--//                "event_type[name]": {-->
+<!--//                    required: true-->
+<!--//                }-->
+<!--//            }-->
+<!--//        });-->
+<!--//-->
+<!--//        $('#new_event_type').submit(function () {-->
+<!--//            if ($('#new_event_type').valid() == true) {-->
+<!--//                s-->
+<!--//                var postData = $(this).serialize();-->
+<!--//                var formURL = $(this).attr("action");-->
+<!--//                $.ajax({-->
+<!--//                    url: formURL,-->
+<!--//                    type: 'post',-->
+<!--//                    data: postData,-->
+<!--//                    success: function (data) {-->
+<!--//                        if (data == "not") {-->
+<!--//                            window.location.href = '/sign_in';-->
+<!--//                        }-->
+<!--//                        else {-->
+<!--//                            window.location.href = '/admin/event_types/index';-->
+<!--//                        }-->
+<!--//                    }-->
+<!--//                });-->
+<!--//            }-->
+<!--//        });-->
+<!--//-->
+<!--//    });-->
+<!--//-->
+<!--//-->
+<!--</script>-->
+
+
+

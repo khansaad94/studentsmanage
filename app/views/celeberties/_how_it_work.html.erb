@@ -1,0 +1,65 @@
+<div class="how_work">
+  <div class="warrper">
+    <div class="box">
+      <div class="curve1"></div>
+      <div class="general-faq">
+        <div class="heading-main">
+          <h2>How it Works</h2>
+          <p>3 Easy Steps</p>
+        </div>
+        <div class="howit-works">
+          <article>
+            <div class="steps-list">
+              <h3>Step 1</h3>
+            </div>
+            <div class="right-side2">
+              <p>Select a celebrity from our ever-growing list of hundreds of influencers. You can do this by searching for them or browsing our alphabetical directory. Don’t worry; if your favorite celebrity is not on our site, you can help! Just tweet at them with the hashtag #celebvidy or @celebvidy and let them know you wish for them to join!  </p>
+            </div>
+          </article>
+          <article>
+            <div class="steps-list">
+              <h3>Step 2</h3>
+            </div>
+            <div class="right-side2">
+              <p>The fun part… in 200 characters or less you get to write a customized script for the celebrity to read. Example: “Happy Birthday Johnny, you friends Chris, Kyle and I wanted to wish you a very blessed birthday.” What if you have a question for the celebrity instead? No problem! Select question and use your 200 characters to ask one! </p>
+            </div>
+          </article>
+          <article>
+            <div class="steps-list">
+              <h3>Step 3</h3>
+            </div>
+            <div class="right-side2">
+              <p>Wait for your custom Celebvidy to arrive. Celebrities are busy! So be patient. We have worked a lot of magic on our end to make it super simple for a celebrity to respond. When they get your order on their phone, all they have to do is create a “video selfie” and send it to you. It really is that easy. You will receive your video as a private YouTube video URL. You may share this wherever you like… Twitter, Facebook, E-mail, by way of text message… or however you please. It’s your custom made personalized video! Enjoy!</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="copyrightMob">2015 Celebvidy. All Rights Reserverd.</div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+    $('#modeSwitcher').click(function(e){
+        $('section').toggleClass('horizontal');
+    });
+
+    $('.tabs li, .tabs li a').click(function(e){
+        var $link=$(this).find('a'),
+                targetId;
+
+        if(!$link.length || $(this).hasClass('selected')){
+            e.preventDefault();
+            return;
+        }
+        targetId=$link.attr('href').substring(1);
+        $('.tabs li').removeClass('selected');
+        $(this).addClass('selected');
+        $('.tabDetailsWrapper>ul>li').hide();
+        $('.tabDetailsWrapper>ul>li[data-id='+targetId+']').fadeIn();
+    });
+</script>
+
+</body>
+</html>

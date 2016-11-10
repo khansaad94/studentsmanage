@@ -1,0 +1,79 @@
+<h3>Secure CheckOut</h3>
+<h1>Your Celebvidy Details</h1>
+<% if celeb.celebrity.present? && celeb.celebrity.avatar.present? %>
+    <%= image_tag celeb.celebrity.avatar(:thumb) %>
+<% else %>
+    <%= image_tag "missing.jpg" %>
+<% end %>
+<br>
+<%= (celeb.first_name if celeb.first_name.present?) + ' ' + (celeb.last_name if celeb.last_name.present?) %>
+<br>
+<%= celeb.celebrity.about_me if (celeb.celebrity.present? && celeb.celebrity.about_me.present?) %>
+<br>
+<%= 'Total $' + (celeb.celebrity.default_rate * 10).to_s if (celeb.celebrity.present? && celeb.celebrity.default_rate.present?) %>
+
+
+
+
+<div id="celeb_detail">
+  <%= form_for @job, :url => "/celeberties/job_create", :html => {:multipart => true, :onsubmit => "return false", :id => 'job_form', :method => 'post'} do |f| %>
+
+      <br><label>This Message is for(Person's name)</label>
+      <%= f.text_field :message_for %>
+
+      <br><label>Pronounced like</label>
+      <%= f.text_field :pronounce_like %>
+
+      <br><label>Message Type</label>
+      <%= f.select(:event_type_id, options_from_collection_for_select(events, :id, :name), :id => "state_dropdown") %>
+
+      <br><label>Is this message a gift?</label>
+      <%= f.radio_button :is_gift, "1", :checked => true %>
+      <labe>Yes</labe>
+      <%= f.radio_button :is_gift, "0" %>
+      <labe>No</labe>
+
+      <br><label>Message Datails</label>
+      <%= f.text_area :message_details %>
+      <%= f.hidden_field :celebrity_id, :value => celeb.id %>
+      <%= f.hidden_field :status, :value => ApplicationHelper::JOBS_STATUS[1] %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+
+      <br><input type="button" value="Submit" onclick="create_job()"/>
+  <% end %>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#job_form').validate({
+
+            rules: {
+                "job[message_for]": {
+                    maxlength: 255,
+                    required: true
+                },
+                "job[pronounce_like]": {
+                    maxlength: 255,
+                    required: true
+                },
+                "job[message_details]": {
+                    required: true
+                }
+            }
+        });
+    });
+    function create_job() {
+        if ($("#job_form").valid() == true) {
+            $("#job_form").ajaxSubmit({
+                url: '/celeberties/job_create',
+                type: 'post',
+                success: function (data) {
+                    $("#container").html(data)
+                }
+            });
+        }
+    }
+</script>

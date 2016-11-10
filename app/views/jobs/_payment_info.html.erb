@@ -1,0 +1,189 @@
+<div class="warrper">
+  <div class="w-100">
+    <div class="page-titel2">Secure Checkout</div>
+  </div>
+  <div class="white-cotaner" style="margin-bottom: 0px!important;">
+    <div class="inner-con">
+      <div class="Secure-box1">
+        <div class="payment-h">
+          <img src="/assets/lock.png" alt="">
+          <span>Payment & Billing Information</span>
+
+          <div class="guarantee">* 100% money back guarantee</div>
+        </div>
+      </div>
+
+      <div class="Secure-box2">
+        <a href="#">
+          <div class="confirm-order">
+            <span><img src="/assets/left.png" alt=""></span>
+
+            <div class="link">confirm order</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <%= render :partial => 'celeb_info', :locals => {:@celeb => celeb} %>
+    <div class="form-con-checkout-main">
+      <% @profile = Profile.new %>
+      <%= form_for @profile, :url => '/jobs/billing_info', :html => {:id => 'payment_form', :multipart => true, :onsubmit => 'return false;'} do |f| %>
+          <div class="form-con-checkout">
+            <div class="heading">
+              Enter Payment information
+            </div>
+
+            <div class="form-con2">
+              <label>Cardholder’s Name</label>
+              <%= text_field_tag :holder_name %>
+            </div>
+
+            <div class="form-con2">
+              <label>Credit Card Number</label>
+              <%= text_field_tag :credit_card_number , nil , maxlength: 19 , :id => "input"%>
+            </div>
+
+            <div class="w-100">
+              <div class="form-con6">
+                <label>Expiration Date</label>
+
+                <div class="checkout">
+                  <%= select_month(Date.today, use_month_numbers: true) %>
+                </div>
+              </div>
+
+              <div class="form-con7">
+                <label>&nbsp;</label>
+
+                <div class="checkout">
+                  <%= select_year(Date.today, start_year: Time.now.year, end_year: Time.now.year+10, :prompt => 'Select') %>
+                </div>
+              </div>
+            </div>
+
+            <div class="w-100">
+              <div class="form-con4">
+                <label>CVV</label>
+                <%= text_field_tag :cvv %>
+              </div>
+              <div class="form-con4">
+                <label>Zip Code</label>
+                <%= f.text_field :zip_code %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-con-checkout p-b">
+            <%= f.hidden_field :user_id, :value => user.id %>
+            <%= hidden_field_tag :celebId, celeb.id %>
+
+            <div class="w-100">
+              <div class="submit-btn"><input type="button" value="Submit Information" onclick="confirm_order()"></div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+    <div class="message-main-con">
+      <div class="detail">
+        <div class="heading">Celebvidy Message Details</div>
+        <div class="message">Recipient: <span><%= job.message_for if job.message_for.present? %></span></div>
+        <div class="message">Gift: <span><%= job.is_gift ? 'Yes' : 'No' %></span></div>
+        <div class="message"> Message Type: <span><%= job.event_type.name %></span></div>
+        <div class="message">Message Details:</div>
+        <div class="message"><span style="line-height: 22px;word-wrap: break-word;"><%= job.message_details %></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+//        $(function(){
+//            $("#input").keyup(function(){
+//                var card_num = $(this);
+//                if (((card_num.val().length+1) % 5)==0){
+//                    if (card_num.val().length < 19 ){
+//                        card_num.val(card_num.val() + " ");
+//                }
+//                }
+//            });
+//        });
+
+
+        $("#mesg_details").removeClass('active');
+        $("#confirm_job").removeClass('active');
+        $("#bill_info").addClass('active');
+
+        $('#payment_form').validate({
+
+            rules: {
+//                "profile[street_address]": {
+//                    maxlength: 255,
+//                    required: true
+//                },
+//                "profile[city]": {
+//                    maxlength: 255,
+//                    required: true
+//                },
+                "profile[zip_code]": {
+                    required: true,
+                    number: true,
+                    maxlength: 5,
+                    minlength: 5
+                },
+                "holder_name": {
+                    required: true,
+                    maxlength: 255
+                },
+                "credit_card_number": {
+                    required: true,
+//                    number: true,
+                    minlength: 16,
+                    maxlength: 16
+                },
+                "cvv": {
+                    required: true,
+                    number: true,
+                    minlength: 3,
+                    maxlength: 4
+                }
+            }, messages: {
+                credit_card_number: "Please enter 16 characters only"
+            }
+        });
+    })
+    function confirm_order() {
+        if ($("#payment_form").valid() == true) {
+            $(".background_shadow").show();
+            $("#payment_form").ajaxSubmit({
+                url: '/jobs/billing_info',
+                success: function (data) {
+                    if (data.success) {
+                        $(".background_shadow").hide();
+                        alert(data.message)
+                    }
+                    else {
+                        $("#container").html(data)
+                        $(".background_shadow").hide();
+                    }
+                    window.scroll(0, 0)
+                }
+            });
+        }
+    }
+    $('#input').change(function() {
+//        alert($(this).val())
+        $(this).val($(this).val().replace(/\s/g,""));
+    });
+
+</script>
+<style>
+    .error{
+        color: #ff0000;
+    }
+    .footer {
+        height: 0px;
+    }
+
+</style>

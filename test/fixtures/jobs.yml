@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message_for: MyString
+  pronounce_like: MyString
+  message_type: MyString
+  message_details: MyText
+  deadline: 2015-03-17 17:07:40
+  celeb_id: 1
+  event_type_id: 1
+  status: false
+  video_url: MyString
+  delivery_date: 2015-03-17 17:07:40
+  customer_job_id: MyString
+  user_id: 
+
+two:
+  message_for: MyString
+  pronounce_like: MyString
+  message_type: MyString
+  message_details: MyText
+  deadline: 2015-03-17 17:07:40
+  celeb_id: 1
+  event_type_id: 1
+  status: false
+  video_url: MyString
+  delivery_date: 2015-03-17 17:07:40
+  customer_job_id: MyString
+  user_id: 

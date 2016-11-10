@@ -1,0 +1,412 @@
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<div class="page-content-wrapper">
+  <div class="page-content" style="min-height:1215px">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+          Celebrity
+        </h3>
+        <ul class="page-breadcrumb breadcrumb">
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/celebrities/all-celebrities">Celebrities</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <li>
+            <a href="/admin/celebrities/all-celebrities">Display all Celebrities</a>
+          </li>
+          <li class="pull-right">
+            <div data-original-title="Change dashboard date range" data-placement="top" class="dashboard-date-range tooltips" id="dashboard-report-range">
+              <i class="icon-calendar"></i>
+              <span></span>
+              <i class="fa fa-angle-down"></i>
+            </div>
+          </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class="portlet box grey-cascade">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="fa fa-comments"></i>New Celebrity
+            </div>
+            <div class="tools">
+              <a class="collapse" href="javascript:;">
+              </a>
+            </div>
+          </div>
+          <div class="portlet-body form">
+            <%# @user = User.new() %>
+            <%= form_for(@user, :url => "/admin/celebrities/create_celebrity", :html => {:id => "changedd", :multipart => true}) do |f| %>
+                <div class="form-body form-horizontal">
+
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <label>Celebrity First Name:</label>
+                      <%= f.text_field :first_name, :placeholder => "Celebrity First Name", :class => "form-control placeholder-no-fix" %>
+                    </div>
+
+                    <div class="col-md-6">
+                      <label>Celebrity Last Name:</label>
+                      <%= f.text_field :last_name, :placeholder => "Celebrity Last Name", :class => "form-control placeholder-no-fix" %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <label>Email Address:</label>
+                      <%= f.hidden_field :user_type, :value => "celebrity" %>
+                      <%= f.hidden_field :is_active, :value => false %>
+                      <%= f.email_field :email, :placeholder => "Celebrity Email Address", :class => "form-control placeholder-no-fix" %>
+                    </div>
+                    <div class="col-md-6">
+                      <label>Password:</label>
+                      <%#= f.label :password %>
+                      <%= f.password_field :password, :placeholder => "Password", :class => "form-control placeholder-no-fix" %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-md-6">
+                      <label>Password Confirmation:</label>
+                      <%= f.password_field :password_confirmation, :placeholder => "Password confirmation", :class => "form-control placeholder-no-fix" %>
+                    </div>
+                    <%= fields_for :celebrity do |child_fields| %>
+
+                        <div class="col-md-6">
+                          <label>About Me:</label>
+                          <%= child_fields.text_field :about_me, :value => @about_me ,require: true, auto_focus: true, :class => "form-control placeholder-no-fix", :placeholder => "About Me" %>
+                        </div>
+                        </div>
+
+
+                        <div class="form-group">
+                          <div class="col-md-6">
+                            <label class="col-md-9">Select Industry:</label>
+                            <%#= select("industry", "industry_id", Industry.all.collect { |p| [p.title, p.id] }, {include_blank: true}) %>
+
+                            <%= child_fields.collection_select :industry_id, Industry.all, :id, :title, {:prompt => "Select Industry", :class => "form-control input-lg",:selected =>  @industry_id} %>
+
+                          </div>
+
+                          <div class="clearfix col-md-6">
+                            <label>Bio:</label>
+                            <%= child_fields.text_area :description, :value => @description, :placeholder => "Bio", :class => "form-control placeholder-no-fix" %>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="clearfix col-md-6">
+                            <label>Default Rate:</label>
+                            <%= child_fields.text_field :default_rate,:value => @default_rate, :placeholder => "Default Rate", :class => "form-control placeholder-no-fix" %>
+                          </div>
+
+                          <div class="clearfix col-md-6">
+                            <label>Per Alphabet Rate:</label>
+                            <%= child_fields.text_field :per_alphabet_rate, :value => @per_alphabet_rate,:placeholder => "Per Alphabet Rate", :class => "form-control placeholder-no-fix" %>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="clearfix col-md-6">
+                            <label>Profile Picture:</label>
+                            <%= child_fields.file_field :avatar %>
+                          </div>
+
+
+                          <div class="clearfix col-md-6">
+                            <label class="col-md-12">Date of Birth:</label>
+                            <%= child_fields.date_select "date_of_birth", :start_year => 1900, :end_year => Date.today.year,  :order => [:month,:day,:year], :use_two_digit_numbers => true, :class => "form-control" %>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="clearfix col-md-6">
+                            <label>Videos Per Month:</label>
+                            <%= child_fields.select :monthly_videos, ((1..500).map { |i| [i, i] }), :selected => @monthly_videos.present? ? @monthly_videos : 25, :class => 'form-control placeholder-no-fix' %>
+                          </div>
+                          <div class="clearfix col-md-6">
+                            <label>Default Delivery Days:</label>
+                            <%= child_fields.select :default_delivery_days, ((1..30).map { |i| [i, i] }), :selected => @default_delivery_days.present? ? @default_delivery_days : 1 ,:class => 'form-control placeholder-no-fix' %>
+                          </div>
+
+                        </div>
+                        <div class="form-group">
+                          <div class="clearfix col-md-6">
+                            <label>Assign Charity:</label>
+                            <% @charity = CharityAccount.all %>
+                            <%= select_tag "charity_id", options_from_collection_for_select(@charity, "id", "name", :selected => @charity_id) %>
+
+                            <%#= select_tag "charity_id", CharityAccount.all, :id, :title, {:prompt => "Select Charity", :class => "form-control input-lg"} %>
+                          </div>
+                          <div class="clearfix col-md-6">
+                            <label>Is Verified:</label>
+                            <%= child_fields.check_box :verified_account, :class => "css-checkbox lrg", :id => "checkbox" , :checked =>  (@verified_account.present? && @verified_account == "1") ? true : false %>
+                            <%#= text_field_tag "is_varified", nil, :placeholder => "Routing Number", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class="form-group portlet box grey-cascade" style="margin: 0!important;">
+                            <label class="col-md-12">ACH DETAILS:</label>
+                        </div>
+
+                        <br>
+
+                        <div class="form-group">
+                          <div class="clearfix col-md-6">
+                            <label>Street Address:</label>
+                            <%= text_field_tag "street_address", @street_address.present? ? @street_address : "", :placeholder => "Street Address", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+                          <div class="clearfix col-md-6">
+                            <label>City:</label>
+                            <%= text_field_tag "city", @city.present? ? @city : "", :placeholder => "City", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <div class="clearfix col-md-6">
+                            <label>State:</label>
+                            <%#= text_field_tag "state", nil, :placeholder => "Street Address", :class => 'form-control placeholder-no-fix' %>
+                            <%= select_tag :state, options_for_select(ApplicationHelper::USSTATES), :class => 'form-control placeholder-no-fix' %>
+                          </div>
+                          <div class="clearfix col-md-6">
+                            <label>Postal Code:</label>
+                            <%= text_field_tag "postal_code", @postal_code.present? ? @postal_code : "", :placeholder => "Postal Code", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="clearfix col-md-6">
+                            <label>SSN:</label>
+                            <%= text_field_tag "ssn", @ssn.present? ? @ssn : "", :placeholder => "SSN", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+                          <!--<div class="clearfix col-md-6">-->
+                            <!--<label>Postal Code:</label>-->
+                            <!--<%#= text_field_tag "postal_code", nil, :placeholder => "Postal Code", :class => 'form-control placeholder-no-fix' %>-->
+                          <!--</div>-->
+                        </div>
+
+
+                        <div class="form-group">
+                          <div class="clearfix col-md-6">
+                            <label>Account Number:</label>
+                            <%= text_field_tag "account_number", @account_number.present? ? @account_number : "", :placeholder => "Account Number", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+                          <div class="clearfix col-md-6">
+                            <label>Routing Number:</label>
+                            <%= text_field_tag "routing_number", @routing_number.present? ? @routing_number : "", :placeholder => "Routing Number", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+                        </div>
+                        <div class="form-group portlet box grey-cascade" style="margin: 0!important;">
+                          <label class="col-md-12">PAYMENT BY CHECK DETAILS:</label>
+                        </div>
+                        <br>
+
+                        <!--<div class="form-group">-->
+                          <!--<div class="clearfix col-md-6">-->
+                            <!--<label>Is Verified:</label>-->
+                            <!--<%#= child_fields.check_box :verified_account, :class => "css-checkbox lrg", :id => "checkbox" %>-->
+                            <!--<%#= text_field_tag "is_varified", nil, :placeholder => "Routing Number", :class => 'form-control placeholder-no-fix' %>-->
+                          <!--</div>-->
+                          <!--<div class="clearfix col-md-6">-->
+                            <!--<label>Facebook Link:</label>-->
+                            <!--<%#= child_fields.text_field "fb_link", :placeholder => "Facebook Link", :class => 'form-control placeholder-no-fix' %>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                          <!--<div class="clearfix col-md-6">-->
+                            <!--<label>Twitter Link:</label>-->
+                            <!--<%#= child_fields.text_field :tw_link, :placeholder => "Twitter Link", :class => 'form-control placeholder-no-fix' %>-->
+                          <!--</div>-->
+                          <!--<div class="clearfix col-md-6">-->
+                            <!--<label>Pinterest Link:</label>-->
+                            <!--<%#= child_fields.text_field :pin_link, :placeholder => "Pinterest Link", :class => 'form-control placeholder-no-fix' %>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                          <!--<div class="clearfix col-md-6">-->
+                            <!--<label>Gmail Link:</label>-->
+                            <!--<%#= child_fields.text_field :gmail_link, :placeholder => "Gmail Link", :class => 'form-control placeholder-no-fix' %>-->
+                          <!--</div>-->
+                          <!--<div class="clearfix col-md-6">-->
+                            <!--<label>Linkedin Link:</label>-->
+                            <!--<%#= child_fields.text_field :in_link, :placeholder => "Linkedin Link", :class => 'form-control placeholder-no-fix' %>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                        <div class="form-group">
+                          <div class="clearfix col-md-6">
+                            <label>Legal Name:</label>
+                            <%= text_field_tag "p_legal_name", @p_legal_name.present? ? @p_legal_name : "",:placeholder => "Legal Name", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+                          <div class="clearfix col-md-6">
+                            <label>Address:</label>
+                            <%= text_field_tag "p_address", @p_address.present? ? @p_address : "",:placeholder => "Address", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+
+                        </div>
+                        <div class="form-group">
+                          <div class="clearfix col-md-6">
+                            <label>City:</label>
+                            <%= text_field_tag "p_city", @p_city.present? ? @p_city : "",:placeholder => "City", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+                          <div class="clearfix col-md-6">
+                            <label>State:</label>
+                            <%= text_field_tag "p_state",@p_state.present? ? @p_state : "", :placeholder => "State", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+
+                        </div>
+                        <div class="form-group">
+                          <div class="clearfix col-md-6">
+                            <label>ZipCode:</label>
+                            <%= text_field_tag "p_zip_code", @p_zip_code.present? ? @p_zip_code : "",:placeholder => "Zip Code", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+                          <div class="clearfix col-md-6">
+                            <label>Mail To Name:</label>
+                            <%= text_field_tag "p_mail_to_name", @p_mail_to_name.present? ? @p_mail_to_name : "",:placeholder => "Mail To Name", :class => 'form-control placeholder-no-fix' %>
+                          </div>
+
+                        </div>
+
+                    <% end %>
+                    <div class="clearfix col-md-6" style="margin:20px 0px 0px 0px">
+                      <%#= f.submit "Continue Next", :class => "btn green pull-left" %>
+                      <input type="button" value="Create" onclick="signup_submit()" class="btn green">
+
+                    </div>
+                    </div>
+                </div>
+            <% end %>
+
+            </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+</div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        $("#changedd").validate({
+//            debug: true,
+            rules: {
+                "user[first_name]": {
+                    required: true
+                },
+                "user[last_name]": {
+                    required: true
+                },
+                "street_address": {
+                    required: true
+                },
+                "city": {
+                    required: true
+                },
+                "state": {
+                    required: true
+                },
+                "postal_code": {
+                    required: true,
+                    number: true
+                },
+                "account_number": {
+                    required: true,
+                    number: true
+                },
+                "routing_number": {
+                    required: true,
+                    number: true
+                },
+                "celebrity[avatar]": {
+                    required: true
+                },
+                "celebrity[industry_id]": {
+                    required: true
+                },
+                "celebrity[about_me]": {
+                    required: true
+                },
+                "celebrity[description]": {
+                    required: true
+                },
+                "celebrity[default_rate]": {
+                    required: true
+                },
+                "celebrity[per_alphabet_rate]": {
+                    required: true
+                },
+
+                "user[email]": {
+                    required: true,
+                    email: true,
+                    maxlength: 255,
+                    remote: {
+                        url: "/celeberties/check_email?email=" + "user[email]",
+                        type: "get"
+                    }
+                },
+                "user[password]": {
+                    required: true,
+                    minlength: 8
+                },
+                "user[password_confirmation]": {
+                    required: true,
+                    equalTo: "#user_password"
+                }
+            }, messages: {
+                "user[password_confirmation]": {
+                    equalTo: "Password doesn't match..."
+                }, "user[email]": {
+                    remote: "Email already exists!"
+                }
+            }
+        });
+    });
+
+
+    function signup_submit() {
+//        alert('a')
+        if ($("#changedd").valid() == true) {
+//            alert('b')
+            $("#changedd").submit();
+        }
+    }
+    //    $('#new_user').submit(function () {
+    //        alert('aaa')
+    //        if ($('#new_user').valid() == true) {
+    //            var postData = $(this).serialize();
+    //            var formURL = $(this).attr("action");
+    //            $.ajax({
+    //                url: formURL,
+    //                type: 'post',
+    //                data: postData,
+    //                success: function (data) {
+    //                    if (data == "not") {
+    //                        window.location.href = '/admin_sign_in';
+    //                    }
+    //                    else {
+    //                        window.location.href = '/admin/celebrities/add_celebrity?id='+data;
+    //                    }
+    //                }
+    //            });
+    //        }
+    //    });
+</script>
+<style>
+    .error{
+        color: #ff0000;
+    }
+</style>
+

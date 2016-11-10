@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Celebvidy</title>
+  <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<% if current_user %>
+    <%= render "/shared/admin_header" %>
+<% end %>
+<div class="page-container">
+  <div id="flash_div">
+    <%= render :partial => "shared/flash_messages" %>
+  </div>
+
+  <% if current_user && current_user.user_type == "admin" %>
+      <%= render "/shared/sidebar" %>
+  <% end %>
+
+  <%= yield %>
+</div>
+
+</body>
+<div class="background_shadow" style="display: none">
+  <div class="loader_img"></div>
+</div>
+</html>
+<script>
+
+    jQuery(document).ready(function () {
+        Metronic.init(); // init metronic core componets
+        Layout.init(); // init layout
+        QuickSidebar.init() // init quick sidebar
+//   Index.init();
+//   Index.initDashboardDaterange();
+    });
+</script>
+
+<style>
+    .background_shadow {
+        background: none repeat scroll 0 0 #000000;
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: 0.8;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 9999999999999
+    }
+
+    .loader_img {
+        background: url("/assets/mobile-loader.gif") no-repeat scroll right center transparent;
+        display: block;
+        height: 100px;
+        margin: 0 auto;
+        opacity: 0.6;
+        position: relative;
+        top: 25%;
+        width: 60px;
+        z-index: 9999999999999999;
+        background-size: 60px 60px !important;
+    }
+</style>
