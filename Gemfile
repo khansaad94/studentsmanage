@@ -7,7 +7,7 @@ gem 'rails', '4.1.2'
 
 gem "paperclip", "~> 4.2"
 #
-# gem 'pg'
+gem 'pg'
 
 #gem 'pg', group: :production
 gem "braintree-rails", :github => "lyang/braintree-rails", :branch => 'master'
