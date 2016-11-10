@@ -79,25 +79,25 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  config.action_mailer.default_url_options = { :host => 'stage.celebvidy.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      :enable_starttls_auto => true,
-      :address => "smtp.gmail.com",
-      :port => 587,
-      :domain => "gmail.com",
-      :authentication => :login,
+  # config.action_mailer.default_url_options = { :host => 'stage.celebvidy.com' }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     :enable_starttls_auto => true,
+  #     :address => "smtp.gmail.com",
+  #     :port => 587,
+  #     :domain => "gmail.com",
+  #     :authentication => :login,
       #:user_name => "orders@celebvidy.com",#celebvidyapp@gmail.com
-      :user_name => "noreply@celebvidy.com",#celebvidyapp@gmail.com
-      :password => "CHw00t246!"#celebvidy2015
+      # :user_name => "noreply@celebvidy.com",#celebvidyapp@gmail.com
+      # :password => "CHw00t246!"#celebvidy2015
       #:password => "CHw00t246!"#celebvidy2015
-  }
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.default_options = {from: 'noreply@celebvidy.com'}
-  ActionMailer::Base.default :from => 'noreply@celebvidy.com'
-  config.action_mailer.default_options = {
-      :from => "noreply@celebvidy.com"
-  }
+  # }
+  # config.action_mailer.perform_deliveries = true
+  # config.action_mailer.default_options = {from: 'noreply@celebvidy.com'}
+  # ActionMailer::Base.default :from => 'noreply@celebvidy.com'
+  # config.action_mailer.default_options = {
+  #     :from => "noreply@celebvidy.com"
+  # }
 
 
 end
