@@ -10,7 +10,7 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:id => 'signin_form', :multipart => true, :remote => true}) do |f| %>
 
         <div class="signup-form-box">
-          <label>Email Address</label>
+          <label>Email Address (@umich.edu)</label>
           <%= f.email_field :email, autofocus: true %>
         </div>
         <div class="signup-form-box">
