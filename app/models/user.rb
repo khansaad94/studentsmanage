@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable,
          #:validatable,
          :omniauthable, :omniauth_providers => [:facebook]
-
+  validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@umich\.edu\z/,
+                              message: "must be a umich.edu account" }
   scope :all_non_deleted_users, -> { where('user_type =? AND is_deleted =?', 'user', false) }
   scope :all_active_users, -> { where('user_type =? AND is_active =? AND is_deleted =?', 'user', true, false) }
   scope :all_cel_users, -> { where('user_type =? AND is_deleted =?', 'celebrity', false) }
