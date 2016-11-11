@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   before_action :authenticate_user!, :except => [:index, :go_home]
   before_action :is_user?
-
+before_filter :authenticate_user!
   def index
     @celebs = User.all_non_deleted_celebrities
     @verified = Celebrity.where(:verified_account => true).limit(7)

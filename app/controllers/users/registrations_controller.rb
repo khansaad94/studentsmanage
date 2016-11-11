@@ -95,7 +95,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def after_sign_up_path_for(resource)
     if session[:url].nil?
-      '/celebrities' # Or :prefix_to_your_route
+      '/home/index' # Or :prefix_to_your_route
     else
       session[:url]
     end
