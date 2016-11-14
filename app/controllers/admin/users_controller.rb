@@ -13,7 +13,7 @@ class Admin::UsersController < ApplicationController
   def create_user
     # puts 'ssssssssssssssssssss', user_params.inspect
     @user = User.new(user_params)
-    if @user.save
+    if @user.sav
       if create_customer_on_braintree(@user)
         flash[:success] = "User has been created successfully"
         render :text => "ok"
@@ -69,12 +69,12 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.is_active == false
       @user.update_attributes(:is_active => true)
-      flash[:notice] = "User Success fully Dectivated"
-      render :text => "deactive"
+      flash[:notice] = "User Success fully activated"
+      render :text => "active"
     else
       @user.update_attributes(:is_active => false)
-      flash[:notice] = "User Success fully Activated"
-      render :text => "active"
+      flash[:notice] = "User Success fully DeActivated"
+      render :text => "deactive"
     end
   end
 
