@@ -42,8 +42,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def update_user
+    puts "0000000000000000000000000000000",params.inspect
+
     @user = User.find(params[:user_id])
-    if @user.update_attributes(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password])
+    puts "11111111111111111111111111111",@user.inspect
+    if @user.update_attributes!(:first_name => params[:user][:first_name], :last_name => params[:user][:last_name], :email => params[:user][:email], :password => params[:user][:password])
       flash[:success] = "User has been Updated successfully"
       render :text => "ok"
     else
