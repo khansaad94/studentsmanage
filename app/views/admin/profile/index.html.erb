@@ -1,0 +1,500 @@
+<body class="page-header-fixed page-quick-sidebar-over-content ">
+<div class="page-content-wrapper">
+  <div class="page-content" style="min-height:1215px">
+
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+          Users
+        </h3>
+        <ul class="page-breadcrumb breadcrumb">
+          <li>
+            <i class="fa fa-home"></i>
+            <a href="/admin/users/all-users">Profiles</a>
+            <i class="fa fa-angle-right"></i>
+          </li>
+          <!--<li>-->
+            <!--<i class="icon-user"></i>-->
+            <!--<a href="/admin/users/new">Add New User</a>-->
+            <!--<a href="/admin/users/new">Add New User</a>-->
+            <!--<i class="fa fa-angle-right"></i>-->
+          <!--</li>-->
+          <li>
+            <a href="/admin/users/all-users">Display All Profiles</a>
+          </li>
+          <li class="pull-right">
+            <div data-original-title="Change dashboard date range" data-placement="top" class="dashboard-date-range tooltips" id="dashboard-report-range">
+              <i class="icon-calendar"></i>
+              <span></span>
+              <i class="fa fa-angle-down"></i>
+            </div>
+          </li>
+        </ul>
+        <!-- END PAGE TITLE & BREADCRUMB-->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box green">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="fa fa-globe"></i> Active Profiles
+            </div>
+            <div class="tools">
+              <a class="collapse" href="javascript:;">
+              </a>
+              <a class="config" data-toggle="modal" href="#portlet-config">
+              </a>
+              <a class="reload" href="javascript:;">
+              </a>
+              <a class="remove" href="javascript:;">
+              </a>
+            </div>
+          </div>
+          <div class="portlet-body">
+            <div class="table-toolbar">
+              <!--<div class="btn-group">-->
+                <!--<%#= link_to "Create User", new_admin_user_path, :class => "btn blue" %>-->
+                <!--&lt;!&ndash;new_admin_user_path&ndash;&gt;-->
+              <!--</div>-->
+
+            </div>
+            <div id="sample_1_wrapper" class="dataTables_wrapper no-footer">
+              <!--<div class="table-scrollable">-->
+              <table id="sample_1" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample_1_info">
+                <thead>
+                <tr role="row">
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 50px;" aria-label="Email">
+                    #
+                  </th>
+                  <th class="sorting_asc" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 248px;" aria-sort="ascending" aria-label="Username: activate to sort column ascending">
+                    Email
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    First Name
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    A
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    B
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    C
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    D
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    E
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    F
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    G
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    H
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 91px;" aria-label="Points">
+                    Last Name
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Joined: activate to sort column ascending">
+                    Created
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Joined: activate to sort column ascending">
+                    Action
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @users.where(:is_active => true).each_with_index do |user, index| %>
+                    <tr class="">
+                      <td>
+                        <%= index+1 %>
+                      </td>
+                      <td>
+                        <%= user.email %>
+                      </td>
+                      <td>
+                        <%= user.first_name %>
+                      </td>
+                      <td>
+                        <%= "SAMPLE" %>
+                      </td>
+                      <td>
+                        <%= "SAMPLE" %>
+                      </td>
+                      <td>
+                        <%= "SAMPLE" %>
+                      </td>
+                      <td>
+                        <%= "SAMPLE" %>
+                      </td>
+                      <td>
+                        <%= "SAMPLE" %>
+                      </td>
+                      <td>
+                        <%= "SAMPLE" %>
+                      </td>
+                      <td>
+                        <%= "SAMPLE" %>
+                      </td>
+                      <td>
+                        <%= "SAMPLE" %>
+                      </td>
+                      <td>
+                        <%= user.last_name %>
+                      </td>
+                      <td>
+                        <%= user.created_at.strftime("%-m/%-d/%Y") %>
+                      </td>
+                      <td>
+                        <a href="javascript:void(0)" style="text-decoration:none" onclick="active_deactive_profile(<%= user.id %>)">
+                          <span class="icon fa fa-power-off user_status" status="0" user_id="99" id="user99"></span></a>&nbsp;&nbsp;
+                        <%#= link_to "Show", admin_users_show_path(user) %>
+                        <%#= link_to "Edit", edit_admin_user_path(user) %>&nbsp;&nbsp;
+                        <%= link_to 'Delete', admin_profile_path(user),
+                                    method: :delete, data: {confirm: 'Are you sure?'} %>
+                      </td>
+                    </tr>
+                <% end %>
+                </tbody>
+              </table>
+              <!--</div>-->
+            </div>
+          </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box red">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="fa fa-globe"></i> Disabled Profiles
+            </div>
+            <div class="tools">
+              <a class="collapse" href="javascript:;">
+              </a>
+              <a class="config" data-toggle="modal" href="#portlet-config">
+              </a>
+              <a class="reload" href="javascript:;">
+              </a>
+              <a class="remove" href="javascript:;">
+              </a>
+            </div>
+          </div>
+          <div class="portlet-body">
+            <div class="table-toolbar">
+              <div class="btn-group">
+                <%#= link_to "Create User", admin_users_add_user_path, :class => "btn green" %>
+
+              </div>
+
+            </div>
+            <div id="sample_2_wrapper" class="dataTables_wrapper no-footer">
+              <!--<div class="table-scrollable">-->
+              <table id="sample_2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample_2_info">
+                <thead>
+                <tr role="row">
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 50px;" aria-label="Email">
+                    #
+                  </th>
+                  <th class="sorting_asc" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 143px;" aria-sort="ascending" aria-label="Username: activate to sort column ascending">
+                    Email
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    First Name
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    A
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    B
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    C
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    D
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    E
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    F
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    G
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                    H
+                  </th>
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 91px;" aria-label="Points">
+                    Last Name
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 120px;" aria-label="Joined: activate to sort column ascending">
+                    Created
+                  </th>
+                  <th class="sorting" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 120px;" aria-label="Joined: activate to sort column ascending">
+                    Action
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @users.where(:is_active => false).each_with_index do |user, index| %>
+                    <tr class="">
+                      <td>
+                        <%= index+1 %>
+                      </td>
+                      <td>
+                        <%= user.email %>
+                      </td>
+                      <td>
+                        <%= "SAMPLE" %>
+                      </td>
+                      <td>
+                        <%= "SAMPLE" %>
+                      </td>
+                      <td>
+                        <%= "SAMPLE"%>
+                      </td>
+                      <td>
+                        <%= "SAMPLE"%>
+                      </td>
+                      <td>
+                        <%= "SAMPLE"%>
+                      </td>
+                      <td>
+                        <%= "SAMPLE"%>
+                      </td>
+                      <td>
+                        <%= "SAMPLE"%>
+                      </td>
+                      <td>
+                        <%= "SAMPLE"%>
+                      </td>
+                      <td>
+                        <%= "SAMPLE"%>
+                      </td>
+                      <td>
+                        <%= user.last_name %>
+                      </td>
+                      <td>
+                        <%= user.created_at.strftime("%-m/%-d/%Y") %>
+                      </td>
+                      <td>
+                        <a href="javascript:void(0)" style="text-decoration:none" onclick="active_deactive_profile(<%= user.id %>)">
+                          <span class="icon fa fa-power-off user_status" status="0" user_id="99" id="user99"></span></a>&nbsp;&nbsp;
+                        <%#= link_to "Show", admin_users_show_path(user) %>
+                        <%#= link_to "Edit", edit_admin_user_path(user) %>&nbsp;&nbsp;
+                        <%= link_to 'Delete', admin_profile_path(user),
+                                    method: :delete, data: {confirm: 'Are you sure?'} %>
+                      </td>
+                    </tr>
+                <% end %>
+                </tbody>
+              </table>
+              <!--</div>-->
+            </div>
+          </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</body>
+<script>
+    var table = $('#sample_2');
+
+    // begin first table
+    table.dataTable({
+        "columns": [
+            {
+                "orderable": false
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": false
+            },
+            {
+                "orderable": false
+            }
+        ],
+        "lengthMenu": [
+            [5, 10, 15, 20, -1],
+            [5, 10, 15, 20, "All"] // change per page values here
+        ],
+        // set the initial value
+        "pageLength": 10,
+        "pagingType": "bootstrap_full_number",
+        "language": {
+            "lengthMenu": "_MENU_ records",
+            "paginate": {
+                "previous": "Prev",
+                "next": "Next",
+                "last": "Last",
+                "first": "First"
+            }
+        },
+        "columnDefs": [
+            {  // set default column settings
+                'orderable': false,
+                'targets': [0]
+            },
+            {
+                "searchable": false,
+                "targets": [0]
+            }
+        ],
+        "order": [
+            [1, "asc"]
+        ] // set first column as a default sort by asc
+    });
+    var table = $('#sample_1');
+
+    // begin first table
+    table.dataTable({
+        "columns": [
+            {
+                "orderable": false
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": true
+            },
+            {
+                "orderable": false
+            },
+            {
+                "orderable": false
+            }
+        ],
+        "lengthMenu": [
+            [5, 10, 15, 20, -1],
+            [5, 10, 15, 20, "All"] // change per page values here
+        ],
+        // set the initial value
+        "pageLength": 10,
+        "pagingType": "bootstrap_full_number",
+        "language": {
+            "lengthMenu": "_MENU_ records",
+            "paginate": {
+                "previous": "Prev",
+                "next": "Next",
+                "last": "Last",
+                "first": "First"
+            }
+        },
+        "columnDefs": [
+            {  // set default column settings
+                'orderable': false,
+                'targets': [0]
+            },
+            {
+                "searchable": false,
+                "targets": [0]
+            }
+        ],
+        "order": [
+            [1, "asc"]
+        ] // set first column as a default sort by asc
+    });
+    function active_deactive_profile(id) {
+        apprise("Are you Sure You want to active or deactive Profile?", {'confirm': true}, function (r) {
+            if (r) {
+                $.ajax({
+                    type: 'get',
+                    dataType: 'html',
+                    processData: false,
+                    url: '/admin/users/active_deactive_profile?id=' + id,
+                    success: function (data) {
+                        if (data == "") {
+
+                        }
+                        else {
+                            window.location.reload()
+                        }
+                    },
+                    error: function (data) {
+                    }
+                })
+            }
+        })
+    }
+
+</script>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+  get 'profile/index'
+  end
+
   #namespace :admin do
   #get 'contact_mailer_information/index'
   #end
@@ -50,6 +54,23 @@ Rails.application.routes.draw do
     end
     end
 
+    resources :profile do
+      collection do
+        get "index"
+        #get "add_user"
+        #get "edit_user"
+        post "create_profile"
+        post "update_profile"
+        patch "update_profile"
+        get "create_profile"
+        get "all-profiles"
+        #get "show"
+        #delete "destroy"
+        #post "admin/users/active_deactive_user"
+        get "active_deactive_profile"
+
+      end
+    end
 
     resources :users do
       collection do
