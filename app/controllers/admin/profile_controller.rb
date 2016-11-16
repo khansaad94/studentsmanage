@@ -50,7 +50,7 @@ class Admin::ProfileController < ApplicationController
   # end
   #
   # def show
-  #
+  # @profile = Profile.new()
   # end
   #
   # def edit

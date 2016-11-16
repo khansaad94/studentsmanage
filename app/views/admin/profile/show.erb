@@ -15,10 +15,10 @@
             <i class="fa fa-angle-right"></i>
           </li>
           <!--<li>-->
-            <!--<i class="icon-user"></i>-->
-            <!--<a href="/admin/users/new">Add New User</a>-->
-            <!--<a href="/admin/users/new">Add New User</a>-->
-            <!--<i class="fa fa-angle-right"></i>-->
+          <!--<i class="icon-user"></i>-->
+          <!--<a href="/admin/users/new">Add New User</a>-->
+          <!--<a href="/admin/users/new">Add New User</a>-->
+          <!--<i class="fa fa-angle-right"></i>-->
           <!--</li>-->
           <li>
             <a href="/admin/users/all-users">Display All Profiles</a>
@@ -58,8 +58,8 @@
           <div class="portlet-body">
             <div class="table-toolbar">
               <!--<div class="btn-group">-->
-                <!--<%#= link_to "Create User", new_admin_user_path, :class => "btn blue" %>-->
-                <!--&lt;!&ndash;new_admin_user_path&ndash;&gt;-->
+              <!--<%#= link_to "Create User", new_admin_user_path, :class => "btn blue" %>-->
+              <!--&lt;!&ndash;new_admin_user_path&ndash;&gt;-->
               <!--</div>-->
 
             </div>
@@ -72,161 +72,6 @@
                     #
                   </th>
                   <th class="sorting_asc" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 248px;" aria-sort="ascending" aria-label="Username: activate to sort column ascending">
-                    Email
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-                    Is Approved
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-About Me
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-                    Age
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-                    Body Style
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-                    Hair
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-                    Eyes
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-                    School Standings
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-                    Study Focus
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-                    Smokes
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-                    Drink
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-Your First Date
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
-                    Hobbies
-                  </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 91px;" aria-label="Points">
-                    3 best words
-                  </th>
-
-                  <th class="sorting" tabindex="0" aria-controls="sample_1" rowspan="1" colspan="1" style="width: 120px;" aria-label="Joined: activate to sort column ascending">
-                    Action
-                  </th>
-                </tr>
-                </thead>
-                <tbody>
-                <% @users.where(:is_active => true).each_with_index do |user, index| %>
-                    <tr class="">
-                      <td>
-                        <%= index+1 %>
-                      </td>
-                      <td>
-                        <%= user.email %>
-                      </td>
-                      <td>
-                        <%= user.profile.is_approved == 1 ? "Yes" : "No" if user.profile %>
-                      </td>
-                      <td>
-                        <%= user.profile.about_me if user.profile %>
-                      </td>
-                      <td>
-                        <%= user.profile.age if user.profile %>
-                      </td>
-                      <td>
-                        <%= user.profile.body_style if user.profile %>
-
-                      </td>
-                      <td>
-                        <%= user.profile.hair if user.profile %>
-
-                      </td>
-                      <td>
-                        <%= user.profile.eyes if user.profile %>
-
-                      </td>
-                      <td>
-                        <%= user.profile.school_standings if user.profile %>
-                      </td>
-                      <td>
-                        <%= user.profile.study_focus if user.profile %>
-                      </td>
-                      <td>
-                        <%= user.profile.smokes if user.profile %>
-                      </td>
-                      <td>
-                        <%= user.profile.drinks if user.profile %>
-                      </td>
-                      <td>
-                        <%= user.profile.first_date if user.profile %>
-                      </td>
-                      <td>
-                        <%= user.profile.hobbies if user.profile %>
-                      </td>
-                      <td>
-                        <%= user.profile.best_words if user.profile %>
-                      </td>
-                      <td>
-                        <a href="javascript:void(0)" style="text-decoration:none" onclick="active_deactive_profile(<%= user.id %>)">
-                          <span class="icon fa fa-power-off user_status" status="0" user_id="99" id="user99"></span></a>&nbsp;&nbsp;
-                        <%= link_to "Show" %>
-                        <%#= link_to "Edit", edit_admin_user_path(user) %>&nbsp;&nbsp;
-                        <%= link_to 'Delete', admin_profile_path(user),
-                                    method: :delete, data: {confirm: 'Are you sure?'} %>
-                      </td>
-                    </tr>
-                <% end %>
-                </tbody>
-              </table>
-              <!--</div>-->
-            </div>
-          </div>
-        </div>
-        <!-- END EXAMPLE TABLE PORTLET-->
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-md-12">
-        <!-- BEGIN EXAMPLE TABLE PORTLET-->
-        <div class="portlet box red">
-          <div class="portlet-title">
-            <div class="caption">
-              <i class="fa fa-globe"></i> Disabled Profiles
-            </div>
-            <div class="tools">
-              <a class="collapse" href="javascript:;">
-              </a>
-              <a class="config" data-toggle="modal" href="#portlet-config">
-              </a>
-              <a class="reload" href="javascript:;">
-              </a>
-              <a class="remove" href="javascript:;">
-              </a>
-            </div>
-          </div>
-          <div class="portlet-body">
-            <div class="table-toolbar">
-              <div class="btn-group">
-                <%#= link_to "Create User", admin_users_add_user_path, :class => "btn green" %>
-
-              </div>
-
-            </div>
-            <div id="sample_2_wrapper" class="dataTables_wrapper no-footer">
-              <!--<div class="table-scrollable">-->
-              <table id="sample_2" class="table table-striped table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="sample_2_info">
-                <thead>
-                <tr role="row">
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 50px;" aria-label="Email">
-                    #
-                  </th>
-                  <th class="sorting_asc" tabindex="0" aria-controls="sample_2" rowspan="1" colspan="1" style="width: 143px;" aria-sort="ascending" aria-label="Username: activate to sort column ascending">
                     Email
                   </th>
                   <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
@@ -275,7 +120,7 @@ Your First Date
                 </tr>
                 </thead>
                 <tbody>
-                <% @users.where(:is_active => false).each_with_index do |user, index| %>
+                <% @profile.where(:is_active => true).each_with_index do |user, index| %>
                     <tr class="">
                       <td>
                         <%= index+1 %>
@@ -328,7 +173,8 @@ Your First Date
                       <td>
                         <a href="javascript:void(0)" style="text-decoration:none" onclick="active_deactive_profile(<%= user.id %>)">
                           <span class="icon fa fa-power-off user_status" status="0" user_id="99" id="user99"></span></a>&nbsp;&nbsp;
-                        <%= link_to "Show" %>
+                        <%= link_to "Show", nil %>
+                        <!--admin_profile_path(user.profile.id? ? user.profile.id : 0)-->
                         <%#= link_to "Edit", edit_admin_user_path(user) %>&nbsp;&nbsp;
                         <%= link_to 'Delete', admin_profile_path(user),
                                     method: :delete, data: {confirm: 'Are you sure?'} %>
@@ -346,89 +192,13 @@ Your First Date
     </div>
 
 
+
+
   </div>
 </div>
 </body>
 <script>
     var table = $('#sample_2');
-
-    // begin first table
-    table.dataTable({
-        "columns": [
-            {
-                "orderable": false
-            },
-            {
-                "orderable": true
-            },
-            {
-                "orderable": true
-            },
-            {
-                "orderable": true
-            },
-            {
-                "orderable": true
-            },
-            {
-                "orderable": true
-            },
-            {
-                "orderable": true
-            },
-            {
-                "orderable": true
-            },
-            {
-                "orderable": true
-            },
-            {
-                "orderable": true
-            },
-            {
-                "orderable": true
-            },
-            {
-                "orderable": true
-            },
-            {
-                "orderable": false
-            },
-            {
-                "orderable": false
-            }
-        ],
-        "lengthMenu": [
-            [5, 10, 15, 20, -1],
-            [5, 10, 15, 20, "All"] // change per page values here
-        ],
-        // set the initial value
-        "pageLength": 10,
-        "pagingType": "bootstrap_full_number",
-        "language": {
-            "lengthMenu": "_MENU_ records",
-            "paginate": {
-                "previous": "Prev",
-                "next": "Next",
-                "last": "Last",
-                "first": "First"
-            }
-        },
-        "columnDefs": [
-            {  // set default column settings
-                'orderable': false,
-                'targets': [0]
-            },
-            {
-                "searchable": false,
-                "targets": [0]
-            }
-        ],
-        "order": [
-            [1, "asc"]
-        ] // set first column as a default sort by asc
-    });
-    var table = $('#sample_1');
 
     // begin first table
     table.dataTable({
