@@ -1172,14 +1172,13 @@ img {
     padding: 13px;
     font-size: 17px;
     border: solid 1px #cbcbcb;
-    height: 68px;
     margin: 9px 0 0px 0;
     font-family: OpenSansRegular;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     color: #cdcdcd;
-    height: 222px;
+    height: 130px !important;
 }
 
 .biling-info-btn input {
@@ -1733,11 +1732,11 @@ img {
 
 .ch-password .email-add {
     text-transform: capitalize;
-    font-size: 24px;
+    font-size: 23px;
     font-family: "OpenSansRegular";
     width: 100%;
     float: left;
-    padding: 16px 0 0;
+    padding: 35px 0 0;
     letter-spacing: .3px;
 }
 
@@ -1756,7 +1755,7 @@ img {
 }
 
 .ch-password .email-id span {
-    color: #050508;
+    color: #193c64;
     text-decoration: none;
     font-size: 18px;
     float: left;
@@ -3077,14 +3076,13 @@ input:focus {
     padding: 13px;
     font-size: 17px;
     border: solid 1px #cbcbcb;
-    height: 68px;
     font-family: OpenSansRegular;
     margin: 9px 0 0px 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     color: #000;
-    height: 222px;
+    height: 130px !important;
 }
 
 .biling-info-btn input {
@@ -3599,11 +3597,11 @@ input:focus {
 
 .ch-password .email-add {
     text-transform: capitalize;
-    font-size: 24px;
+    font-size: 23px;
     font-family: "OpenSansRegular";
     width: 100%;
     float: left;
-    padding: 16px 0 0;
+    padding: 35px 0 0;
     letter-spacing: .3px;
 }
 
@@ -3622,7 +3620,7 @@ input:focus {
 }
 
 .ch-password .email-id span {
-    color: #050508;
+    color: #193c64;
     text-decoration: none;
     font-size: 18px;
     float: left;

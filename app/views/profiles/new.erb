@@ -1,0 +1,442 @@
+<div class="warrper">
+  <div class="w-100">
+    <div class="page-titel2">Secure Checkout</div>
+  </div>
+  <div class="white-cotaner" style="margin-bottom: 0px!important;">
+    <div class="inner-con">
+      <div class="Secure-box1">
+        <div class="payment-h">
+          <img src="/assets/lock.png" alt="">
+          <span>Enter Your Profile Details</span>
+
+          <!--<div class="guarantee">* 100% money back guarantee</div>-->
+        </div>
+      </div>
+      <!--<div class="Secure-box2">-->
+        <!--<a href="#">-->
+          <!--<div class="confirm-order">-->
+               <!--<span><img src="/assets/left.png" alt=""></span>-->
+
+            <!--<div class="link">Billing Info</div>-->
+          <!--</div>-->
+        <!--</a>-->
+      <!--</div>-->
+    </div>
+
+    <%#= render :partial => 'celeb_info', :locals => {:@celeb => @celeb} %>
+    <div class="form-con-checkout-main">
+      <!--<form>-->
+      <%= form_for @profile do |f| %>
+          <div class="form-con-checkout p-b">
+            <div class="form-con2 payment-mrg">
+              <label style="color: #0063dc">About Me</label>
+              <%= f.text_area :about_me, :placeholder => "About Me" %>
+              <!--<input type="text" name="name" placeholder="e.g. Bob Smith" id="name">-->
+            </div>
+
+            <div class="form-con2 payment-mrg">
+              <label style="color: #0063dc">Age</label>
+              <%= f.text_field :age, :placeholder => "Age" %>
+              <!--<input type="text" name="name" placeholder="e.g. Bob Smith" id="name">-->
+            </div>
+
+            <div class="form-con2 payment-mrg">
+              <label style="color: #0063dc">Body Type</label>
+              <%= f.text_field :body_type, :placeholder => "Body Type" %>
+              <!--<input type="text" name="name" placeholder="e.g. Bob Smith" id="name">-->
+            </div>
+
+            <div class="form-con2 payment-mrg">
+              <label style="color: #0063dc">Hair</label>
+              <%= f.text_field :hair, :placeholder => "Hair" %>
+              <!--<input type="text" name="name" placeholder="e.g. Bob Smith" id="name">-->
+            </div>
+
+            <div class="form-con2 payment-mrg">
+              <label style="color: #0063dc">Eyes</label>
+              <%= f.text_field :eyes, :placeholder => "Eyes" %>
+              <!--<input type="text" name="name" placeholder="e.g. Bob Smith" id="name">-->
+            </div>
+
+            <div class="form-con2 payment-mrg">
+              <label style="color: #0063dc">School Standings</label>
+              <%= f.text_field :school_standings, :placeholder => "School Standings" %>
+              <!--<input type="text" name="name" placeholder="e.g. Bob Smith" id="name">-->
+            </div>
+
+            <div class="form-con2 payment-mrg">
+              <label style="color: #0063dc">Study Focus</label>
+              <%= f.text_field :study_focus, :placeholder => "Study Focus" %>
+              <!--<input type="text" name="name" placeholder="e.g. Bob Smith" id="name">-->
+            </div>
+
+            <div class="form-con2 payment-mrg">
+              <label style="color: #0063dc">Smokes</label>
+              <%= f.text_field :smokes, :placeholder => "Smokes" %>
+              <!--<input type="text" name="name" placeholder="e.g. Bob Smith" id="name">-->
+            </div>
+
+            <div class="form-con2 payment-mrg">
+              <label style="color: #0063dc">Drinks</label>
+              <%= f.text_field :drinks, :placeholder => "Drinks" %>
+              <!--<input type="text" name="name" placeholder="e.g. Bob Smith" id="name">-->
+            </div>
+
+            <div class="form-con2 payment-mrg">
+              <label id="script_text" style="color: #0063dc">Describe your perfect first date?:</label>
+              <%= f.text_area :first_date, :id => "textarea6", :rows => "8", :cols => "30", :maxlength => "150", :placeholder => "Describe your perfect first date here."%>
+              <div id="textarea_feedback6"></div>
+
+              <!--<input type="text" name="name" placeholder="e.g. Bob Smith" id="name">-->
+            </div>
+
+            <!--<div class="form-con2 payment-mrg">-->
+              <!--<label>Pronounced like</label>-->
+              <%#= f.text_field :pronounce_like, :placeholder => "e.g. Bob Smith" %>
+              <!--<input type="text" name="name" placeholder="e.g. Bob Smith" id="name">-->
+            <!--</div>-->
+
+            <!--<div class="form-con2 sms-type-mrg">-->
+              <!--<label>Message Type</label>-->
+<!---->
+              <!--<div class="message-type">-->
+                <%#= f.select(:event_type_id, options_from_collection_for_select(@events, :id, :name), :id => "state_dropdown") %>
+                <!--<select>-->
+                <!--<option selected=""></option>-->
+                <!--<option value="1">1</option>-->
+                <!--<option value="2">2</option>-->
+                <!--</select>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-con2 sms-type-mrg">-->
+              <!--<label>Deadline</label>-->
+              <!--<div class="message-type">-->
+                <%#= f.text_field :deadline, :id => "datetimepicker", :placeholder => "Deadline" %>
+                <!--<div id="down_script" style="width: 100%;margin: 0px"><p style="line-height: 1.2;font-size: 13px">System automatically refunds orders not completed by this date.</p></div>-->
+
+                <!--<input type="text" value="" id="datetimepicker"/><br><br>-->
+              <!--</div>-->
+            <!--</div>-->
+
+
+            <!--<div class="form-con2 sms-type-mrg">-->
+              <!--<label>Is this Message a Gift?</label>-->
+
+              <!--<div class="radio">-->
+                <!--<%#= f.radio_button :is_gift, "1", :checked => true %>-->
+                <!--&lt;!&ndash;<input id="male" type="radio" name="gender" value="male">&ndash;&gt;-->
+                <!--<label for="job_is_gift_1"><span>Yes</span></label>-->
+              <!--</div>-->
+              <!--<div class="radio">-->
+                <!--<%#= f.radio_button :is_gift, "0" %>-->
+                <!--&lt;!&ndash;<input id="female" type="radio" name="gender" value="female">&ndash;&gt;-->
+                <!--<label for="job_is_gift_0"><span>No</span></label>-->
+              <!--</div>-->
+            <!--</div>-->
+
+            <!--<div class="form-con2">-->
+            <!--<div class="checkbox">-->
+              <!--<div class="chec" style="display:inline-block">-->
+                <!--<%#= f.check_box :is_public ,:checked => "checked", :style => "width:22px;height:20px;display:inline-block"%>-->
+              <!--</div>-->
+              <!--<div id="down_script" style="width: 90%;margin: 0px;display:inline-block">-->
+                <!--&lt;!&ndash;<p style="line-height: 1.2;font-size: 12px">Allow Celebvidy to use video for promotional purposes.</p>&ndash;&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<input id="female" type="radio" name="gender" value="female">-->
+            <!--<label for="job_is_gift_0"><span>No</span></label>-->
+            <!--</div>-->
+
+
+            <div class="form-con2">
+              <label id="script_text" style="color: #0063dc">What hobbies do you enjoy?:</label>
+              <%= f.text_area :hobbies, :id => "textarea", :rows => "8", :cols => "2", :maxlength => "150", :placeholder => "What hobbies do you enjoy?" %>
+              <div id="textarea_feedback"></div>
+              <!--<div id="down_script" style="width: 100%;margin: 0px"><p style="line-height: 20px;font-size: 13px">Celebrities will not record the following content: Racial, Political, Explicit in Nature, Profane, Derogatory or Degrading. Additionally you may not request a personal endorsement (e.g "I love you") or a commercial endorsement for your company. Celebvidy reserves the right to refund any transaction that violate our <a href="/terms-of-use"  target="_blank">Terms of Use.</a></p></div>-->
+              <!--&lt;!&ndash;<textarea name="message_detail" id="message_detail"></textarea>&ndash;&gt;                                                                                                                                                                                                                                                                                                           onclick="document.location.href = '/users/terms_of_services';"-->
+            </div>
+
+            <div class="form-con2">
+              <label id="script_text" style="color: #0063dc">What do you typically do with your free time?:</label>
+              <%= f.text_area :free_time, :id => "textarea1", :rows => "8", :cols => "30", :maxlength => "150", :placeholder => "What do you typically do with your free time?" %>
+              <div id="textarea_feedback1"></div>
+              <!--<div id="down_script" style="width: 100%;margin: 0px"><p style="line-height: 20px;font-size: 13px">Celebrities will not record the following content: Racial, Political, Explicit in Nature, Profane, Derogatory or Degrading. Additionally you may not request a personal endorsement (e.g "I love you") or a commercial endorsement for your company. Celebvidy reserves the right to refund any transaction that violate our <a href="/terms-of-use"  target="_blank">Terms of Use.</a></p></div>-->
+              <!--&lt;!&ndash;<textarea name="message_detail" id="message_detail"></textarea>&ndash;&gt;                                                                                                                                                                                                                                                                                                           onclick="document.location.href = '/users/terms_of_services';"-->
+            </div>
+            <div class="form-con2">
+              <label id="script_text" style="color: #0063dc">Which three words describe you best?:</label>
+              <%= f.text_area :best_words, :id => "textarea2", :rows => "8", :cols => "30", :maxlength => "150", :placeholder => "Which three words describe you best?" %>
+              <div id="textarea_feedback2"></div>
+              <!--<div id="down_script" style="width: 100%;margin: 0px"><p style="line-height: 20px;font-size: 13px">Celebrities will not record the following content: Racial, Political, Explicit in Nature, Profane, Derogatory or Degrading. Additionally you may not request a personal endorsement (e.g "I love you") or a commercial endorsement for your company. Celebvidy reserves the right to refund any transaction that violate our <a href="/terms-of-use"  target="_blank">Terms of Use.</a></p></div>-->
+              <!--&lt;!&ndash;<textarea name="message_detail" id="message_detail"></textarea>&ndash;&gt;                                                                                                                                                                                                                                                                                                           onclick="document.location.href = '/users/terms_of_services';"-->
+            </div>
+            <div class="form-con2">
+              <label id="script_text" style="color: #0063dc">Where do you see yourself in 5 years?:</label>
+              <%= f.text_area :see_you_five_years, :id => "textarea3", :rows => "8", :cols => "30", :maxlength => "150", :placeholder => "Where do you see yourself in 5 years?" %>
+              <div id="textarea_feedback3"></div>
+              <!--<div id="down_script" style="width: 100%;margin: 0px"><p style="line-height: 20px;font-size: 13px">Celebrities will not record the following content: Racial, Political, Explicit in Nature, Profane, Derogatory or Degrading. Additionally you may not request a personal endorsement (e.g "I love you") or a commercial endorsement for your company. Celebvidy reserves the right to refund any transaction that violate our <a href="/terms-of-use"  target="_blank">Terms of Use.</a></p></div>-->
+              <!--&lt;!&ndash;<textarea name="message_detail" id="message_detail"></textarea>&ndash;&gt;                                                                                                                                                                                                                                                                                                           onclick="document.location.href = '/users/terms_of_services';"-->
+            </div>
+            <div class="form-con2">
+              <label id="script_text" style="color: #0063dc"> If you could travel to one place in the world, where would it be and why?:</label>
+              <%= f.text_area :where_why_travel, :id => "textarea4", :rows => "8", :cols => "30", :maxlength => "150", :placeholder => " If you could travel to one place in the world, where would it be and why?" %>
+              <div id="textarea_feedback4"></div>
+              <!--<div id="down_script" style="width: 100%;margin: 0px"><p style="line-height: 20px;font-size: 13px">Celebrities will not record the following content: Racial, Political, Explicit in Nature, Profane, Derogatory or Degrading. Additionally you may not request a personal endorsement (e.g "I love you") or a commercial endorsement for your company. Celebvidy reserves the right to refund any transaction that violate our <a href="/terms-of-use"  target="_blank">Terms of Use.</a></p></div>-->
+              <!--&lt;!&ndash;<textarea name="message_detail" id="message_detail"></textarea>&ndash;&gt;                                                                                                                                                                                                                                                                                                           onclick="document.location.href = '/users/terms_of_services';"-->
+            </div>
+            <div class="form-con2">
+              <label id="script_text" style="color: #0063dc">Favorite types of food?:</label>
+              <%= f.text_area :food, :id => "textarea5", :rows => "8", :cols => "30", :maxlength => "150", :placeholder => "Favorite types of food?" %>
+              <div id="textarea_feedback5"></div>
+              <!--<div id="down_script" style="width: 100%;margin: 0px"><p style="line-height: 20px;font-size: 13px">Celebrities will not record the following content: Racial, Political, Explicit in Nature, Profane, Derogatory or Degrading. Additionally you may not request a personal endorsement (e.g "I love you") or a commercial endorsement for your company. Celebvidy reserves the right to refund any transaction that violate our <a href="/terms-of-use"  target="_blank">Terms of Use.</a></p></div>-->
+              <!--&lt;!&ndash;<textarea name="message_detail" id="message_detail"></textarea>&ndash;&gt;                                                                                                                                                                                                                                                                                                           onclick="document.location.href = '/users/terms_of_services';"-->
+            </div>
+            <!--<div class="form-con2">-->
+              <!--<label id="script_text">Enter your birthday message:</label>-->
+              <!--<%#= f.text_area :hobbies, :id => "textarea6", :rows => "8", :cols => "30", :maxlength => "200", :placeholder => "Enter Your Hobbies here." %>-->
+              <!--<div id="textarea_feedback6"></div>-->
+              <!--<div id="down_script" style="width: 100%;margin: 0px"><p style="line-height: 20px;font-size: 13px">Celebrities will not record the following content: Racial, Political, Explicit in Nature, Profane, Derogatory or Degrading. Additionally you may not request a personal endorsement (e.g "I love you") or a commercial endorsement for your company. Celebvidy reserves the right to refund any transaction that violate our <a href="/terms-of-use"  target="_blank">Terms of Use.</a></p></div>-->
+              <!--&lt;!&ndash;<textarea name="message_detail" id="message_detail"></textarea>&ndash;&gt;                                                                                                                                                                                                                                                                                                           onclick="document.location.href = '/users/terms_of_services';"-->
+            <!--</div>-->
+
+            <%#= f.hidden_field :celebrity_id, :value => @celeb.id %>
+            <%#= f.hidden_field :status, :value => ApplicationHelper::JOBS_STATUS[3] %>
+            <%#= f.hidden_field :user_id, :value => @user.id %>
+            <div class="w-100">
+              <%# count = get_remaining_videos(@celeb.id) %>
+            </div>
+          </div>
+          <div class="change-btn-new" style="width: 87%!important; ;margin: 32px 51px 50px 39px!important;">
+
+          <%= f.submit %>
+            </div>
+          <!--</form>-->
+      <% end %>
+    </div>
+  </div>
+</div><!--warrperend-->
+
+
+
+<!--<h3>Secure CheckOut</h3>-->
+<!--<h1>Your Celebvidy Details</h1>-->
+<!--<%# if celeb.celebrity.present? && celeb.celebrity.avatar.present? %>-->
+<!--<%#= image_tag celeb.celebrity.avatar(:thumb) %>-->
+<!--<%# else %>-->
+<!--<%#= image_tag "missing.jpg" %>-->
+<!--<%# end %>-->
+<!--<br>-->
+<!--<%#= (celeb.first_name if celeb.first_name.present?) + ' ' + (celeb.last_name if celeb.last_name.present?) %>-->
+<!--<br>-->
+<!--<%#= celeb.celebrity.about_me if (celeb.celebrity.present? && celeb.celebrity.about_me.present?) %>-->
+<!--<br>-->
+<!--<%#= 'Total $' + (celeb.celebrity.default_rate * 10).to_s if (celeb.celebrity.present? && celeb.celebrity.default_rate.present?) %>-->
+
+
+
+
+<!--<div id="celeb_detail">-->
+<!--<%#= form_for @job, :url => "/celeberties/job_create", :html => {:multipart => true, :onsubmit => "return false", :id => 'job_form', :method => 'post'} do |f| %>-->
+
+<!--<br><label>This Message is for(Person's name)</label>-->
+<!--<%#= f.text_field :message_for %>-->
+
+<!--<br><label>Pronounced like</label>-->
+<!--<%#= f.text_field :pronounce_like %>-->
+
+<!--<br><label>Message Type</label>-->
+<!--<%#= f.select(:event_type_id, options_from_collection_for_select(events, :id, :name), :id => "state_dropdown") %>-->
+
+
+<!--<br><label>Is this message a gift?</label>-->
+<!--<%#= f.radio_button :is_gift, "1", :checked => true %>-->
+<!--<labe>Yes</labe>-->
+<!--<%#= f.radio_button :is_gift, "0" %>-->
+<!--<labe>No</labe>-->
+
+<!--<br><label>Message Datails</label>-->
+<!--<%#= f.text_area :message_details %>-->
+<!--<%#= f.hidden_field :celebrity_id, :value => celeb.id %>-->
+<!--<%#= f.hidden_field :status, :value => ApplicationHelper::JOBS_STATUS[1] %>-->
+<!--<%#= f.hidden_field :user_id, :value => current_user.id %>-->
+
+<!--<br><input type="button" value="Submit" onclick="create_job()"/>-->
+<!--<%# end %>-->
+<!--</div>-->
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $("#job_event_type_id").change(function(){
+
+            if (($("#job_event_type_id").val() == "4" )){
+                $("#script_text").text("Enter your question:")
+                $("#textarea").attr("placeholder", "Specify your question for the celebrity here..");
+            } else if (($("#job_event_type_id").val() == "1" )) {
+                $("#script_text").text("Enter your birthday message:")
+                $("#textarea").attr("placeholder", "Write the birthday message you wish for your Celebrity to record here.");
+            } else if (($("#job_event_type_id").val() == "2" )) {
+                $("#script_text").text("Enter your anniversary message:")
+                $("#textarea").attr("placeholder", "Write the anniversary message you wish for your Celebrity to record here.");
+            } else if (($("#job_event_type_id").val() == "3" )){
+                $("#script_text").text("Enter your congratulation message:")
+                $("#textarea").attr("placeholder", "Write the congratulation message you wish for your Celebrity to record here.");
+            } else if (($("#job_event_type_id").val() == "5" )){
+                $("#script_text").text("Enter your message:")
+                $("#textarea").attr("placeholder", "Write the message you wish for your Celebrity to record here.");
+
+            }
+
+        })
+//        if ($("").val == "")
+//        {
+//
+//        }
+
+        $('#job_form').validate({
+
+            rules: {
+                "job[message_for]": {
+                    maxlength: 255,
+                    required: true
+                },
+                "job[pronounce_like]": {
+                    maxlength: 255,
+                    required: true
+                },
+                "job[message_details]": {
+                    required: true
+                },
+                "job[deadline]": {
+                    required: true
+                }
+            }
+        });
+    });
+    function create_job() {
+        if ($("#job_form").valid() == true) {
+            $(".background_shadow").show();
+            $("#job_form").ajaxSubmit({
+                url: '/jobs/job_create',
+                type: 'post',
+                success: function (data) {
+                    $("#container").html(data)
+                    window.scroll(0, 0)
+                    $(".background_shadow").hide();
+                }
+            });
+        }
+    }
+    function update_job(id) {
+        if ($("#job_form").valid() == true) {
+            $(".background_shadow").show();
+            $("#job_form").ajaxSubmit({
+                url: '/jobs/job_update?job_id=' + id,
+                type: 'post',
+                success: function (data) {
+                    $("#container").html(data)
+                    window.scroll(0, 0)
+                    $(".background_shadow").hide();
+                }
+            });
+        }
+    }
+
+    $(document).ready(function () {
+        var text_max = 150;
+        var text_max1 = 150;
+        var text_max2 = 150;
+        var text_max3 = 150;
+        var text_max4 = 150;
+        var text_max5 = 150;
+        var text_max6 = 150;
+
+        $('#textarea_feedback').html(text_max + ' characters remaining');
+        $('#textarea').keyup(function () {
+            var text_length = $('#textarea').val().length;
+            var text_remaining = text_max - text_length;
+
+            $('#textarea_feedback').html(text_remaining + ' characters remaining');
+        });
+
+        $('#textarea_feedback1').html(text_max1 + ' characters remaining');
+        $('#textarea1').keyup(function () {
+            var text_length = $('#textarea1').val().length;
+            var text_remaining = text_max1 - text_length;
+
+            $('#textarea_feedback1').html(text_remaining + ' characters remaining');
+        });
+        $('#textarea_feedback2').html(text_max2 + ' characters remaining');
+
+        $('#textarea2').keyup(function () {
+            var text_length = $('#textarea2').val().length;
+            var text_remaining = text_max2 - text_length;
+
+            $('#textarea_feedback2').html(text_remaining + ' characters remaining');
+        });
+        $('#textarea_feedback3').html(text_max3 + ' characters remaining');
+
+        $('#textarea3').keyup(function () {
+            var text_length = $('#textarea3').val().length;
+            var text_remaining = text_max3 - text_length;
+
+            $('#textarea_feedback3').html(text_remaining + ' characters remaining');
+        });
+        $('#textarea_feedback4').html(text_max4 + ' characters remaining');
+
+        $('#textarea4').keyup(function () {
+            var text_length = $('#textarea4').val().length;
+            var text_remaining = text_max4 - text_length;
+
+            $('#textarea_feedback4').html(text_remaining + ' characters remaining');
+        });
+        $('#textarea_feedback5').html(text_max5 + ' characters remaining');
+
+        $('#textarea5').keyup(function () {
+            var text_length = $('#textarea5').val().length;
+            var text_remaining = text_max5 - text_length;
+
+            $('#textarea_feedback5').html(text_remaining + ' characters remaining');
+        });
+        $('#textarea_feedback6').html(text_max6 + ' characters remaining');
+
+        $('#textarea6').keyup(function () {
+            var text_length = $('#textarea6').val().length;
+            var text_remaining = text_max6 - text_length;
+
+            $('#textarea_feedback6').html(text_remaining + ' characters remaining');
+        });
+    });
+//    var days = 8;
+//    var date = new Date();
+    //    var res = date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+//    var date_after_next_8_days = date.getTime() + (days * 24 * 60 * 60 * 1000);
+//    date_after_next_8_days = new Date(date_after_next_8_days);
+    $("#datetimepicker").prop("readonly", true);
+    //    var start_date = new Date();
+    $('#datetimepicker').datetimepicker({
+        dayOfWeekStart : 1,
+        lang:'en',
+        timepicker: false,
+        format:	'n/j/Y',
+        formatDate:	"n/j/Y",
+        scrollMonth:false,
+        scrollTime:false,
+        scrollInput:false,
+//        startDate:	date,
+        closeOnDateSelect: true
+//        minDate: date_after_next_8_days
+    });
+    //    $('#datetimepicker').datetimepicker({value:date,dateFormat: 'dd/mm/yyyy'});
+    //    $( "#datetimepicker" ).datetimepicker({ minDate: 0});
+    $(".zero_counter").click(function(){
+        alert("You can 't place your order, no more videos are available for this month")
+    })
+</script>
+<style>
+    .footer {
+        height: 0px;
+    }
+</style>

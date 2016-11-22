@@ -39,10 +39,10 @@
     <div class="row">
       <div class="col-md-12">
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
-        <div class="portlet box green">
+        <div class="portlet box red">
           <div class="portlet-title">
             <div class="caption">
-              <i class="fa fa-globe"></i> Active Profiles
+              <i class="fa fa-globe"></i> All Profiles
             </div>
             <div class="tools">
               <a class="collapse" href="javascript:;">
@@ -120,62 +120,62 @@ Your First Date
                 </tr>
                 </thead>
                 <tbody>
-                <% @users.where(:is_active => true).each_with_index do |user, index| %>
+                <% @profile.where(:is_approved => false).each_with_index do |profile, index| %>
                     <tr class="">
                       <td>
                         <%= index+1 %>
                       </td>
                       <td>
-                        <%= user.email %>
+                        <%= profile.user.email if profile.user %>
                       </td>
                       <td>
-                        <%= user.profile.is_approved == 1 ? "Yes" : "No" if user.profile %>
+                        <%= profile.is_approved == true ? "Yes" : "No" %>
                       </td>
                       <td>
-                        <%= user.profile.about_me if user.profile %>
+                        <%= profile.about_me %>
                       </td>
                       <td>
-                        <%= user.profile.age if user.profile %>
+                        <%= profile.age  %>
                       </td>
                       <td>
-                        <%= user.profile.body_style if user.profile %>
+                        <%= profile.body_type%>
 
                       </td>
                       <td>
-                        <%= user.profile.hair if user.profile %>
+                        <%= profile.hair  %>
 
                       </td>
                       <td>
-                        <%= user.profile.eyes if user.profile %>
+                        <%= profile.eyes  %>
 
                       </td>
                       <td>
-                        <%= user.profile.school_standings if user.profile %>
+                        <%= profile.school_standings  %>
                       </td>
                       <td>
-                        <%= user.profile.study_focus if user.profile %>
+                        <%= profile.study_focus  %>
                       </td>
                       <td>
-                        <%= user.profile.smokes if user.profile %>
+                        <%= profile.smokes  %>
                       </td>
                       <td>
-                        <%= user.profile.drinks if user.profile %>
+                        <%= profile.drinks %>
                       </td>
                       <td>
-                        <%= user.profile.first_date if user.profile %>
+                        <%= profile.first_date %>
                       </td>
                       <td>
-                        <%= user.profile.hobbies if user.profile %>
+                        <%= profile.hobbies  %>
                       </td>
                       <td>
-                        <%= user.profile.best_words if user.profile %>
+                        <%= profile.best_words %>
                       </td>
                       <td>
-                        <a href="javascript:void(0)" style="text-decoration:none" onclick="active_deactive_profile(<%= user.id %>)">
+                        <a href="javascript:void(0)" style="text-decoration:none" onclick="approve_profile(<%= profile.id %>)">
                           <span class="icon fa fa-power-off user_status" status="0" user_id="99" id="user99"></span></a>&nbsp;&nbsp;
                         <%= link_to "Show" %>
                         <%#= link_to "Edit", edit_admin_user_path(user) %>&nbsp;&nbsp;
-                        <%= link_to 'Delete', admin_profile_path(user),
+                        <%= link_to 'Delete', admin_profile_path(profile),
                                     method: :delete, data: {confirm: 'Are you sure?'} %>
                       </td>
                     </tr>
@@ -194,10 +194,10 @@ Your First Date
     <div class="row">
       <div class="col-md-12">
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
-        <div class="portlet box red">
+        <div class="portlet box green">
           <div class="portlet-title">
             <div class="caption">
-              <i class="fa fa-globe"></i> Disabled Profiles
+              <i class="fa fa-globe"></i> Approved Profiles
             </div>
             <div class="tools">
               <a class="collapse" href="javascript:;">
@@ -232,7 +232,7 @@ Your First Date
                   <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
                     Is Approved
                   </th>
-                  <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
+                  <th class="sorting_disabled" rowspan="1" colspan="1" style="" aria-label="Email">
                     About Me
                   </th>
                   <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 248px;" aria-label="Email">
@@ -275,62 +275,62 @@ Your First Date
                 </tr>
                 </thead>
                 <tbody>
-                <% @users.where(:is_active => false).each_with_index do |user, index| %>
+                <% @profile.where(:is_approved => true).each_with_index do |profile, index| %>
                     <tr class="">
                       <td>
                         <%= index+1 %>
                       </td>
                       <td>
-                        <%= user.email %>
+                        <%= profile.user.email if profile.user %>
                       </td>
                       <td>
-                        <%= user.profile.is_approved == 1 ? "Yes" : "No" if user.profile %>
+                        <%= profile.is_approved == true ? "Yes" : "No" %>
                       </td>
                       <td>
-                        <%= user.profile.about_me if user.profile %>
+                        <%= profile.about_me %>
                       </td>
                       <td>
-                        <%= user.profile.age if user.profile %>
+                        <%= profile.age%>
                       </td>
                       <td>
-                        <%= user.profile.body_style if user.profile %>
+                        <%= profile.body_type %>
 
                       </td>
                       <td>
-                        <%= user.profile.hair if user.profile %>
+                        <%=profile.hair %>
 
                       </td>
                       <td>
-                        <%= user.profile.eyes if user.profile %>
+                        <%= profile.eyes %>
 
                       </td>
                       <td>
-                        <%= user.profile.school_standings if user.profile %>
+                        <%=profile.school_standings %>
                       </td>
                       <td>
-                        <%= user.profile.study_focus if user.profile %>
+                        <%= profile.study_focus  %>
                       </td>
                       <td>
-                        <%= user.profile.smokes if user.profile %>
+                        <%= profile.smokes%>
                       </td>
                       <td>
-                        <%= user.profile.drinks if user.profile %>
+                        <%= profile.drinks  %>
                       </td>
                       <td>
-                        <%= user.profile.first_date if user.profile %>
+                        <%=profile.first_date %>
                       </td>
                       <td>
-                        <%= user.profile.hobbies if user.profile %>
+                        <%= profile.hobbies  %>
                       </td>
                       <td>
-                        <%= user.profile.best_words if user.profile %>
+                        <%= profile.best_words  %>
                       </td>
                       <td>
-                        <a href="javascript:void(0)" style="text-decoration:none" onclick="active_deactive_profile(<%= user.id %>)">
+                        <a href="javascript:void(0)" style="text-decoration:none" onclick="reject_profile(<%= profile.id %>)">
                           <span class="icon fa fa-power-off user_status" status="0" user_id="99" id="user99"></span></a>&nbsp;&nbsp;
                         <%= link_to "Show" %>
                         <%#= link_to "Edit", edit_admin_user_path(user) %>&nbsp;&nbsp;
-                        <%= link_to 'Delete', admin_profile_path(user),
+                        <%= link_to 'Delete', admin_profile_path(profile),
                                     method: :delete, data: {confirm: 'Are you sure?'} %>
                       </td>
                     </tr>
@@ -506,14 +506,37 @@ Your First Date
             [1, "asc"]
         ] // set first column as a default sort by asc
     });
-    function active_deactive_profile(id) {
-        apprise("Are you Sure You want to active or deactive Profile?", {'confirm': true}, function (r) {
+    function approve_profile(id) {
+        apprise("Are you Sure You want to Approve Profile?", {'confirm': true}, function (r) {
             if (r) {
                 $.ajax({
                     type: 'get',
                     dataType: 'html',
                     processData: false,
-                    url: '/admin/users/active_deactive_profile?id=' + id,
+                    url: '/admin/profile/active_deactive_profile?id=' + id,
+                    success: function (data) {
+                        if (data == "") {
+
+                        }
+                        else {
+                            window.location.reload()
+                        }
+                    },
+                    error: function (data) {
+                    }
+                })
+            }
+        })
+    }
+
+    function reject_profile(id) {
+        apprise("Are you Sure You want to Reject Profile?", {'confirm': true}, function (r) {
+            if (r) {
+                $.ajax({
+                    type: 'get',
+                    dataType: 'html',
+                    processData: false,
+                    url: '/admin/profile/active_deactive_profile?id=' + id,
                     success: function (data) {
                         if (data == "") {
 

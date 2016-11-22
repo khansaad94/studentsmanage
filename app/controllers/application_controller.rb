@@ -187,6 +187,7 @@ class ApplicationController < ActionController::Base
  #end
 
  def after_sign_in_path_for(resource)
-   session[:url] || root_path
+   # session[:url] || root_path
+   session[:url] || "/profiles/new"
    end
 end

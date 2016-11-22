@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  namespace :admin do
-  get 'profile/index'
-  end
+  get 'profiles/index'
+
+  namespace :admin do  end
 
   #namespace :admin do
   #get 'contact_mailer_information/index'
@@ -269,6 +269,12 @@ Rails.application.routes.draw do
       get "delete_job"
       post "delete_job"
       post "update_rejected_job"
+    end
+  end
+
+  resources :profiles do
+    collection do
+
     end
   end
   # Example of regular route:

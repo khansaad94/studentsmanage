@@ -3,23 +3,37 @@ class Admin::ProfileController < ApplicationController
   layout "admin"
   def index
 
-    @users = User.all_non_deleted_users
+    # @users = User.all_non_deleted_users
+    @profile = Profile.all
 
   end
 
   def destroy
-    @user = User.find(params[:id])
-    if @user.profile
-    if @user.profile.destroy
+    @profile = Profile.find(params[:id])
+    if @profile.destroy
       redirect_to :controller => "admin/profile", :action => "index"
+      flash[:success] = "User Profile has been Deleted successfully"
+
     else
       redirect_to :controller => "admin/profile", :action => "index"
-    end
-    else
-      redirect_to :controller => "admin/profile", :action => "index"
+      flash[:notice] = "User Profile has not been Deleted successfully"
 
     end
   end
+
+  def active_deactive_profile
+    @profile = Profile.find(params[:id])
+    if @profile.is_approved == false
+      @profile.update_attributes(:is_approved => true)
+      flash[:notice] = "User Profile Success fully Approved"
+      render :text => "active"
+    else
+      @profile.update_attributes(:is_approved => false)
+      flash[:notice] = "User Profile Has  been Rejected"
+      render :text => "deactive"
+    end
+  end
+
 
   # def new
   #

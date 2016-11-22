@@ -15,8 +15,14 @@
           <div class="nav_head_rightbox">
             <div class="nav01">
               <ul>
-                <!--<li><a href="/celebrities">Search</a></li> &lt;!&ndash; onclick="search_celeberty()" &ndash;&gt;-->
-                <!--<li><a href="#" onclick="cart()">Cart</a></li>-->
+               <% if current_user %>
+                    <li><a href="/profiles/new">Create Profile</a></li>
+
+                    <li><a href="#">Search</a></li> <!-- onclick="search_celeberty()" -->
+                <li><a href="/my-account" >My Profile</a></li>
+                    <li><a href="/users/sign_out">Sign Out</a></li>
+
+              <% end %>
               </ul>
             </div>
             <div class="nav02">
@@ -26,10 +32,10 @@
                 <!--<li><a href="/how-it-works" >How it Works</a></li>-->
                 <!--onclick='get_static("how_it_work")'-->
                 <% if current_user.present? %>
-                    <li><a href="#">Login as <%= current_user.email %></a></li>
-                    <li><a href="#">Create Profile</a></li>
+                    <!--<li><a href="#">Login as <%#= current_user.email %></a></li>-->
+                    <!--<li><a href="/profiles/new">Create Profile</a></li>-->
 
-                    <li><a href="/users/sign_out">Sign Out</a></li>
+                    <!--<li><a href="/users/sign_out">Sign Out</a></li>-->
                 <% end %>
               </ul>
             </div>

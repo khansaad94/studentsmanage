@@ -18,101 +18,156 @@
         </div>
       </div>
       <div class="confirm-detail-con">
-        <div class="order-detail-h">My Celebvidys</div>
-        <% if @jobs.size > 0 %>
-            <% @jobs.each do |job| %>
-                <%# celeb = User.find(job.celebrity_id) %>
-                <% celeb = User.where(:id => job.celebrity_id).first %>
-                <% if celeb.present? %>
-                  <% if job.user.present? %>
-                <% puts "0000000000000000000000000000000jobbbbbb",job.inspect %>
-                <% if job.status != "notdelivered" && job.status != "incomplete" %>
-                    <% puts "0000000000000000000000000000000jobbbbbb",job.celebrity_id %>
-                    <% celeb = User.where(:id => job.celebrity_id).first %>
-                       <%# puts "00000000000000000000000000000000",celeb.inspect %>
-                    <div class="order-detail-main-con">
-                      <div class="image-con">
-                        <% unless celeb.blank? %>
-                        <% if celeb.celebrity.present? && celeb.celebrity.avatar.present? %>
-                            <%= image_tag celeb.celebrity.avatar(:thumb) %>
-                        <% else %>
-                            <%= image_tag "missing.jpg" %>
-                        <% end %>
-                        <% end %>
-                      </div>
-                      <div class="order-des">
-                        <div class="name-user"><%= (celeb.first_name if celeb.first_name.present?) + ' ' + (celeb.last_name if celeb.last_name.present?) %></div>
-                        <div class="doder-date">Order
-                          Submitted: <%= job.updated_at.month.to_s + '/' + job.updated_at.day.to_s + '/' + job.updated_at.year.to_s %></div>
-                        <div class="doder-date">Status: <%= job.status %></div>
-                        <div class="doder-date">Order Id: <%= job.customer_job_id %></div>
-                      </div>
-                      <div class="view-status-con">
+        <div class="order-detail-h">My Personal Characteristics</div>
+        <div class="ch-password">
+          <div class="email-add">About Me:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.about_me if @user.profile.present? %></span>
+          </div>
+        </div>
 
-                          <% if job.status=="completed" %>
-                            <div class="view-btn">
-                              <a href="/celeberties/celebrity_video?jid=<%= job.id %>">
-                                <!--uid=<%#= celeb.id %>&-->
-                              <!--<a href="#" onclick="get_video('<%#= celeb.id %>','<%#= job.id %>')">-->
-                                <div class="">view Celebvidy</div>
-                              </a>
-                            </div>
-                          <% elsif job.status=="pending" || job.status=="celebrity_video_completed" || job.status=="admin_approved_job" %>
-                            <%# if job.status=="pending" || job.status=="admin_approved_job" %>
-                            <div class="view-btn" style="margin:0px 0px 2px 0px">
-                              <a href="/update-order/<%= celeb.id %>/<%= job.id %>">
-                                <div class="">Update Order</div>
-                              </a>
-                            </div>
-                                <%# end %>
+        <div class="ch-password">
+          <div class="email-add">Age:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.age if @user.profile.present? %></span>
+          </div>
+        </div>
 
-                            <!--<div class="view-btn">-->
-                              <!--<a href="status-pending/<%#= job.id %>" >-->
-                                <!--<div class="">view status</div>-->
-                              <!--</a>-->
-                            <!--</div>-->
-                          <% elsif job.status=="admin_rejected_job" || job.status=="celebrity_video_rejected" || job.status=="pending" %>
-                            <div class="view-btn" style="margin:0px 0px 2px 0px">
-                              <a href="/update-order/<%= celeb.id %>/<%= job.id %>">
-                                <div class="">Update Order</div>
-                              </a>
-                            </div>
-                              <div class="view-btn">
-                              <a href="" onclick="return false;">
-                                <div class="">Order Rejected</div>
-                              </a>
-                              </div>
-                          <% end %>
+        <div class="ch-password">
+          <div class="email-add">Body Type:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.body_type if @user.profile.present? %></span>
+          </div>
+        </div>
 
-                      </div>
-                    </div>
-                <% end %>
-            <% end %>
-            <% end %>
-            <% end %>
-        <% else %>
-            No order found!
-        <% end %>
+        <div class="ch-password">
+          <div class="email-add">Hair:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.hair if @user.profile.present? %></span>
+          </div>
+        </div>
+
+        <div class="ch-password">
+          <div class="email-add">Eyes:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.eyes if @user.profile.present? %></span>
+          </div>
+        </div>
+
+        <div class="ch-password">
+          <div class="email-add">School Standings:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.school_standings if @user.profile.present? %></span>
+          </div>
+        </div>
+
+        <div class="ch-password">
+          <div class="email-add">Study Focus:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.study_focus if @user.profile.present? %></span>
+          </div>
+        </div>
+
+        <div class="ch-password">
+          <div class="email-add">Smokes:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.smokes if @user.profile.present? %></span>
+          </div>
+        </div>
+
+        <div class="ch-password">
+          <div class="email-add">Drinks:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.drinks if @user.profile.present? %></span>
+          </div>
+        </div>
+
+        <div class="ch-password">
+          <div class="email-add">your Described perfect first date:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.first_date if @user.profile.present? %></span>
+          </div>
+        </div>
+
+        <div class="ch-password">
+          <div class="email-add">hobbies do you enjoyed:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.hobbies if @user.profile.present? %></span>
+          </div>
+        </div>
+
+        <div class="ch-password">
+          <div class="email-add">What do you typically do with your free time:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.free_time if @user.profile.present? %></span>
+          </div>
+        </div>
+
+
+        <div class="ch-password">
+          <div class="email-add">Which three words describe you best?:  </div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.best_words if @user.profile.present? %></span>
+          </div>
+        </div>
+
+        <div class="ch-password">
+          <div class="email-add">Where do you see yourself in 5 years?:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.see_you_five_years if @user.profile.present? %></span>
+          </div>
+        </div>
+
+        <div class="ch-password">
+          <div class="email-add"> If you could travel to one place in the world, where would it be and why?::</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.where_why_travel if @user.profile.present? %></span>
+          </div>
+        </div>
+
+        <div class="ch-password">
+          <div class="email-add">Favorite types of food?:</div>
+          <div class="email-id">
+            <!--<img src="/assets/pencil.png" alt="">-->
+            <span><%= @user.profile.food if @user.profile.present? %></span>
+          </div>
+        </div>
+
 
       </div>
     </div>
   </div>
-  <div class="copyrightMob">2015 Celebvidy. All Rights Reserverd.</div>
+  <div class="copyrightMob">2016 StudentsManage. All Rights Reserverd.</div>
 </div>
 
 
 
 
 <script>
-    function get_video(cid, jid) {
-        $.ajax({
-            url: '/celeberties/get_video?cid=' + cid + '&jid=' + jid,
-            success: function (data) {
-                $("#container").html(data)
-//                window.scroll(0, 0)
-            }
-        });
-    }
+//    function get_video(cid, jid) {
+//        $.ajax({
+//            url: '/celeberties/get_video?cid=' + cid + '&jid=' + jid,
+//            success: function (data) {
+//                $("#container").html(data)
+////                window.scroll(0, 0)
+//            }
+//        });
+//    }
     function view_status(cid, jid) {
         a = "/status-pending/"+ jid
 
@@ -126,10 +181,10 @@
 //            }
 //        });
     }
-    function edit_job(cid, jid) {
-        alert("a")
-                window.location.href = "/update-order/"+ cid +'/'+ jid
-    }
+//    function edit_job(cid, jid) {
+//        alert("a")
+//                window.location.href = "/update-order/"+ cid +'/'+ jid
+//    }
 </script>
 
 
