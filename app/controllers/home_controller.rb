@@ -13,6 +13,15 @@ before_filter :authenticate_user!
     verified = Celebrity.where(:verified_account => true).limit(7)
     render :partial => "home", :locals => {:@celebs => celebs, :@verified => verified}
   end
+  def searching
+
+    #if params[:ind]==''
+    @profiles = User.search_celeb_by_name(params[:text])
+    #else
+    #  celebs = User.search_celeb_by_name_and_industry(params[:text], params[:ind])
+    #end
+    render :partial => 'all_celebs', :locals => {:profiles => @profiles.order('first_name ASC')}
+  end
 
 
   private

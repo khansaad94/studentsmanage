@@ -46,16 +46,13 @@ class CelebertiesController < ApplicationController
 
 
   def searching
+
     #if params[:ind]==''
-      celebs = User.search_celeb_by_name(params[:text])
+    @profiles = User.search_celeb_by_name(params[:text])
     #else
     #  celebs = User.search_celeb_by_name_and_industry(params[:text], params[:ind])
     #end
-    if (params[:search]=="directory")
-      render :partial => 'celebs_directory', :locals => {:celebs => celebs.order('first_name ASC')}
-    else
-      render :partial => 'all_celebs', :locals => {:celebs => celebs.order('first_name ASC')}
-    end
+      render :partial => 'all_celebs', :locals => {:profiles => @profiles.order('first_name ASC')}
   end
 
   def searching_from_index

@@ -277,6 +277,13 @@ Rails.application.routes.draw do
 
     end
   end
+
+  resources :home do
+    collection do
+      get 'searching'
+
+    end
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,9 +1,9 @@
-<% @profile = Profile.all %>
-<% if @profile.present? %>
-    <% @profiles.each do |pro| %>
+<%# @profile = Profile.all %>
+<% if profiles.present? %>
+    <% profiles.each do |pro| %>
         <div class="directory-user-con">
           <div class="image-con" onclick="window.location.href = '/profiles/<%= pro.id %>'">
-            <!--<div class="image-con" onclick="show(<%#= celeb.id %>)">-->
+          <!--<div class="image-con" onclick="show(<%#= celeb.id %>)">-->
             <% if pro.avatar.present? %>
                 <%= image_tag pro.avatar(:thumb) %>
             <% else %>
@@ -16,13 +16,13 @@
           <!--dir-user-name end-->
           <!--<div class="dir-profession-titel"><%#= celeb.celebrity.description if (celeb.celebrity.present? && celeb.celebrity.description.present?) %></div>-->
           <!--<div class="dir-profession-titel">-->
-          <!--<%# industry = Industry.find(celeb.celebrity.industry_id) %>-->
-          <!--<%#= industry.title %>-->
-          <!--<br>-->
-          <%#= count = get_remaining_videos(celeb.id) %>
+            <!--<%# industry = Industry.find(celeb.celebrity.industry_id) %>-->
+            <!--<%#= industry.title %>-->
+            <!--<br>-->
+            <%#= count = get_remaining_videos(celeb.id) %>
           <!--Celebvidy remaining-->
-          <!--&lt;!&ndash;Click the Order button to Purchase a personalized Celebvidy from this&ndash;&gt;-->
-          <!--&lt;!&ndash;celebrity.&ndash;&gt;-->
+            <!--&lt;!&ndash;Click the Order button to Purchase a personalized Celebvidy from this&ndash;&gt;-->
+            <!--&lt;!&ndash;celebrity.&ndash;&gt;-->
           <!--</div>-->
           <!--dir-profession-titel end-->
           <!--<div class="mobReviewRate-con">-->
@@ -57,13 +57,13 @@
           <%# if count > 0 %>
           <!--<a href="/jobs/<%#= celeb.id %>">-->
           <!--<a href='/celebrities/<%#= celeb.id %>'>-->
-          <!--<div class="getit-btn">Order Celebvidy</div>-->
+            <!--<div class="getit-btn">Order Celebvidy</div>-->
           <!--</a>&lt;!&ndash;getit-btn end&ndash;&gt;-->
-          <%# else %>
-          <!--<a href="#">-->
-          <!--<div class="getit-btn zero_counter" id="zero_counter">Order Celebvidy</div>-->
-          <!--</a>&lt;!&ndash;getit-btn end&ndash;&gt;-->
-          <%# end %>
+              <%# else %>
+              <!--<a href="#">-->
+                <!--<div class="getit-btn zero_counter" id="zero_counter">Order Celebvidy</div>-->
+              <!--</a>&lt;!&ndash;getit-btn end&ndash;&gt;-->
+            <%# end %>
           <!--<div class="dir-price"><%#= '$' + number_with_delimiter(number_with_precision(celeb.celebrity.default_rate, :precision => 2),:delimiter => ',') if celeb.celebrity.present? && celeb.celebrity.default_rate.present? %></div>-->
           <!--dir-price end-->
         </div><!--directory-user-con end-->
