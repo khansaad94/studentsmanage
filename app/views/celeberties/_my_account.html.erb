@@ -17,8 +17,19 @@
             <span><a href="#" onclick="change_paw('<%= @user.id %>')">Change Password</a></span></div>
         </div>
       </div>
+      <div class="tbl-img" style="width: 100%;height: 100%">
+        <% user = current_user %>
+        <% if user.profile.avatar.present? %>
+            <%= image_tag user.profile.avatar(:thumb) %>
+        <% else %>
+            <%= image_tag "missing.jpg" %>
+        <% end %>
+        <!--<img alt="" src="/assets/odr-detail-img.jpg">-->
+      </div>
+
       <div class="confirm-detail-con">
         <div class="order-detail-h">My Personal Characteristics</div>
+
         <div class="ch-password">
           <div class="email-add">About Me:</div>
           <div class="email-id">

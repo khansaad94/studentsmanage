@@ -50,7 +50,7 @@ end
 end
 private
 def params_profile
-  params.require(:profile).permit(:about_me, :age, :body_type, :hair, :eyes, :school_standings, :study_focus, :smokes, :drinks, :first_date, :hobbies, :free_time, :best_words, :see_you_five_years, :where_why_travel, :food)
+  params.require(:profile).permit(:avatar, :about_me, :age, :body_type, :hair, :eyes, :school_standings, :study_focus, :smokes, :drinks, :first_date, :hobbies, :free_time, :best_words, :see_you_five_years, :where_why_travel, :food)
   # params.permit(:)
   # "profile"=>{"about_me"=>"as", "age"=>"as", "body_type"=>"as", "hair"=>"as", "eyes"=>"as", "school_standings"=>"as", "study_focus"=>"as", "smokes"=>"as", "drinks"=>"as", "first_date"=>"11/11/2016", "hobbies"=>"as", "free_time"=>"as", "best_words"=>"as", "see_you_five_years"=>"as", "where_why_travel"=>"as", "food"=>"as"}, "commit"=>"Create Profile", "action"=>"create", "controller"=>"profiles"}
   # Completed 500 Internal Server Error in 56ms
