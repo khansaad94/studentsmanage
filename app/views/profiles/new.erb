@@ -28,6 +28,22 @@
       <!--<form>-->
       <%= form_for @profile do |f| %>
           <div class="form-con-checkout p-b">
+            <div class="tbl-img">
+              <% user = current_user %>
+              <% if user.profile.avatar.present? %>
+                  <%= image_tag user.profile.avatar(:thumb), :style => "width:45%,height:100%" %>
+              <% else %>
+                  <%= image_tag "missing.jpg" %>
+              <% end %>
+              <!--<img alt="" src="/assets/odr-detail-img.jpg">-->
+            </div>
+
+            <div class="w-100">
+              <%= f.file_field :avatar %>
+
+              <%# count = get_remaining_videos(@celeb.id) %>
+            </div>
+
             <div class="form-con2 payment-mrg">
               <label style="color: #0063dc">About Me</label>
               <%= f.text_area :about_me, :placeholder => "About Me" %>
@@ -202,21 +218,6 @@
             <%#= f.hidden_field :celebrity_id, :value => @celeb.id %>
             <%#= f.hidden_field :status, :value => ApplicationHelper::JOBS_STATUS[3] %>
             <%#= f.hidden_field :user_id, :value => @user.id %>
-            <div class="tbl-img">
-              <% user = current_user %>
-              <% if user.profile.avatar.present? %>
-                  <%= image_tag user.profile.avatar(:thumb), :style => "width:45%,height:100%" %>
-              <% else %>
-                  <%= image_tag "missing.jpg" %>
-              <% end %>
-              <!--<img alt="" src="/assets/odr-detail-img.jpg">-->
-            </div>
-
-            <div class="w-100">
-              <%= f.file_field :avatar %>
-
-              <%# count = get_remaining_videos(@celeb.id) %>
-            </div>
 
           </div>
           <div class="change-btn-new" style="width: 87%!important; ;margin: 32px 51px 50px 39px!important;">
