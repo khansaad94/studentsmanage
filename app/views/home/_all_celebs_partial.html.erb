@@ -1,0 +1,102 @@
+<% if @users.present? %>
+    <% @users.each do |user| %>
+        <div class="directory-user-con">
+          <div class="image-con" onclick="window.location.href = '/profiles/<%= user.profile.id %>'">
+          <!--<div class="image-con" onclick="show(<%#= celeb.id %>)">-->
+            <% if user.profile.avatar.present? && user.profile.present? %>
+                <%= image_tag user.profile.avatar(:thumb) %>
+            <% else %>
+                <%= image_tag "missing.jpg" %>
+            <% end %>
+            <!--<img src="/assets/directory-image.jpg" alt="">-->
+          </div>
+          <!--image-con end-->
+          <div class="dir-user-name"><%= (user.first_name if user.first_name.present?) + ' ' + (user.last_name if user.last_name.present?) %></div>
+          <!--dir-user-name end-->
+          <!--<div class="dir-profession-titel"><%#= celeb.celebrity.description if (celeb.celebrity.present? && celeb.celebrity.description.present?) %></div>-->
+          <!--<div class="dir-profession-titel">-->
+            <!--<%# industry = Industry.find(celeb.celebrity.industry_id) %>-->
+            <!--<%#= industry.title %>-->
+            <!--<br>-->
+            <%#= count = get_remaining_videos(celeb.id) %>
+          <!--Celebvidy remaining-->
+            <!--&lt;!&ndash;Click the Order button to Purchase a personalized Celebvidy from this&ndash;&gt;-->
+            <!--&lt;!&ndash;celebrity.&ndash;&gt;-->
+          <!--</div>-->
+          <!--dir-profession-titel end-->
+          <!--<div class="mobReviewRate-con">-->
+          <!--<div class="mobReviewRate">-->
+          <!--<div>-->
+          <!--<div>-->
+          <!--<div>-->
+          <!--<div>-->
+          <!--<input type="radio" id="rating1" name="rating" value="1" class="activ">-->
+          <!--<label for="rating1" class="activ"><span>1</span></label>-->
+          <!--</div>-->
+          <!--<input type="radio" id="rating2" name="rating" value="2">-->
+          <!--<label for="rating2"><span>2</span></label>-->
+          <!--</div>-->
+          <!--<input type="radio" id="rating3" name="rating" value="3">-->
+          <!--<label for="rating3"><span>3</span></label>-->
+          <!--</div>-->
+          <!--<input type="radio" id="rating4" name="rating" value="4">-->
+          <!--<label for="rating4"><span>4</span></label>-->
+          <!--</div>-->
+          <!--<input type="radio" id="rating5" name="rating" value="5">-->
+          <!--<label for="rating5"><span>5</span></label>-->
+          <!--</div>-->
+          <!--&lt;!&ndash;mobReviewRate End&ndash;&gt;-->
+          <!--</div>-->
+          <!--mobReviewRate-con end-->
+
+          <!--<div class="dir-profession"><%#= celeb.celebrity.about_me if (celeb.celebrity.present? && celeb.celebrity.about_me.present?) %></div>-->
+          <!--dir-profession end-->
+
+          <%# count = get_remaining_videos(celeb.id) %>
+          <%# if count > 0 %>
+          <!--<a href="/jobs/<%#= celeb.id %>">-->
+          <!--<a href='/celebrities/<%#= celeb.id %>'>-->
+            <!--<div class="getit-btn">Order Celebvidy</div>-->
+          <!--</a>&lt;!&ndash;getit-btn end&ndash;&gt;-->
+              <%# else %>
+              <!--<a href="#">-->
+                <!--<div class="getit-btn zero_counter" id="zero_counter">Order Celebvidy</div>-->
+              <!--</a>&lt;!&ndash;getit-btn end&ndash;&gt;-->
+            <%# end %>
+          <!--<div class="dir-price"><%#= '$' + number_with_delimiter(number_with_precision(celeb.celebrity.default_rate, :precision => 2),:delimiter => ',') if celeb.celebrity.present? && celeb.celebrity.default_rate.present? %></div>-->
+          <!--dir-price end-->
+        </div><!--directory-user-con end-->
+
+
+
+
+
+
+        <!--<h3>Rating</h3>-->
+        <!--<h3>Industry</h3>-->
+        <!--<a href="/jobs/<%#= celeb.id %>">Get it</a>-->
+        <!--<input type="button" value="Get it" onclick="get_it(<%#= celeb.id %>)">-->
+        <!--<%#= '$' + celeb.celebrity.default_rate.to_s if celeb.celebrity.present? && celeb.celebrity.default_rate.present? %>-->
+        <!--<br>-->
+    <% end %>
+<% else %>
+    <div class="directory-user-con">
+      <div class="dir-user-name">
+        No Profiles found!
+      </div>
+    </div>
+<% end %>
+
+<script>
+    $(".zero_counter").click(function(){
+        alert("You can 't place your order, no more videos are available for this month")
+    })
+    //    function get_it(id) {
+    //        $.ajax({
+    //            url: '/jobs/celeb_msg_detail?id=' + id,
+    //            success: function (data) {
+    //                $("#container").html(data)
+    //            }
+    //        });
+    //    }
+</script>

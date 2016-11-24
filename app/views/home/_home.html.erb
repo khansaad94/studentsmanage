@@ -9,7 +9,7 @@
           <input type="text" id="search_celeb" placeholder="Search"/>
 
           <div class="search-icon">
-            <!--<button name="searc" onclick="search_celeb()"></button>-->
+            <button name="searc" onclick="search_celeb()"></button>
           </div>
         </div>
 
@@ -60,7 +60,7 @@
         </div>
       </div>
       <div class="w-100" id="all_celebs">
-        <% @profiles= Profile.all %>
+        <% @profiles= Profile.where(:is_approved => true).all %>
         <%= render :partial => 'all_celebs', :locals => {:profiles => @profiles} %>
       </div>
     </div>
@@ -70,7 +70,7 @@
   <div class="crousal-con">
     <div class="newest-h">Newest Profiles Available For You</div>
     <ul id="flexiselDemo3">
-      <% @profiles= Profile.all %>
+      <% @profiles= Profile.where(:is_approved => true).all %>
       <%# if @verified.present? && @verified.size > 0 %>
           <% @profiles.each do |c| %>
               <li>
@@ -87,17 +87,17 @@
 </div>
 
 <script>
-//    $('#search_celeb').keyup(function (e) {
-//        var code = (e.keyCode ? e.keyCode : e.which)
-////        alert(code)
-////        if (code == 13) {
-//        delay(function(){
-//            var name = $('#search_celeb').val();
-//            search_text_a(name)
-//        }, 400 );
-//
-////        }
-//    });
+    $('#search_celeb').keyup(function (e) {
+        var code = (e.keyCode ? e.keyCode : e.which)
+        //        alert(code)
+//        if (code == 13) {
+        delay(function(){
+            var name = $('#search_celeb').val();
+            search_text_a(name)
+        }, 400 );
+
+//        }
+    });
 
     var delay = (function(){
         var timer = 0;

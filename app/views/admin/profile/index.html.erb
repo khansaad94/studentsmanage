@@ -173,7 +173,7 @@ Your First Date
                       <td>
                         <a href="javascript:void(0)" style="text-decoration:none" onclick="approve_profile(<%= profile.id %>)">
                           <span class="icon fa fa-power-off user_status" status="0" user_id="99" id="user99"></span></a>&nbsp;&nbsp;
-                        <%= link_to "Show" %>
+                        <%= link_to "Show", admin_profile_path(profile) %>
                         <%#= link_to "Edit", edit_admin_user_path(user) %>&nbsp;&nbsp;
                         <%= link_to 'Delete', admin_profile_path(profile),
                                     method: :delete, data: {confirm: 'Are you sure?'} %>
@@ -328,7 +328,7 @@ Your First Date
                       <td>
                         <a href="javascript:void(0)" style="text-decoration:none" onclick="reject_profile(<%= profile.id %>)">
                           <span class="icon fa fa-power-off user_status" status="0" user_id="99" id="user99"></span></a>&nbsp;&nbsp;
-                        <%= link_to "Show" %>
+                        <%= link_to "Show", admin_profile_path(profile) %>
                         <%#= link_to "Edit", edit_admin_user_path(user) %>&nbsp;&nbsp;
                         <%= link_to 'Delete', admin_profile_path(profile),
                                     method: :delete, data: {confirm: 'Are you sure?'} %>

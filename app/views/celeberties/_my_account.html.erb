@@ -19,14 +19,14 @@
       </div>
       <div class="tbl-img" style="width: 100%;height: 100%">
         <% user = current_user %>
-        <% if user.profile.avatar.present? %>
+        <% if user.profile.present? && user.profile.avatar.present? %>
             <%= image_tag user.profile.avatar(:thumb) %>
         <% else %>
             <%= image_tag "missing.jpg" %>
         <% end %>
         <!--<img alt="" src="/assets/odr-detail-img.jpg">-->
       </div>
-
+      <% if user.profile.present? %>
       <div class="confirm-detail-con">
         <div class="order-detail-h">My Personal Characteristics</div>
 
@@ -161,6 +161,7 @@
 
 
       </div>
+      <% end %>
     </div>
   </div>
   <div class="copyrightMob">2016 StudentsManage. All Rights Reserverd.</div>

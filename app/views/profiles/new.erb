@@ -30,7 +30,7 @@
           <div class="form-con-checkout p-b">
             <div class="tbl-img">
               <% user = current_user %>
-              <% if user.profile.avatar.present? %>
+              <% if user.profile.present? && user.profile.avatar.present? %>
                   <%= image_tag user.profile.avatar(:thumb), :style => "width:45%,height:100%" %>
               <% else %>
                   <%= image_tag "missing.jpg" %>
@@ -43,6 +43,7 @@
 
               <%# count = get_remaining_videos(@celeb.id) %>
             </div>
+
 
             <div class="form-con2 payment-mrg">
               <label style="color: #0063dc">About Me</label>

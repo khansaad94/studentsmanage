@@ -63,9 +63,9 @@ class Admin::ProfileController < ApplicationController
   #   @users = User.all_non_deleted_users
   # end
   #
-  # def show
-  # @profile = Profile.new()
-  # end
+  def show
+  @profile = Profile.find(params[:id])
+  end
   #
   # def edit
   #   @user = User.find(params[:id])
